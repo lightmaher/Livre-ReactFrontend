@@ -14,10 +14,10 @@ const Login = () => {
     email :null,
     password : null,
 })
-const submitForm = (e)=>{
-    e.preventDefault(); 
- console.log(loginform)
-}
+// const submitForm = (e)=>{
+//     e.preventDefault(); 
+//  console.log(loginform)
+// }
 function update(e){
   if (e.target.name === "email"){
      setloginform({

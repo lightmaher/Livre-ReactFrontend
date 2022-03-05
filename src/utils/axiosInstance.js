@@ -17,4 +17,5 @@ axiosInstance.interceptors.request.use(async req => {
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
         req.headers.Authorization = `Bearer ${authTokens?.access}`
     }
+    return req
 })
