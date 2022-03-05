@@ -3,7 +3,7 @@ import {useEffect} from 'react'
 import {axiosInstance} from '../utils/axiosInstance';
 function Main() {
     useEffect(() => {
-        axiosInstance.get('profile').then(
+        axiosInstance.get('books').then(
            res => {
                console.log(res.data)
            }
