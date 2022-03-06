@@ -9,6 +9,7 @@ let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.ge
 
 export const axiosInstance = axios.create({
     baseURL,
+    // timeout:10000,
     headers:{Authorization: `Bearer ${authTokens?.access}`}
 });
 
