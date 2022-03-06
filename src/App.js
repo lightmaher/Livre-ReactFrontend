@@ -16,14 +16,16 @@ function App() {
     <div className="App">
       {books.map(book => {
          return( 
-          
            <li key={book.id}>
-             my name is 
-             {book.title}
+             Title:<br/>
+             {book.title}<br/>
+             Author:<br/>
+             {book.author}<br/>
+             Description:<br/>
+             {book.description}<br/>
              </li>
          )
        })
-      
       }
       
       {console.log(books)}
