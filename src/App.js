@@ -7,6 +7,7 @@ import { AuthProvider } from './Context/AuthContext'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar'
 import { ToastContainer } from 'react-toastify';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/"     exact element={<Books />} />
       <Route path="/register"      element={<Registerform />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
       </Routes>
       </div>
       <ToastContainer />
