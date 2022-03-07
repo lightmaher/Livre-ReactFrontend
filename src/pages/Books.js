@@ -7,14 +7,20 @@ import { axiosInstance } from '../utils/axiosInstance';
 function Books() {
   const {user} = useContext(AuthContext)
   const [books , setbooks] = useState([])
-    useEffect( () => {
-    axiosInstance.get('http://127.0.0.1:8000/api/books').then(
+  //   useEffect( () => {
+  //   axiosInstance.get('books').then(
+  //     res => {
+  //        setbooks(res.data)
+  //        console.log(res)
+  //     })
+  // },[])
+  useEffect( () => {
+    axiosInstance.get('books').then(
       res => {
          setbooks(res.data)
          console.log(res)
       })
-  },[])
-    
+  },[books])
   return (
     <div>
       { user ? (
