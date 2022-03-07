@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 const baseURL = 'http://127.0.0.1:8000/api/'
 
 
-let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+ let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
 
 export const axiosInstance = axios.create({
     baseURL,
