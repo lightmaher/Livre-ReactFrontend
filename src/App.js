@@ -1,35 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState , useEffect  } from 'react'
-import axios from 'axios';
-function App() {
-  const [books , setbooks] = useState([])
-  useEffect( () => {
-    axios.get('http://127.0.0.1:8000/api/books').then(
-      res => {
-        setbooks(res.data)
-      })
+import { Routes, Route } from "react-router-dom";
+import Login from './pages/Login'
+import Books from './pages/Books'
+import Book from './pages/Book'
+import AddBook from './pages/AddBook'
+import {Registerform} from './pages/Registerform'
+import { AuthProvider } from './Context/AuthContext'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './Components/Navbar'
+import { ToastContainer } from 'react-toastify';
+import Profile from './pages/Profile';
 
-  },[])
+
+function App() {
   
   return (
-    <div className="App">
-      {books.map(book => {
-         return( 
-           <li key={book.id}>
-             Title:<br/>
-             {book.title}<br/>
-             Author:<br/>
-             {book.author}<br/>
-             Description:<br/>
-             {book.description}<br/>
-             </li>
-         )
-       })
-      }
-      
-      {console.log(books)}
-    </div>
+    <AuthProvider>
+       <Navbar />
+       <div className='container'>
+      <Routes>
+      <Route path="/"     exact element={<Books />} />
+      <Route path="/register"      element={<Registerform />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/book/:id" element={<Book />} />
+      <Route path="/addbook" element={<AddBook />} />
+      </Routes>
+      </div>
+      <ToastContainer />
+      </AuthProvider>       
+
   );
 }
 
