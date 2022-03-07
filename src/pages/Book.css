@@ -1,0 +1,101 @@
+body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+a{
+ color: #fff;
+ text-decoration: none;   
+}
+.emp-book{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.book-img{
+    text-align: center;
+}
+.book-img img{
+    width: 70%;
+    height: 100%;
+}
+.book-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.book-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.book-head h5{
+    color: #333;
+    text-transform: capitalize;
+    font-size: xx-large;
+}
+.book-head h6{
+    color: #0062cc;
+}
+.book-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.book-head .nav-tabs{
+    margin-bottom:5%;
+}
+.book-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.book-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.book-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.book-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.book-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.book-work ul{
+    list-style: none;
+}
+.book-tab label{
+    font-weight: 600;
+}
+.book-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}

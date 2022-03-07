@@ -9,13 +9,12 @@ let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.ge
 
 export const axiosInstance = axios.create({
     baseURL,
-    headers:{Authorization: `Bearer ${authTokens?.access}`}
 });
 
 axiosInstance.interceptors.request.use(async req => {
-    if(!authTokens){
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
-        req.headers.Authorization = `Bearer ${authTokens?.access}`
+        if (authTokens){req.headers.Authorization = `Bearer ${authTokens?.access}`
     }
+    
     return req
 })

@@ -1,37 +1,118 @@
-import React from 'react'
-import { useState , useEffect  } from 'react'
-import {useContext} from 'react'
-import {AuthContext} from '../Context/AuthContext'
-import { axiosInstance } from '../utils/axiosInstance';
-import axios from 'axios'
+import React from "react";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { axiosInstance } from "../utils/axiosInstance";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import "./Books.css";
 
 function Books() {
-  const {user} = useContext(AuthContext)
-  const [books , setbooks] = useState([])
-    useEffect( () => {
-    axios.get('http://127.0.0.1:8000/api/books').then(
-      res => {
-         setbooks(res.data)
-         console.log(res)
-      })
-  },[])
+  const [books, setbooks] = useState([]);
+  useEffect(() => {
+    axiosInstance.get("books").then((res) => {
+      setbooks(res.data);
+      console.log(res);
+    });
+  }, []);
 
   return (
-    <div>
-      { user ? (
-        <> 
-        <h3>  this is user Id { user.user_id} </h3>
-        </>) : null
-      }
-    {books.map(book => {
-       return( 
-         <li key={book.id}> 
-           {book.title}
-         </li>
-       )
-     })
-    }
-  </div>
-  )
+    <>
+      {books.map((book) => {
+        return (
+          <li key={book.id}>
+            <div className="container emp-book">
+              <form method="post">
+                <div className="row">
+                  <div className="col-md-4">
+                    <div className="book-img">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="book-head">
+                      <h5>{book.title}</h5>
+                      <h6>{book.cat?.name}</h6>
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a
+                            class="nav-link active"
+                            id="home-tab"
+                            data-toggle="tab"
+                            href="#home"
+                            role="tab"
+                            aria-controls="home"
+                            aria-selected="true"
+                          >
+                            About
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-8">
+                    <div class="tab-content book-tab" id="myTabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="home"
+                        role="tabpanel"
+                        aria-labelledby="home-tab"
+                      >
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Book Author</label>
+                          </div>
+                          <div className="col-md-6">
+                            <p>{book.author}</p>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Status</label>
+                          </div>
+                          <div className="col-md-6">
+                            <p>{book.status}</p>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Owner</label>
+                          </div>
+                          <div className="col-md-6">
+                            <p>{book.user?.username}</p>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Date of creation</label>
+                          </div>
+                          <div className="col-md-6">
+                            <p>{book.date_creation}</p>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-md-6">
+                            <label>Describtion</label>
+                          </div>
+                          <div className="col-md-6">
+                            <p>{book.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+        );
+      })}
+    </>
+  );
 }
-export default Books
+export default Books;
