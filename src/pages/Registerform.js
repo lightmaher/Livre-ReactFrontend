@@ -5,7 +5,6 @@ import 'alertifyjs/build/css/alertify.css';
 import 'react-toastify/dist/ReactToastify.css';
 import * as alertify from 'alertifyjs';
 import { toast } from 'react-toastify';
-
 import axios from 'axios';
 
 
@@ -154,8 +153,9 @@ const [errregisterForm , seterrRegisterForm] = useState({
             email : registerForm.email === ''? "this field is required": null,
             username : registerForm.username === ''? "this field is required": null,
             password : registerForm.password === ''? "this field is required": null
+
            })
-           return 0;
+           return 0 
         }
        
     }

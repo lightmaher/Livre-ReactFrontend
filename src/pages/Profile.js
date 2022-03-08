@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useEffect , useRef  } from "react";
 import { Link } from "react-router-dom";
 import  {axiosInstance}  from "../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 
 import "./Profile.css";
 
@@ -12,34 +15,46 @@ function Profile() {
   const [receivedtransactions, setreceivedtransactions] = useState([]);
   const [orderedtransactions, setorderedtransactions] = useState([]);
   const isMounted = useRef(false)
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async() => {
-    // let authTokens = localStorage.getItem('authTokens')
-    // axios.interceptors.request.use( function(req) {
-    //       authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
-    //       req.headers.Authorization = `Bearer ${authTokens?.access}`
-    //   console.log('inceptor work')
-    //   return req
-    //   });
-    axiosInstance.get("http://127.0.0.1:8000/api/profile").then((res) => setprofile(res.data) , console.log("axios"));
-    // axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
-    // axiosInstance
-    //   .get("user_reciver_transaction")
-    //   .then((res) => setreceivedtransactions(res.data));
-    // axiosInstance
-    //   .get("user_sender_transaction")
-    //   .then((res) => setorderedtransactions(res.data));
-  }, []);
+  const nav = useNavigate()
   useEffect(() => {
-    if(isMounted.current){
-      console.log(profile);
-    } else {
-     isMounted.current = true;
-    }
-  }, [profile]);
+    axiosInstance.get("profile").then((res) => setprofile(res.data) );
+    axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
+   getTrans()
+  }, [orderedtransactions]);
+ const deleterequest = (e,id) =>{
+  e.preventDefault();
+  axiosInstance
+      .post("decline_exchange/" + id)
+      .then((res) => {
+        toast.success(`you've been successfully deleted transaction  !`, {
+          position: toast.POSITION.TOP_CENTER
+        });
+      });
+ }
+const getTrans = () =>{
+  axiosInstance
+  .get("user_reciver_transaction")
+  .then((res) => setreceivedtransactions(res.data));
+axiosInstance
+  .get("user_sender_transaction")
+  .then((res) => setorderedtransactions(res.data));
+}
+const acceptrequest = (e , id) =>{
+  e.preventDefault();
+  axiosInstance.post('accept_exchange/' + id).then(
+    (res) => console.log(res.data)
+  )
+  getTrans()
+}
 
-  
+const deleterecive = (e , id) =>{
+  e.preventDefault();
+  axiosInstance.post('decline_exchange/' + id).then(
+    (res) => console.log(res.data)
+  )
+  getTrans()
+}
+
 
   return (
     <>
@@ -133,23 +148,6 @@ function Profile() {
           <div className="row">
             <div className="col-md-4">
               <div className="profile-work">
-                <p>WORK LINK</p>
-                <a href="">Website Link</a>
-                <br />
-                <a href="">Bootsnipp Profile</a>
-                <br />
-                <a href="">Bootply Profile</a>
-                <p>SKILLS</p>
-                <a href="">Web Designer</a>
-                <br />
-                <a href="">Web Developer</a>
-                <br />
-                <a href="">WordPress</a>
-                <br />
-                <a href="">WooCommerce</a>
-                <br />
-                <a href="">PHP, .Net</a>
-                <br />
               </div>
             </div>
             <div className="col-md-8">
@@ -225,9 +223,6 @@ function Profile() {
                     {books.map((book) => {
                       return (
                         <div className="col-md-6">
-                          {/* <li key={book.id}> 
-                                                      {book.title}
-                                                      </li> */}
                           <div class="card mb-3">
                             <div class="row g-0">
                               <div class="col-md-4">
@@ -250,12 +245,7 @@ function Profile() {
                                   <p className="card-text">
                                     Status: {book.status}
                                   </p>
-                                  <button
-                                    type="button"
-                                    class="btn btn-secondary btn-sm ms-2"
-                                  >
-                                    Order
-                                  </button>
+                  
                                 </div>
                               </div>
                             </div>
@@ -275,7 +265,7 @@ function Profile() {
                   aria-labelledby="recieved-tab"
                 >
                   <div className="row">
-                    {receivedtransactions.map((transaction) => {
+                    {receivedtransactions.filter(ftrans => !ftrans.is_accepted).map(transaction => {
                       return (
                         <div className="col-md-12">
                           <div class="card mb-3">
@@ -305,12 +295,14 @@ function Profile() {
                                   <button
                                     type="button"
                                     class="btn btn-primary btn-sm ms-2"
+                                    onClick={(e) => acceptrequest(e , transaction.id) }
                                   >
                                     Accept
                                   </button>
                                   <button
                                     type="button"
                                     class="btn btn-secondary btn-sm ms-2"
+                                    onClick={(e) => deleterecive(e , transaction.id)}
                                   >
                                     Decline
                                   </button>
@@ -359,6 +351,8 @@ function Profile() {
                                       {transaction.tr_receiver.username}
                                     </small>
                                   </p>
+
+                                  <button onClick={(e)=> deleterequest(e,transaction.id)} className="btn btn-danger"> Delete</button>
                                 </div>
                               </div>
                             </div>

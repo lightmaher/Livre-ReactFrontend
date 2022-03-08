@@ -29,11 +29,17 @@ function Navbar() {
         <li className="nav-item dropdown">
         <Link className="nav-link" to="/"> Books </Link>
          </li>
+         <li className="nav-item dropdown">
+        <Link className="nav-link" to="/addbook"> Add Book </Link>
+         </li>
          <li className="nav-item">
           <Link className="nav-link" to="/register">Register</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/profile">Profile</Link>
+          <Link className="nav-link" to="/main-profile">Profile</Link>
+        </li>
+        <li className="nav-item"> 
+          <Link className="nav-link" to="/transactions">Transactions</Link>
         </li>
       </ul>
     </div>

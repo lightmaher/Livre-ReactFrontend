@@ -12,12 +12,11 @@ export const axiosInstance = axios.create({
     baseURL,
 });
 
-axiosInstance.interceptors.request.use( function(req) {
+axiosInstance.interceptors.request.use(async req => {
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
-        if (authTokens){
-        req.headers.Authorization = `Bearer ${authTokens?.access}`
-        }
-    console.log('inceptor work')
+        if (authTokens){req.headers.Authorization = `Bearer ${authTokens?.access}`
+    }
+    
     return req
 } , 
 function (error) {
