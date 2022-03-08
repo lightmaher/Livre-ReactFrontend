@@ -155,6 +155,7 @@ const [errregisterForm , seterrRegisterForm] = useState({
             username : registerForm.username === ''? "this field is required": null,
             password : registerForm.password === ''? "this field is required": null
            })
+           return 0;
         }
        
     }

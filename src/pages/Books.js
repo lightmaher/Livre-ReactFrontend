@@ -9,7 +9,7 @@ function Books() {
   const {user} = useContext(AuthContext)
   const [books , setbooks] = useState([])
     useEffect( () => {
-    axios.get('http://127.0.0.1:8000/api/books').then(
+      axiosInstance.get('books').then(
       res => {
          setbooks(res.data)
          console.log(res)
