@@ -30,7 +30,6 @@ function update(e){
           null
     })
     
-    
     }
      else if (e.target.name === "password"){
         setloginform({
