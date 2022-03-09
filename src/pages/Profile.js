@@ -81,7 +81,7 @@ const deleterecive = (e , id) =>{
             <div className="col-md-4">
               <div className="profile-img">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                   src={"http://127.0.0.1:8000" + profile.image}
                   alt=""
                 />
                 <div className="file btn btn-lg btn-primary">

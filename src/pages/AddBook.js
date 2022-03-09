@@ -14,6 +14,8 @@ export default function AddBook() {
   const navigate = useNavigate()
 
   const [cat , setcat] = useState([])
+  const [postimage, setPostImage] = useState(null);
+
     useEffect( () => {
     axiosInstance.get('/categories').then(
       res => {
@@ -46,6 +48,12 @@ export default function AddBook() {
         ...errAddBook,
         title: e.target.value === "" ? "this field is required" : null,
       });
+    }
+    if (e.target.name === "image") {
+      setPostImage({
+				image: e.target.files,
+			});
+			console.log(e.target.files);
     }
     if (e.target.name === "author") {
       setAddBook({
@@ -106,8 +114,18 @@ export default function AddBook() {
         return 0 
       }
     }
+    let formData = new FormData();
+		formData.append('title', AddBook.title);
+		formData.append('author', AddBook.author);
+		formData.append('cat', AddBook.cat);
+		formData.append('description', AddBook.description);
+		formData.append('status', AddBook.status);
+    if (postimage){
+		formData.append('image', postimage.image[0]);
+    }
+    console.log(formData)
     axiosInstance
-      .post("add_book/", AddBook)
+      .post("createbook/", formData)
       .then(
         (res) =>
           toast.success("Book added successfully !", {
@@ -122,7 +140,7 @@ export default function AddBook() {
   return (
     <div className="container mt-5">
       <h1 className="mt-2"> Add Book</h1>
-      <form onSubmit={(e) => send(e)} className="border rounded p-3">
+      <form onSubmit={(e) => send(e)} className="border rounded p-3" enctype='multipart/form-data'>
         <div class="mb-3">
           <label class="form-label">Book Title</label>
           <input
@@ -150,6 +168,17 @@ export default function AddBook() {
             name="author"
           />
           <div class="form-text text-danger">{errAddBook.author}</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Book Image  </label>
+          <input
+							accept="image/*"
+							className='form-control'
+							id="post-image"
+							onChange={(e) => update(e)}
+							name="image"
+							type="file"
+						/>
         </div>
         <div class="mb-3">
           <label class="form-label"> Status </label>
