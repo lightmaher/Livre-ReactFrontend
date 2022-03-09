@@ -3,7 +3,7 @@ import { useState , useEffect  } from 'react'
 import {useContext} from 'react'
 import {AuthContext} from '../Context/AuthContext'
 import { axiosInstance } from '../utils/axiosInstance';
-import axios from 'axios'
+// import axios from 'axios'
 
 import axios from 'axios'
 function Books() {
@@ -16,7 +16,6 @@ function Books() {
          console.log(res)
       })
   },[])
-
   return (
     <div>
       { user ? (
