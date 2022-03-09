@@ -2,7 +2,7 @@ import React from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { axiosInstance } from "../utils/axiosInstance";
+// import { axiosInstance } from "../utils/axiosInstance";
 import Accordion from "react-bootstrap/Accordion";
 import axios from "axios";
 
@@ -18,31 +18,26 @@ function Admin() {
       .then((res) => {
         setusers(res.data);
       });
-  }, []);
-  useEffect(() => {
-    axios
+      axios
       .get("http://127.0.0.1:8000/api/admin_listing/list_books")
       .then((res) => {
         setbooks(res.data);
       });
-  }, []);
-  useEffect(() => {
-    axios
+      axios
       .get("http://127.0.0.1:8000/api/admin_listing/list_category")
       .then((res) => {
         setcategory(res.data);
       });
   }, []);
-//   console.log(users);
-//   console.log(books);
-//console.log(category);
   
-
+console.log(users)
+console.log(books)
+console.log(category)
   return (
     <>
-      <div className="container">
+      
         <h1>admin panel </h1>
-        <Accordion defaultActiveKey={["0"]} alwaysOpen>
+          <Accordion defaultActiveKey={["0"]} alwaysOpen>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Users List</Accordion.Header>
             <Accordion.Body>
@@ -57,45 +52,14 @@ function Admin() {
                 </tr>
                 </thead>
                 <tbody>
-                {users.map((use) => {
+                {users.map((use ) => {
                   return (
-                    <tr  key={use.id}>
+                      <tr  key={use.id}>
                       <td>{use.username}</td>
                       <td>{use.email}</td>
                       <td >{use.gender}</td>
                       <td>{use.date_of_birth}</td>
                       <td>{use.location}</td>
-                    </tr>
-                  );
-                })}
-                </tbody>
-              </table>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>Books Listing</Accordion.Header>
-            <Accordion.Body>
-            <table border="2" className="table tablePrimary">
-            <thead>
-                <tr >
-                  <td scope = 'col'>title</td>
-                  <td scope = 'col'>author</td>
-                  <td scope = 'col'>category ID</td>
-                  {/* <thead className="col-2">date_creation</thead> */}
-                  <td scope = 'col'>status</td>
-                  <td scope = 'col'>User ID</td>
-                </tr>
-                </thead>
-                <tbody>
-                {books.map((use) => {
-                  return (
-                    <tr  key={use.id}>
-                      <td >{use.title}</td>
-                      <td >{use.author}</td>
-                      <td >{use.cat}</td>
-                      {/* <tbody className="col-2">{use.date_creation}</tbody> */}
-                      <td >{use.status}</td>
-                      <td >{use.user}</td>
                     </tr>
                   );
                 })}
@@ -109,8 +73,8 @@ function Admin() {
             <table border="2" className="table tablePrimary">
                 <thead>
                 <tr >
-                  <td scope = 'col'>Category Id</td>
-                  <td scope = 'col'>Category Name</td>
+                  <th scope = 'col'>Category Id</th>
+                  <th scope = 'col'>Category Name</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -127,8 +91,40 @@ function Admin() {
               </table>
             </Accordion.Body>
           </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Books Listing</Accordion.Header>
+            <Accordion.Body>
+            <table border="2" className="table tablePrimary">
+            <thead>
+                <tr >
+                  <th scope = 'col'>title</th>
+                  <th scope = 'col'>author</th>
+                  <th scope = 'col'>category ID</th>
+                  {/* <thead className="col-2">date_creation</thead> */}
+                  <th scope = 'col'>status</th>
+                  <th scope = 'col'>User ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                {books.map((use) => {
+                  return (
+                    <tr  key={use.id}>
+                      <td >{use.title}</td>
+                      <td >{use.author}</td>
+                      <td >{use.cat}</td>
+                      {/* <tbody className="col-2">{use.date_creation}</tbody> */}
+                      <td >{use.status}</td>
+                      <td >{use.user}</td>
+                      <td>{use.image}</td>
+                    </tr>
+                  );
+                })}
+                </tbody>
+              </table>
+            </Accordion.Body>
+          </Accordion.Item>
         </Accordion>
-      </div>
+    
     </>
   );
 }

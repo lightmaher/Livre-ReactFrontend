@@ -1,22 +1,26 @@
 import axios from 'axios'
-import jwt_decode from "jwt-decode";
+import promise from 'promise';
+
 
 
 const baseURL = 'http://127.0.0.1:8000/api/'
 
 
-let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+ let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
 
 export const axiosInstance = axios.create({
     baseURL,
-    // timeout:10000,
-    headers:{Authorization: `Bearer ${authTokens?.access}`}
 });
 
 axiosInstance.interceptors.request.use(async req => {
-    if(!authTokens){
         authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
-        req.headers.Authorization = `Bearer ${authTokens?.access}`
+        if (authTokens){req.headers.Authorization = `Bearer ${authTokens?.access}`
     }
+    
     return req
-})
+} , 
+function (error) {
+    // Do something with request error 
+    return promise.reject(error); 
+}
+)
