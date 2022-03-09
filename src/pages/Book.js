@@ -43,8 +43,8 @@ export default function Book() {
             <div className="col-md-4">
               <div className="book-img">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                  alt=""
+                  src={"http://127.0.0.1:8000" + book.image}
+                  alt="book image"
                 />
               </div>
             </div>
