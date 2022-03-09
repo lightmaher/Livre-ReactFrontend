@@ -12,6 +12,8 @@ import { ToastContainer } from 'react-toastify';
 import Profile from './pages/Profile';
 import Otherprofile from './pages/Otherprofile';
 import Transactions from './pages/Transactions';
+import Messages from './pages/Messages';
+import MessageForm from './pages/MessageForm';
 
 
 function App() {
@@ -29,7 +31,8 @@ function App() {
       <Route path="/addbook" element={<AddBook />} />
       <Route path="/profile/:id" element={<Otherprofile />} />
       <Route path="/transactions" element={<Transactions />} />
-
+      <Route path="/messages" element={<Messages />} />
+      <Route path="/message/:id" element={<MessageForm />} />
       </Routes>
       </div>
       <ToastContainer />

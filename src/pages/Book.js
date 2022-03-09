@@ -23,11 +23,17 @@ export default function Book() {
     axiosInstance
       .post("exchange_book/" + id)
       .then((res) => {console.log(res);
+        nav("/")
         toast.success(`you've been successfully orderd ${book.title} from ${book.user.username} !`, {
           position: toast.POSITION.TOP_CENTER
-        });
-      nav('/')
+        }
+        );
+      
       });
+  }
+  const loggeduser = () =>{
+
+    return localStorage.getItem('authTokens')
   }
   return (
     <>
@@ -120,9 +126,11 @@ export default function Book() {
               </div>
             
             </div>
-            <div class="d-grid gap-2 col-6 mx-auto">
-  <button onClick={order} class="btn btn-primary" type="button">order</button>
-</div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        { loggeduser() ? 
+           <button onClick={order} class="btn btn-primary" type="button"> order </button> : null
+        }
+      </div>
           </div>
         </form>
       </div>

@@ -15,6 +15,10 @@ function Otherprofile() {
     const [books, setbooks] = useState([]);
     const {id} = useParams()
     const nav = useNavigate()
+    const loggeduser = () =>{
+
+    return localStorage.getItem('authTokens')
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         axiosInstance.get("/others_profile/" + id).then((res) => setprofile(res.data));
@@ -66,6 +70,7 @@ function Otherprofile() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">
+                          <Link to={`/message/${profile.id}`} className='btn btn-info' > Send Message </Link>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -123,13 +128,15 @@ function Otherprofile() {
                                   <p className="card-text">
                                     Status: {book.status}
                                   </p>
+                                  { loggeduser() ?
                                   <button
                                     type="button"
                                     class="btn btn-secondary btn-sm ms-2"
                                     onClick={(e) => order(book.id)}
                                   >
                                     Order
-                                  </button>
+                                  </button> : null
+                                        }
                                 </div>
                               </div>
                             </div>

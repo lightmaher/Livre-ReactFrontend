@@ -19,28 +19,33 @@ function Navbar() {
   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
-      { user ? (  <li className="nav-item active">
-          <a className="nav-link"  onClick={logoutUser}>Logout </a>
-        </li>) : 
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">Login</Link>
-        </li>
+      { user ?  <li className="nav-item active">
+          <a className="nav-link"  onClick={logoutUser}> Logout </a>
+        </li> : 
+        <><li className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
+            </li><li className="nav-item">
+                <Link className="nav-link" to="/register">Register</Link>
+              </li></>
         }
         <li className="nav-item dropdown">
         <Link className="nav-link" to="/"> Books </Link>
          </li>
+        
+        
+        { user ? 
+        <>
          <li className="nav-item dropdown">
         <Link className="nav-link" to="/addbook"> Add Book </Link>
          </li>
-         <li className="nav-item">
-          <Link className="nav-link" to="/register">Register</Link>
-        </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/main-profile">Profile</Link>
-        </li>
-        <li className="nav-item"> 
-          <Link className="nav-link" to="/transactions">Transactions</Link>
-        </li>
+              <Link className="nav-link" to="/messages"> Messages</Link>
+            </li><li className="nav-item">
+                <Link className="nav-link" to="/main-profile">Profile</Link>
+              </li><li className="nav-item">
+                <Link className="nav-link" to="/transactions">Transactions</Link>
+              </li></>  : null
+        }
       </ul>
     </div>
   </nav>

@@ -12,15 +12,32 @@ import "./Profile.css";
 function Profile() {
   const [profile, setprofile] = useState({});
   const [books, setbooks] = useState([]);
+  const [rate, setrate] = useState('');
+
   const [receivedtransactions, setreceivedtransactions] = useState([]);
   const [orderedtransactions, setorderedtransactions] = useState([]);
   const isMounted = useRef(false)
   const nav = useNavigate()
   useEffect(() => {
-    axiosInstance.get("profile").then((res) => setprofile(res.data) );
+    axiosInstance.get("profile").then((res) => {setprofile(res.data) 
+      axiosInstance.get('show_rate/' + res.data.id).then(
+        res => {
+       setrate(res.data)
+        }
+      )
+    
+    });
     axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
+   
    getTrans()
-  }, [orderedtransactions]);
+  }, []);
+  const showrate = () => {
+    axiosInstance.get('show_rate/' + profile.username).then(
+      res => {
+      console.log(res.data)
+      }
+    )
+  }
  const deleterequest = (e,id) =>{
   e.preventDefault();
   axiosInstance
@@ -78,7 +95,7 @@ const deleterecive = (e , id) =>{
                 <h5>{profile.username}</h5>
                 <h6>{profile.location}</h6>
                 <p className="proile-rating">
-                  RATE : <span>8/10</span>
+                  RATE : <span>{rate}/5</span>
                 </p>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
