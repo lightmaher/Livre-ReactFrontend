@@ -1,0 +1,8 @@
+.footer {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 233, 233) !important;
+  }
+  

@@ -7,12 +7,13 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "./Books.css";
 
+
 function Books() {
   const [books, setbooks] = useState([]);
   useEffect(() => {
     axiosInstance.get("books").then((res) => {
       setbooks(res.data);
-      console.log(res);
+      
     });
   }, []);
 
