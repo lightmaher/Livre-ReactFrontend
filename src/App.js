@@ -39,7 +39,7 @@ function App() {
   return (
     <AuthProvider>
        <Navbar />
-       <div className='container'>
+       
       <Routes>
     
       <Route path="/"     exact element={<Home/>} />
@@ -67,7 +67,7 @@ function App() {
       <Route path="/subscription/:id" exact element={<Subscription/>} />
       <Route path={"/details/:id?"} exact component={CategoryDetails} />
       </Routes>
-      </div>
+      
       <ToastContainer />
     </AuthProvider>       
 
