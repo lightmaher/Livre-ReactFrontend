@@ -31,13 +31,7 @@ function Profile() {
    
    getTrans()
   }, []);
-  const showrate = () => {
-    axiosInstance.get('show_rate/' + profile.username).then(
-      res => {
-      console.log(res.data)
-      }
-    )
-  }
+  
  const deleterequest = (e,id) =>{
   e.preventDefault();
   axiosInstance
