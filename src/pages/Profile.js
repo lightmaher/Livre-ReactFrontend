@@ -244,7 +244,7 @@ const deleterecive = (e , id) =>{
                             <div class="row g-0">
                               <div class="col-md-4">
                                 <img
-                                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                  src={"http://127.0.0.1:8000" + book.image}
                                   class="img-fluid rounded-start"
                                   alt="picture"
                                 />
@@ -262,7 +262,6 @@ const deleterecive = (e , id) =>{
                                   <p className="card-text">
                                     Status: {book.status}
                                   </p>
-                  
                                 </div>
                               </div>
                             </div>
@@ -289,7 +288,7 @@ const deleterecive = (e , id) =>{
                             <div class="row g-0">
                               <div class="col-md-4">
                                 <img
-                                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                  src={"http://127.0.0.1:8000" + transaction.book.image}
                                   class="img-fluid rounded-start"
                                   alt="picture"
                                 />
@@ -347,7 +346,7 @@ const deleterecive = (e , id) =>{
                             <div className="row g-0">
                               <div className="col-md-4">
                                 <img
-                                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                  src={"http://127.0.0.1:8000" + transaction.book.image}
                                   className="img-fluid rounded-start"
                                   alt="picture"
                                 />
