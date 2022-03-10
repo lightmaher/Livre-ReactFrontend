@@ -1,3 +1,9 @@
+
+body{
+    background: #ffff !important;
+}
+
+
 .search-bar{
     position: absolute;
     top: 50%;
@@ -12,4 +18,36 @@
 .st{
     
     float: left;
+}
+.clear{
+    content: "";
+    display: block;
+    clear: both;
+}
+.sec-2{
+    margin-top: 4%;
+    display: flex;
+    height: 80vh;
+    
+
+}
+.sec2-cont{
+    /* background-color: #dfe6e9; */
+}
+.sec2-p{
+    float: left;
+    /* background-color: aqua; */
+    text-align: center;
+    margin-top: 17%;
+    margin-right: 2%;
+    width: 32%;
+   
+    font-size: x-large;
+    
+
+}
+.sec2-img{
+    float: right;
+    width: 53vw;
+    height: 100%;
 }
