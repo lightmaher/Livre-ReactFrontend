@@ -5,7 +5,6 @@ import 'alertifyjs/build/css/alertify.css';
 import 'react-toastify/dist/ReactToastify.css';
 import * as alertify from 'alertifyjs';
 import { toast } from 'react-toastify';
-
 import axios from 'axios';
 
 
@@ -16,6 +15,7 @@ export  const Registerform = ()=>{
      );
      var validpassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
 const navigate = useNavigate()
+const [postimage, setPostImage] = useState(null);
 const [registerForm , setRegisterForm] = useState({
      username : '',
      email : '',
@@ -64,6 +64,12 @@ const [errregisterForm , seterrRegisterForm] = useState({
             })
             
         }
+        if (e.target.name === "image") {
+            setPostImage({
+                      image: e.target.files,
+                  });
+                  console.log(e.target.files);
+          }
         if ( e.target.name === "username"){
             setRegisterForm({
                 ...registerForm,
@@ -154,12 +160,26 @@ const [errregisterForm , seterrRegisterForm] = useState({
             email : registerForm.email === ''? "this field is required": null,
             username : registerForm.username === ''? "this field is required": null,
             password : registerForm.password === ''? "this field is required": null
+
            })
+           return 0 
         }
        
     }
-    console.log(registerForm)
-    axios.post('http://127.0.0.1:8000/api/register', registerForm)
+    let formData = new FormData();
+		formData.append('date_of_birth', registerForm.date_of_birth);
+		formData.append('email', registerForm.email);
+		formData.append('gender', registerForm.gender);
+		formData.append('location', registerForm.location);
+		formData.append('password', registerForm.password);
+        formData.append('password2', registerForm.password2);
+        formData.append('phone', registerForm.phone);
+        formData.append('username', registerForm.username);
+    if (postimage){
+		formData.append('image', postimage.image[0]);
+    }
+    console.log(formData)
+    axios.post('http://127.0.0.1:8000/api/register', formData)
     .then(res => 
         toast.success("you've been successfully registered !", {
             position: toast.POSITION.TOP_CENTER
@@ -203,6 +223,17 @@ return (<>
     <label class="form-label">Loction</label>
     <input type="text" className={errregisterForm.password != null? "border border-danger form-control" : "form-control"} onChange={(e)=> update(e)} name="location" id="exampleInputPassword1"/>
     <div id="emailHelp" class="form-text text-danger">{errregisterForm.location}</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Image </label>
+                        <input
+							accept="image/*"
+							className='form-control'
+							id="post-image"
+							onChange={(e) => update(e)}
+							name="image"
+							type="file"
+						/>
   </div>
   <div class="mb-3">
     <label class="form-label">Phone</label>

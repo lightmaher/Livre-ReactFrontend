@@ -35,10 +35,11 @@ export const AuthProvider = ({children}) => {
               })
             history('/')
         }else{
-            alert('Something went wrong!')
+            toast.error("Email or password are Incorrect !", {
+                position: toast.POSITION.TOP_CENTER
+              });
         }
     }
-
 
     let logoutUser = () => {
         setAuthTokens(null)

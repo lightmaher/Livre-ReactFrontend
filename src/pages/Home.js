@@ -35,7 +35,7 @@ const params = useParams();
     label="Search"
     className="mb-3" >
     <Form.Control type="search" placeholder="search" onChange={e => setSearchValue(e.target.value)}/>
-    <Link variant="primary" type="button" to={"/search/"+searchValue} >search</Link>
+    <Link className='btn btn-info' variant="primary" type="button" to={"/search/"+searchValue} >search</Link>
   </FloatingLabel>
   
 
