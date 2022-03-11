@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.leftsection{
+    opacity : 0.8;
+    background-color: #2c9db7 ;
+    font-family:serif;
+}
+.signin{
+    color: #2c9db7;
+}
+.form_edit{
+    width:'200%';
+}
+.login_edit{
+    background-color: #2c9db7 ;
+    color:#ffffff;
+    width:100%;
+    /* margin-left:50%; */
+}
+.register{
+    color: #2c9db7;
+    margin:8%;
+    font-size:112%;
+}
+.form_text{
+    width:200%;
+    font-size:120%;
+    font-weight: 500;
+    color: #646868 ;
+}
+.text_header_table{
+    color: #2c9db7 ;
+
+}
+.text_content_table{
+    color: #646868 ;
+}

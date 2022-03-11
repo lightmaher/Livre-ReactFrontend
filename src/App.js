@@ -39,7 +39,7 @@ function App() {
   return (
     <AuthProvider>
        <Navbar />
-       <div className='container'>
+       <div>
       <Routes>
     
       <Route path="/"     exact element={<Home/>} />

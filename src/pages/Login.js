@@ -2,7 +2,12 @@ import React from 'react';
 import {useState} from 'react';
 import {useContext} from 'react'
 import {AuthContext} from '../Context/AuthContext'
+import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
+import './login.css';
 
 const Login = () => {
      const [passtype, setpasstype] = useState("password")
@@ -14,10 +19,6 @@ const Login = () => {
     email :null,
     password : null,
 })
-// const submitForm = (e)=>{
-//     e.preventDefault(); 
-//  console.log(loginform)
-// }
 function update(e){
   if (e.target.name === "email"){
      setloginform({
@@ -29,7 +30,6 @@ function update(e){
           email :
           null
     })
-    
     }
      else if (e.target.name === "password"){
         setloginform({
@@ -43,9 +43,7 @@ function update(e){
      })
   }
 }
-
 let {loginUser} = useContext(AuthContext)
-
 function showpass(e){
    
     if (e.target.checked === true){
@@ -56,45 +54,64 @@ function showpass(e){
     }
 }
   return (
-    <>
-      <div className="container d-flex justify-content-center  align-items-center justify-content-center " style={{ height: '80vh' }}>
-        <form className='col-7 text-center border p-3 rounded' onSubmit={(e) => loginUser(e)}>
-          <div>
-            <label htmlFor="email" class="form-label">
-             Email
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              placeholder="you@example.com"
-              value={loginform.email}
-              name="email"
-              onChange={(e)=> update(e)}
-            />
-            <div class="text-danger text-left mt-1">
-              {errors.email}
-            </div>
-            <label htmlFor="password" class="form-label mt-2">
-              password 
-            </label>
-            <input
-              type={passtype}
-              class="form-control"
-              id="password"
-              name= "password"
-              onChange={(e)=> update(e)}
-            />
-            <div class="text-danger">
-               {errors.password}
-            </div>
-            <input className='mt-2 m-2' type={'checkbox'}  onChange={ (e)=> showpass(e)} />  
-            <label htmlFor="password"> show password </label>
+      <div className="row" >
+        <div className=" col-5 text-white position-relative leftsection ">
+          <div className='position-absolute top-50 start-50 translate-middle '>
+            <h1>Livre</h1>
+            <h3>Your online book Library to you with Zero Cost ready for exchange or donate or more and more</h3>
           </div>
-          <button type='submit' className='btn btn-primary mt-3'  > Login In</button>
-        </form>
-      </div>
-    </>
+        </div>
+        <div class="col-4">
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '94vh'}}>
+            <div>
+                <h1 className='signin'>Login to LIVRE</h1>
+                <form className='text-left p-2 rounded' onSubmit={(e) => loginUser(e)}>
+                  <div className='form_text mt-2'>
+                    <label htmlFor="email" className="form-label">
+                    Email
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      placeholder="Enter your email"
+                      value={loginform.email}
+                      name="email"
+                      onChange={(e)=> update(e)}
+                    />
+                    <div class="text-danger text-left mt-1">
+                      {errors.email}
+                    </div>
+                    <label htmlFor="password" class="form-label mt-2">
+                      password 
+                    </label>
+                    <input
+                      type={passtype}
+                      class="form-control"
+                      id="password"
+                      name= "password"
+                      placeholder="Enter your password"
+                      onChange={(e)=> update(e)}
+                    />
+                     {/* <FontAwesomeIcon icon={faEye} /> */}
+                     {/* <span onClick={ (e)=> showpass(e)}><FontAwesomeIcon icon={faEye} /></span> */}
+                    <div class="text-danger">
+                      {errors.password}
+                    </div>
+                    <input className='mt-2 m-2' type={'checkbox'}  onChange={ (e)=> showpass(e)} />  
+                    <label htmlFor="password"> show password </label>
+                  </div>
+                  <button type='submit' className=' btn mt-3 login_edit' style={{backgroundColor:'#2c9db7',color:'#ffffff'}}>Login In</button>
+                </form>              
+            </div>
+          </div>
+
+        </div>
+        <div className='col-2 offset-1'>
+          <h6 className="register">Not a member? <Link style={{ color: '#2c9db7' }} to="/register"> Register now</Link></h6>
+        </div>
+      </div>  
+       
   );
 };
 export default Login;
