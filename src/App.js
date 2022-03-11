@@ -11,6 +11,9 @@ import Categories from './pages/Categories';
 import Search from './pages/Search';
 import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
+import Privacypolicy from './pages/Privacypolicy';
+import TermsOfUse from './pages/TermsOfUse';
+
 
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
@@ -39,7 +42,7 @@ function App() {
   return (
     <AuthProvider>
        <Navbar />
-       <div className='container'>
+       
       <Routes>
     
       <Route path="/"     exact element={<Home/>} />
@@ -66,9 +69,10 @@ function App() {
       <Route path="/search/:resulte" exact element={<Search />} />
       <Route path="/subscription/:id" exact element={<Subscription/>} />
       <Route path={"/details/:id?"} exact component={CategoryDetails} />
+      <Route path="/privacypolicy" exact element={<Privacypolicy />} />
+      <Route path="/termsofuse" exact element={<TermsOfUse/>} />
       </Routes>
-      </div>
-
+      
       <ToastContainer />
       <Footer />
 

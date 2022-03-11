@@ -3,18 +3,19 @@ import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhoneSquare } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter,faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
 <>
-<footer class="footer mt-3 py-3 bg-light">
+<footer class="footer py-3 bg-light">
   <div class="container">
     <div className="row">
     <div className="col-4">
           <span>
             <FontAwesomeIcon  icon={faEnvelope} />
             &nbsp;
-            Livre@Gmail.com
+            info@livre.net
             &nbsp; 
           </span>
           <span>
@@ -26,13 +27,13 @@ function Footer() {
            <div className="container">
                <div className="row">
                     <div className="col-4">
-                        <span>  Privacy policy</span>
+                     <Link to='/privacypolicy' className="text-dark">  <span>  Privacy policy</span> </Link>  
                         </div>
                         <div className="col-4">
-                        <span> Terms</span>
+                        <Link to='/termsofuse' className="text-dark">  <span> Terms of use</span>  </Link>
                         </div>
                         <div className="col-4">
-                        <span>  Impressum </span>
+                        <Link to='/whoweare' className="text-dark"> <span>  Who We Are </span> </Link>  
                         </div>
                         </div>        
                </div>  
