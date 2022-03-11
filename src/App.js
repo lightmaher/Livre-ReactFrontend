@@ -42,7 +42,7 @@ function App() {
   return (
     <AuthProvider>
        <Navbar />
-       <div >
+       
       <Routes>
     
       <Route path="/"     exact element={<Home/>} />
@@ -72,7 +72,7 @@ function App() {
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
       </Routes>
-      </div>
+      
       <ToastContainer />
     </AuthProvider>       
 

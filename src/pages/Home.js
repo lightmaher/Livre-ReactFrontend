@@ -1,6 +1,7 @@
-import React from 'react'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
+import React from "react";
+import "./Home.css";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel'
 import Form from 'react-bootstrap/Form'
@@ -11,92 +12,122 @@ import axios from 'axios'
 import { axiosInstance } from '../utils/axiosInstance';
 import Card from 'react-bootstrap/Card'
 import { useParams } from "react-router-dom";
-
 import InputGroup from 'react-bootstrap/InputGroup'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+
 // import slide from './src/Images/slide.png'
 export default function Home() {
-  const[searchValue,setSearchValue]=useState([])
-  
-  const[resulte,setResulte]=useState([]
-  
+  const [searchValue, setSearchValue] = useState([]);
+
+  const [resulte, setResulte] = useState(
+    []
+
     // 'search': searchValue,
-    // 'res': []   
-);
+    // 'res': []
+  );
 
-const params = useParams();
+  const params = useParams();
 
-  console.log(resulte)
+  console.log(resulte);
 
-    return (
+  return (
+    <>
       <div>
-        <div>
-  <FloatingLabel
-    controlId="floatingInput"
-    label="Search"
-    className="mb-3" >
-    <Form.Control type="search" placeholder="search" onChange={e => setSearchValue(e.target.value)}/>
-    <Link className='btn btn-info' variant="primary" type="button" to={"/search/"+searchValue} >search</Link>
-  </FloatingLabel>
-  
-
-  {/* <InputGroup className="mb-3">
-    <Button variant="outline-secondary" id="button-addon1">
-      Button
-    </Button>
-    <FormControl
-      aria-label="Example text with button addon"
-      aria-describedby="basic-addon1"
-    />
-  </InputGroup> */}
-  </div>
+        <div className="search-bar">
+          <div className="st">
+            <h1>Your online book Library with Zero Cost</h1>
+            <small>ready for exchange or donate or more and more</small>
+          </div>
+          <InputGroup controlId="floatingInput" label="Search" className="mb-3">
+            <Form.Control
+              type="search"
+              placeholder="Search for your desired Book to get it for free or exchange "
+              style={{ height: "4em" }}
+              aria-describedby="basic-addon2"
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <Link
+              className="btn btn-info "
+              variant="outline-secondary"
+              style={{ color: "#ffff",  width: "9em",fontSize:"1.8VW" }}
+              id="button-addon2  "
+              type="button"
+              to={"/search/" + searchValue}
+            >
+              <span style={{padding: "6%", marginLeft: "4%" , marginRight: "3.5%" }}>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                Search
+              </span>
+              
+              
+            </Link>
+          </InputGroup>
+        </div>
         <Carousel variant="dark">
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src=""
-      alt="First slide"
-    />
-    
-    <Carousel.Caption>
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=eee"
-      alt="Second slide"
-    />
-    <Carousel.Caption>
-      <h5>Second slide label</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=e5e5e5"
-      alt="Third slide"/>
-    
-    <Carousel.Caption>
-      <h5>Third slide label</h5>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
-<div className='row col-12 '>
-<Card className="bg-dark text-white">
-  <Card.Img src= "" alt="Card image" />
-  <Card.ImgOverlay>
-    <Card.Title>Card title</Card.Title>
-    <Card.Text>
-      This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.
-    </Card.Text>
-    <Card.Text>Last updated 3 mins ago</Card.Text>
-  </Card.ImgOverlay>
-</Card>
-</div>
-</div>
-    )}
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require(`../Images/slider/Book1.png`)}
+              alt="First slide"
+              style={{ height: "45em" }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require(`../Images/slider/Book2.png`)}
+              alt="Second slide"
+              style={{ height: "45em" }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require(`../Images/slider/Book3.png`)}
+              alt="Third slide"
+              style={{ height: "45em" }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require(`../Images/slider/b2.png`)}
+              alt="Third slide"
+              style={{ height: "45em" }}
+            />
+          </Carousel.Item>
+        </Carousel>
+      </div>
+      <div className="clear"></div>
+
+      <div className="sec-2">
+        <div className="container sec2-cont">
+          <div className="sec2-p">
+            <h1 style={{ color:"#2c9db7" }}>Take a Tour</h1>
+            <hr></hr>
+            <p>
+              Toggle our website now and see books available for exchange or
+              donate
+            </p>
+            <Link
+              class="btn btn-primary"
+              to="/books"
+              style={{ backgroundColor: "#2c9db7", width: "18vw" }}
+            >
+            
+              Take a tour
+            </Link>
+          </div>
+
+          <img
+            src={require(`../Images/slider/nav.jpeg`)}
+            className="sec2-img"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div className="clear"></div>
+    </>
+  );
+}
