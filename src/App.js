@@ -23,6 +23,7 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './Components/NotFound';
 import Adminmanage from './pages/Adminmanage';
 import AddCategory from './Components/AddCategory';
+import Responsive from './Components/Responsive';
 import EditCategory from './Components/EditCategory';
 import Profile from './pages/Profile';
 import Subscription from './Components/Subscription';
@@ -31,6 +32,7 @@ import Subscription from './Components/Subscription';
 import Otherprofile from './pages/Otherprofile';
 import Transactions from './pages/Transactions';
 import Messages from './pages/Messages';
+
 import MessageForm from './pages/MessageForm';
 
 

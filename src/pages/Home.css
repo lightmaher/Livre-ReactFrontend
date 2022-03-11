@@ -1,9 +1,12 @@
 
-body{
+/* body{
     background: #ffff !important;
     margin-top: -5% !important;
+} */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
-
 
 .search-bar{
     position: absolute;

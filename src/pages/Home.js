@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import Responsive from '../Components/Responsive';
 // import slide from './src/Images/slide.png'
 export default function Home() {
   const [searchValue, setSearchValue] = useState([]);
