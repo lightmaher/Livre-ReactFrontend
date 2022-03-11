@@ -32,10 +32,10 @@ function Books() {
                   <div class="col-md-8">
                     <div class="card-body">
                    <Link to={`/book/${book.id}`}  className="text-primary"> <h5 class="card-title">{book.title}</h5> </Link>   
-                    <Link className="text-info" to={`/profile/${book.user.id}`} > <p class="card-text">{book.user.username}</p> </Link>  
-                      <p className="card-text"> Status: {book.status}</p>
-                      <p class="card-text"> <small class="text-muted"> {book.author} </small> 
-                      </p>
+                    <Link className="text-info" to={`/profile/${book.user.id}`} > <p class="card-text"><b>Owner:</b> {book.user.username}</p> </Link>  
+                      <span className="card-text"> <b>Status: </b>{book.status}</span>
+                      <span class="card-text"> <small class="text-muted"><b>Author:</b> {book.author} </small> 
+                      </span>
                     </div>
                   </div>
                 </div>
