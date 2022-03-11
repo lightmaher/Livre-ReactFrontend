@@ -4,37 +4,32 @@ import { Link, useParams } from "react-router-dom";
 import { axiosInstance } from "../utils/axiosInstance";
 import axios from "axios";
 import "./Book.css";
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom'
-
-
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Book() {
   let { id } = useParams();
   useEffect(() => {
-    axiosInstance
-      .get("books/" + id)
-      .then((res) => setbook(res.data));
+    axiosInstance.get("books/" + id).then((res) => setbook(res.data));
   }, []);
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [book, setbook] = useState({});
-  const order = () =>{
-    id = book.id
-    axiosInstance
-      .post("exchange_book/" + id)
-      .then((res) => {console.log(res);
-        nav("/")
-        toast.success(`you've been successfully orderd ${book.title} from ${book.user.username} !`, {
-          position: toast.POSITION.TOP_CENTER
+  const order = () => {
+    id = book.id;
+    axiosInstance.post("exchange_book/" + id).then((res) => {
+      console.log(res);
+      nav("/");
+      toast.success(
+        `you've been successfully orderd ${book.title} from ${book.user.username} !`,
+        {
+          position: toast.POSITION.TOP_CENTER,
         }
-        );
-      
-      });
-  }
-  const loggeduser = () =>{
-
-    return localStorage.getItem('authTokens')
-  }
+      );
+    });
+  };
+  const loggeduser = () => {
+    return localStorage.getItem("authTokens");
+  };
   return (
     <>
       <div className="container emp-book">
@@ -63,74 +58,73 @@ export default function Book() {
                       aria-controls="home"
                       aria-selected="true"
                     >
-                      About
+                      About Book
                     </a>
                   </li>
                 </ul>
               </div>
+              <div className="row">
+                <div className="col-md-8">
+                  <div class="tab-content book-tab" id="myTabContent">
+                    <div
+                      class="tab-pane fade show active"
+                      id="home"
+                      role="tabpanel"
+                      aria-labelledby="home-tab"
+                    >
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Book Author</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p>{book.author}</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Status</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p>{book.status}</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Owner</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p>{book.user?.username}</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Date of creation</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p>{book.date_creation}</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Describtion</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p>{book.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-8">
-              <div class="tab-content book-tab" id="myTabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="home"
-                  role="tabpanel"
-                  aria-labelledby="home-tab"
-                >
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Book Author</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{book.author}</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Status</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{book.status}</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Owner</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{book.user?.username}</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Date of creation</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{book.date_creation}</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Describtion</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{book.description}</p>
-                    </div>
-                  
-                  </div>
-            
-                </div>
-            
-              </div>
-            
-            </div>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        { loggeduser() ? 
-           <button onClick={order} class="btn btn-primary" type="button"> order </button> : null
-        }
-      </div>
+          <div class="d-grid gap-2 col-6 mx-auto mt-5">
+            {loggeduser() ? (
+              <button onClick={order} class="btn btn-primary" style={{backgroundColor: "#2c9db7",border:"#2c9db7"}} type="button">
+                {" "}
+                order{" "}
+              </button>
+            ) : null}
           </div>
         </form>
       </div>

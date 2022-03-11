@@ -41,7 +41,6 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-
     let logoutUser = () => {
         setAuthTokens(null)
         setUser(null)
