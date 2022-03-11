@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import 'alertifyjs/build/css/alertify.css';
 import 'react-toastify/dist/ReactToastify.css';
-import * as alertify from 'alertifyjs';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 

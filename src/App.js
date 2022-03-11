@@ -68,7 +68,10 @@ function App() {
       <Route path={"/details/:id?"} exact component={CategoryDetails} />
       </Routes>
       </div>
+
       <ToastContainer />
+      <Footer />
+
     </AuthProvider>       
 
   );
