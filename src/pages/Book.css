@@ -41,7 +41,7 @@ a{
     font-size: xx-large;
 }
 .book-head h6{
-    color: #0062cc;
+    color: #2c9db7;
 }
 .book-edit-btn{
     border: none;
@@ -63,15 +63,18 @@ a{
     font-weight: 600;
 }
 .book-head .nav-tabs{
-    margin-bottom:5%;
+    margin:10% 0;
+    position: relative;
+
 }
 .book-head .nav-tabs .nav-link{
     font-weight:600;
     border: none;
+    color: #2c9db7;
 }
 .book-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #0062cc;
+    border-bottom:2px solid #2c9db7;
 }
 .book-work{
     padding: 14%;
@@ -97,5 +100,5 @@ a{
 }
 .book-tab p{
     font-weight: 600;
-    color: #0062cc;
+    color: #2c9db7;
 }

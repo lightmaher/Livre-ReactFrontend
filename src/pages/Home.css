@@ -1,0 +1,54 @@
+
+body{
+    background: #ffff !important;
+    margin-top: -5% !important;
+}
+
+
+.search-bar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    width: 70%;
+    text-align: center;
+    color:#ffff;
+    font-size: xx-large;
+}
+.st{
+    
+    /* float: left; */
+    margin: 3% auto;
+
+}
+.clear{
+    content: "";
+    display: block;
+    clear: both;
+}
+.sec-2{
+    margin-top: 4%;
+    display: flex;
+    height: 80vh;
+    
+
+}
+
+.sec2-p{
+    float: left;
+    /* background-color: aqua; */
+    text-align: center;
+    margin-top: 17%;
+    margin-right: 2%;
+    width: 32%;
+   
+    font-size: x-large;
+    
+
+}
+.sec2-img{
+    float: right;
+    width: 53vw;
+    height: 100%;
+}
