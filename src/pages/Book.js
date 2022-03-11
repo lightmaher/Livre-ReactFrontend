@@ -58,7 +58,7 @@ export default function Book() {
                       aria-controls="home"
                       aria-selected="true"
                     >
-                      About Book
+                      Details
                     </a>
                   </li>
                 </ul>
@@ -120,7 +120,12 @@ export default function Book() {
           </div>
           <div class="d-grid gap-2 col-6 mx-auto mt-5">
             {loggeduser() ? (
-              <button onClick={order} class="btn btn-primary" style={{backgroundColor: "#2c9db7",border:"#2c9db7"}} type="button">
+              <button
+                onClick={order}
+                class="btn btn-primary"
+                style={{ backgroundColor: "#2c9db7", border: "#2c9db7" }}
+                type="button"
+              >
                 {" "}
                 order{" "}
               </button>

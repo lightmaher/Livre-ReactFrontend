@@ -64,6 +64,7 @@ a{
 }
 .profile-head .nav-tabs{
     margin-bottom:4%;
+    position: relative;
 }
 .profile-head .nav-tabs .nav-link{
     font-weight:600;

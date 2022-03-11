@@ -63,7 +63,9 @@ a{
     font-weight: 600;
 }
 .book-head .nav-tabs{
-    margin-bottom:5%;
+    margin:10% 0;
+    position: relative;
+
 }
 .book-head .nav-tabs .nav-link{
     font-weight:600;
