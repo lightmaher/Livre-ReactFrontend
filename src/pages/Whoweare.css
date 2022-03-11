@@ -1,0 +1,25 @@
+.body{
+  background: rgb(255, 255, 255);
+}
+.whoweare{
+  background: rgb(255, 255, 255);
+  padding-bottom: 2em;
+  padding-top: 2em;
+  
+}
+.circle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.photo{
+  width: 200px;
+  height: 200px;
+}
+.heading-text{
+  color: #2c9db7;
+
+}
+.minor-button{
+  color: #FFC900;
+}
