@@ -4,16 +4,16 @@ import "./Privacypolicy.css";
 function Privacypolicy() {
   return (
     <>
-      <div className="privacy p-5">
+      <div className="privacy p-5 mb-5 ">
       <img src="Privacy-Policy.png" className="img-fluid" alt="Privacy-Policy.png" />
 
-        <h1 className="heading-text text-center mb-5  ">Privacy Policy for Bytes N</h1>
+        <h1 className="heading-text text-center mb-5 mt-5 fw-bold  ">Privacy Policy for Bytes N</h1>
 
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
               <button
-                className="accordion-button"
+                className="accordion-button fw-bolder fs-5 "
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
@@ -46,7 +46,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingTwo">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
@@ -103,10 +103,10 @@ function Privacypolicy() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingThree">
+          <div className="accordion-item ">
+            <h2 className="accordion-header " id="headingThree">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
@@ -142,7 +142,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFour">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFour"
@@ -184,7 +184,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFive">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFive"
@@ -221,7 +221,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingSix">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseSix"
@@ -259,7 +259,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingSeven">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseSeven"
@@ -290,7 +290,7 @@ function Privacypolicy() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingEight">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseEight"

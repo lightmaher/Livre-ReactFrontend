@@ -74,6 +74,8 @@ function App() {
       </Routes>
       
       <ToastContainer />
+      <Footer />
+
     </AuthProvider>       
 
   );
