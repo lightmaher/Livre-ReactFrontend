@@ -13,6 +13,7 @@ import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
+import BooksEdit from './pages/BooksEdit';
 
 
 // import Images from './Images';
@@ -41,7 +42,7 @@ function App() {
   
   return (
     <AuthProvider>
-       <Navbar />
+       {/* <Navbar /> */}
        
       <Routes>
     
@@ -68,9 +69,11 @@ function App() {
       <Route path="/whoweare" exact element={<Whoweare />} />
       <Route path="/search/:resulte" exact element={<Search />} />
       <Route path="/subscription/:id" exact element={<Subscription/>} />
-      <Route path={"/details/:id?"} exact component={CategoryDetails} />
+      <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
+      <Route path="/booksedit" exact element={<BooksEdit/>} />
+
       </Routes>
       
       <ToastContainer />

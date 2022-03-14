@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'alertifyjs/build/css/alertify.css';
 import { toast } from 'react-toastify';
 import { axiosInstance } from '../utils/axiosInstance';
+import ReactDOM from 'react-dom';
+
 
 export default function Categories() {
   const [category, setCategory] = useState([])
@@ -43,52 +45,67 @@ export default function Categories() {
       //       });
           
       //     }
-  return (
-    <div className='container' >
-      <div className='row'>
-        
-      <h1 className='text-light'> Categories</h1>
-      <hr></hr>
-        {category.map((category, index) => {
-          return (
-            // <div className="cat">
-              // <div className="wrapper">
-              // <div className="cards">
+      /********************************************************************************* */
 
-              // <Card style={{ width: '18rem' }}>
-             
-              //   <Card.Body>
-              //   <Link key={index} to={`/details/category/${category.id}`}>
-              //     <Card.Title>{category.name}</Card.Title>
-              //     </Link>
-              //   <img src={category.cat_picture}/>
-              //     <Card.Text>
-                  
-              //     </Card.Text>
-              //     <Link type="button" className="btn" to={"/subscription/" + category.id} 
-              //     style={{backgroundColor: "#74b9ff"}}
-              //      onClick={() => Subscription(category.id)}>subscribe</Link> 
-              //   </Card.Body>
-              // </Card>
-
-              // </div>
-              // </div>
-              <div class="col-3 card text-center text-white bg-secondary  ms-4 mt-2">
-              <div class="card-header">
-              Category
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{category.name}</h5>
-                <a href="#" class="btn btn-primary"> <Link to={"/subscription/" + category.id} > subscribe </Link> </a>
-              </div>
-              <div class="card-footer text-muted">
-                2 days ago
-              </div>
+      const Card = (props) => (
+        <div className="card">
+          <img src={ props.imgUrl } 
+            alt={ props.alt || 'Image' } />
+          <div className="card-content">
+            <h2 style={{textAlign:"center",color:"#2c9db7"}}>{ props.title }</h2>
+          </div>
+        </div>
+      );
+      const CardContainer = (props) => (
+        <div className="cards-container">
+          {
+            props.cards.map((category) => (
+              <Card title={ category.name }
+                imgUrl={ "http://127.0.0.1:8000" + category.image } />
+            ))
+          }
+        </div>
+      );
+      class App extends React.Component {
+        render () {
+          return(
+            <div className="container" style={{marginTop:"3%"}}>
+              <CardContainer cards={ category  } />
             </div>
-            
           );
-        })}
-    </div>
-    </div>
+        }
+      }
+      
+      ReactDOM.render(<App/>, document.querySelector('#app'));
+      
+/************************************************************************************** */
+  return (
+    // <div className='container' >
+    //   <div className='row'>
+        
+    //   <h1 className='text-light'> Categories</h1>
+    //   <hr></hr>
+    //     {category.map((category, index) => {
+    //       return (
+            
+    //           <div class="col-3 card text-center text-white bg-secondary  ms-4 mt-2">
+    //           <div class="card-header">
+    //           Category
+    //           </div>
+    //           <div class="card-body">
+    //             <h5 class="card-title">{category.name}</h5>
+    //             <a href="#" class="btn btn-primary"> <Link to={"/subscription/" + category.id} > subscribe </Link> </a>
+    //           </div>
+    //           <div class="card-footer text-muted">
+    //             2 days ago
+    //           </div>
+    //         </div>
+            
+    //       );
+    //     })}
+    // </div>
+    // </div>
+    <>
+    </>
   )
 }
