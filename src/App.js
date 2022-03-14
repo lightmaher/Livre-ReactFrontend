@@ -41,7 +41,7 @@ function App() {
   
   return (
     <AuthProvider>
-       <Navbar />
+       {/* <Navbar /> */}
        
       <Routes>
     

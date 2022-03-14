@@ -12,6 +12,7 @@ import axios from "axios";
 import { axiosInstance } from "../utils/axiosInstance";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
+import Whoweare from "./Whoweare"
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -33,7 +34,9 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div> 
+        
+       
         <div className="search-bar">
           <div className="st">
             <h1>Your online book Library with Zero Cost</h1>
@@ -64,13 +67,13 @@ export default function Home() {
             </Link>
           </InputGroup>
         </div>
-        <Carousel variant="dark">
+        <Carousel variant="dark" className="car">
           <Carousel.Item>
             <img
               className="d-block w-100"
               src={require(`../Images/slider/Book1.png`)}
               alt="First slide"
-              style={{ height: "45em" }}
+              style={{ height: "35em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -78,7 +81,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/Book2.png`)}
               alt="Second slide"
-              style={{ height: "45em" }}
+              style={{ height: "35em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -86,7 +89,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/Book3.png`)}
               alt="Third slide"
-              style={{ height: "45em" }}
+              style={{ height: "35em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -94,16 +97,17 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/b2.png`)}
               alt="Third slide"
-              style={{ height: "45em" }}
+              style={{ height: "35em" }}
             />
           </Carousel.Item>
         </Carousel>
       </div>
       <div className="clear"></div>
-
-      <div className="sec-2">
-        <div className="container sec2-cont">
-          <div className="sec2-p">
+        
+      <div className="container sec-2">
+        <div className="row">
+          <div className="col">
+            <div className="hamo">
             <h1 style={{ color: "#2c9db7" }}>Take a Tour</h1>
             <hr></hr>
             <p>
@@ -118,15 +122,22 @@ export default function Home() {
               Take a tour
             </Link>
           </div>
-
+          </div>
+        <div className="col ">
           <img
             src={require(`../Images/slider/nav.jpeg`)}
             className="sec2-img"
             alt="..."
           />
+          </div>
         </div>
       </div>
       <div className="clear"></div>
+
+      <div className="aboutus">
+
+      {/* <Whoweare/> */}
+      </div>
     </>
   );
 }

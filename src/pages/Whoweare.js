@@ -14,11 +14,11 @@ function Whoweare() {
         </div>
         <div className="row">
             <div className="col m-3">
-              <div className="card " style={{ width: "18rem" }}>
-                <img src="./tarek.jpeg" className="card-img-top img-thumbnail" alt="Tarek" />
+              <div className="card " style={{ width: "18rem" ,borderRadius: "50%" , border:'none' }}>
+                <img src="./tarek.jpeg" style={{ borderRadius: "50%" }} className="card-img-top img-thumbnail" alt="Tarek" />
                 <div className="card-body ">
                   <h5 className="card-title heading-text fs-3 text-center pb-3">Tarek Eldebsy</h5>
-                  <a href="https://www.linkedin.com/in/tarek-khalil-476452148/" className="btn btn-primary  ">
+                  <a href="https://www.linkedin.com/in/tarek-khalil-476452148/" className="btn btn-primary mx-auto justify-content-center ">
                     Linkedin
                   </a>
                 </div>
