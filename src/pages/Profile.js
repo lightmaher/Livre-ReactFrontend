@@ -24,7 +24,6 @@ function Profile() {
         setrate(res.data);
       });
     });
-    axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
 
     getTrans();
   }, []);
@@ -42,6 +41,8 @@ function Profile() {
     });
   };
   const getTrans = () => {
+    axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
+
     axiosInstance
       .get("user_reciver_transaction")
       .then((res) => setreceivedtransactions(res.data));
@@ -56,7 +57,13 @@ function Profile() {
       .then((res) => console.log(res.data));
     getTrans();
   };
-
+const delbook = (e,id) =>{
+  e.preventDefault();
+  axiosInstance
+      .post("delbook/" + id)
+      .then((res) => console.log(res.data));
+  getTrans()
+}
   const deleterecive = (e, id) => {
     e.preventDefault();
     axiosInstance
@@ -208,7 +215,9 @@ function Profile() {
                                         Status: {book.status}
                                       </p>
                                     </div>
+                                 
                                   </div>
+                                  <button className="btn btn-danger" onClick={(e) => {delbook(e , book.id)}}> Delete </button>
                                 </div>
                               </div>
                             </div>

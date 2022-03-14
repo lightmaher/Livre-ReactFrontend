@@ -16,33 +16,52 @@ import { axiosInstance } from '../utils/axiosInstance';
 
 export default function Categories() {
   const [category, setCategory] = useState([])
+  const [usercategorys, setuserCategorys] = useState([])
+
   const navigate = useNavigate();
   // const [subscription, updateSubscription]useState({
   //   props1: "subscription",
   //   props2: "unsubscription",
   // })
-
   useEffect(() => {
-    axios
-      .get('http://127.0.0.1:8000/api/categorys')
-      .then((res) => setCategory(res.data))
-    
+    showcats()
   }, [])
-
-  const Subscription = (id) => {
+  const showcats = () =>{
+    axios
+    .get('http://127.0.0.1:8000/api/categorys')
+    .then((res) => {
+      axiosInstance.get(`/user_subscription`)
+      .then(res => {
+        console.log(res.data)
+        setuserCategorys(res.data)      
+          });
+      console.log(res.data)
+      setCategory(res.data)})
+  }
+  const Subscription = (e , id) => {
+     e.preventDefault();
     axiosInstance.get(`/subscription/${id}`)
     .then(res => {console.log("Subscription")
-      
         });
-      
+        user_subscription()
+        showcats()
       }
-      // const Subscription = (id) => {
-      //   axiosInstance.get(`/subscription/${id}`)
-      //   .then(res => {console.log("Subscription")
-          
-      //       });
-          
-      //     }
+      const unSubscription = (e , id) => {
+        e.preventDefault();
+       axiosInstance.get(`/unsubscription/${id}`)
+       .then(res => {console.log("unSubscription")
+           });
+         user_subscription()
+         showcats()
+         
+         }
+   const user_subscription = () => {
+    axiosInstance.get(`/user_subscription`)
+    .then(res => {
+      console.log(res.data)
+      setuserCategorys(res.data)      
+        });
+   }
   return (
     <div className='container' >
       <div className='row'>
@@ -51,35 +70,18 @@ export default function Categories() {
       <hr></hr>
         {category.map((category, index) => {
           return (
-            // <div className="cat">
-              // <div className="wrapper">
-              // <div className="cards">
-
-              // <Card style={{ width: '18rem' }}>
-             
-              //   <Card.Body>
-              //   <Link key={index} to={`/details/category/${category.id}`}>
-              //     <Card.Title>{category.name}</Card.Title>
-              //     </Link>
-              //   <img src={category.cat_picture}/>
-              //     <Card.Text>
-                  
-              //     </Card.Text>
-              //     <Link type="button" className="btn" to={"/subscription/" + category.id} 
-              //     style={{backgroundColor: "#74b9ff"}}
-              //      onClick={() => Subscription(category.id)}>subscribe</Link> 
-              //   </Card.Body>
-              // </Card>
-
-              // </div>
-              // </div>
               <div class="col-3 card text-center text-white bg-secondary  ms-4 mt-2">
               <div class="card-header">
               Category
               </div>
               <div class="card-body">
-                <h5 class="card-title">{category.name}</h5>
-                <a href="#" class="btn btn-primary"> <Link to={"/subscription/" + category.id} > subscribe </Link> </a>
+               <Link to={`/category/${category.id}`}>  <h5 class="card-title">{category.name}</h5> </Link>
+               { !usercategorys.includes(category.id) ?
+                <a onClick={(e) => Subscription(e , category.id)} class="btn btn-primary"> subscripe </a>
+                :
+                <a onClick={(e) => unSubscription(e , category.id)} class="btn btn-danger"> Unsubscripe </a>
+               }
+                
               </div>
               <div class="card-footer text-muted">
                 2 days ago

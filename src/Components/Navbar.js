@@ -68,7 +68,7 @@ export default function Navbar() {
                     </Link>{" "}
                   </li>
                   <li>
-                    <Link className="nav-link" to="/category">
+                    <Link className="nav-link" to="/categorys">
                       Categories
                     </Link>
                   </li>
