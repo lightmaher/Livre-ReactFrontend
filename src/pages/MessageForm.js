@@ -8,7 +8,7 @@ import { axiosInstance } from "../utils/axiosInstance";
 
 
 function MessageForm() {
-    const nav = useNavigate()
+      const nav = useNavigate()
       const {id} = useParams()
       const [user , setuser] = useState({})
       useEffect(() => {

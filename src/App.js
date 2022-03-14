@@ -13,8 +13,6 @@ import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
-import BooksEdit from './pages/BooksEdit';
-
 
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
@@ -72,7 +70,6 @@ function App() {
       <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
-      <Route path="/booksedit" exact element={<BooksEdit/>} />
 
       </Routes>
       

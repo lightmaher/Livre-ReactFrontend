@@ -10,11 +10,6 @@ import ReactDOM from "react-dom";
 // import Slider from 'react-slick'
 // import pricingCards from './pages/BooksEdit';
 
-// import {FaChevronLeft, FaChevronRight} from 'react-icons'
-
-// import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
-
 function Books() {
   const [books, setbooks] = useState([]);
   const [category, setCategory] = useState([]);
