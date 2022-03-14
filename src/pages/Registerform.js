@@ -23,6 +23,7 @@ const [registerForm , setRegisterForm] = useState({
      password2 : '',
      gender : '',
      date_of_birth : '',
+     country : '',
      location:'',
      phone : ''
 })
@@ -33,6 +34,7 @@ const [errregisterForm , seterrRegisterForm] = useState({
     password : null,
     password2 : null,
     date_of_birth : null,
+    country : null,
     location:null,
     phone : null
 })
@@ -125,6 +127,18 @@ const [errregisterForm , seterrRegisterForm] = useState({
             })
             
         }
+        if ( e.target.name === "country"){
+            setRegisterForm({
+                ...registerForm,
+                country : e.target.value
+            })
+            seterrRegisterForm({
+               ...errregisterForm ,
+               country : 
+               e.target.value === ''? "this field is required" : null
+            })
+            
+        }
         if ( e.target.name === "location"){
             setRegisterForm({
                 ...registerForm,
@@ -170,6 +184,7 @@ const [errregisterForm , seterrRegisterForm] = useState({
 		formData.append('date_of_birth', registerForm.date_of_birth);
 		formData.append('email', registerForm.email);
 		formData.append('gender', registerForm.gender);
+		formData.append('country', registerForm.country);
 		formData.append('location', registerForm.location);
 		formData.append('password', registerForm.password);
         formData.append('password2', registerForm.password2);
@@ -218,7 +233,11 @@ return (<>
     <input type="date" className={errregisterForm.username != null? "border border-danger form-control" : "form-control"} onChange={(e)=> update(e)} name="date_of_birth"/>
     <div  class="form-text text-danger">{errregisterForm.date_of_birth}</div>
   </div>
-  
+  <div class="mb-3">
+    <label class="form-label">Country</label>
+    <input type="text" className={errregisterForm.password != null? "border border-danger form-control" : "form-control"} onChange={(e)=> update(e)} name="country" id="exampleInputPassword1"/>
+    <div id="emailHelp" class="form-text text-danger">{errregisterForm.country}</div>
+  </div>
   <div class="mb-3">
     <label class="form-label">Loction</label>
     <input type="text" className={errregisterForm.password != null? "border border-danger form-control" : "form-control"} onChange={(e)=> update(e)} name="location" id="exampleInputPassword1"/>

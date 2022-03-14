@@ -40,7 +40,7 @@ export default function Navbar() {
   }
   return (
     <>
-    <div className="nav">
+    <div className="nav1">
       <div className="container">
         <div className="row">
           <div className="col-8" style={{marginTop:"1%"}}>

@@ -131,7 +131,7 @@ export default function AddBook() {
           toast.success("Book added successfully !", {
             position: toast.POSITION.TOP_CENTER,
           }),
-        navigate("/")
+        navigate("/profile")
       )
       .catch((error) => {
         console.error("There was an error!", error);
