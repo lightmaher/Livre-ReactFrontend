@@ -13,8 +13,8 @@ import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
-import * as mdb from 'mdb-ui-kit'; // lib
-import { Input } from 'mdb-ui-kit'; // module
+// import * as mdb from 'mdb-ui-kit'; // lib
+// import { Input } from 'mdb-ui-kit'; // module
 
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
@@ -38,6 +38,7 @@ import Transactions from './pages/Transactions';
 import Messages from './pages/Messages';
 
 import MessageForm from './pages/MessageForm';
+import Subs from './pages/Subs';
 
 
 function App() {
@@ -66,14 +67,16 @@ function App() {
       <Route path="/transactions" element={<Transactions />} />
       <Route path="/messages" element={<Messages />} />
       <Route path="/message/:id" element={<MessageForm />} />
-      <Route path="/category" exact element={<Categories />} />
+      <Route path="/categorys" exact element={<Categories />} />
+      <Route path="/category/:id" exact element={<CategoryDetails />} />
       <Route path="/contactus" exact element={<Contactus />} />
       <Route path="/whoweare" exact element={<Whoweare />} />
       <Route path="/search/:resulte" exact element={<Search />} />
       <Route path="/subscription/:id" exact element={<Subscription/>} />
-      <Route path={"/details/:id?"} exact component={CategoryDetails} />
+      <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
+      <Route path="/subs" exact element={<Subs/>} />
       </Routes>
       
       <ToastContainer />

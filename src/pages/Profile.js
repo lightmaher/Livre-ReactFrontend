@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import { axiosInstance } from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 import "./Profile.css";
 
 function Profile() {
   const [profile, setprofile] = useState({});
   const [books, setbooks] = useState([]);
-  const [rate, setrate] = useState("");
+  const [rate, setrate] = useState(0);
 
   const [receivedtransactions, setreceivedtransactions] = useState([]);
   const [orderedtransactions, setorderedtransactions] = useState([]);
@@ -21,10 +23,9 @@ function Profile() {
     axiosInstance.get("profile").then((res) => {
       setprofile(res.data);
       axiosInstance.get("show_rate/" + res.data.id).then((res) => {
-        setrate(res.data);
+        setrate(parseFloat(res.data));
       });
     });
-    axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
 
     getTrans();
   }, []);
@@ -42,6 +43,8 @@ function Profile() {
     });
   };
   const getTrans = () => {
+    axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
+
     axiosInstance
       .get("user_reciver_transaction")
       .then((res) => setreceivedtransactions(res.data));
@@ -56,7 +59,13 @@ function Profile() {
       .then((res) => console.log(res.data));
     getTrans();
   };
-
+const delbook = (e,id) =>{
+  e.preventDefault();
+  axiosInstance
+      .post("delbook/" + id)
+      .then((res) => console.log(res.data));
+  getTrans()
+}
   const deleterecive = (e, id) => {
     e.preventDefault();
     axiosInstance
@@ -64,7 +73,6 @@ function Profile() {
       .then((res) => console.log(res.data));
     getTrans();
   };
-
   return (
     <>
       <div className="container emp-profile">
@@ -81,11 +89,44 @@ function Profile() {
             </div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>{profile.username}</h5>
-                <h6>{profile.location}</h6>
-                <p className="proile-rating">
-                  RATE : {rate ? <span>{rate}/5</span> : <span>--</span>}
-                </p>
+                <h5 className="user-name">{profile.username}</h5>
+                <h6 style={{ textTransform: "capitalize" }}>
+                  {profile.country}
+                </h6>
+                <div className="stars">
+                {rate ? (
+                    <Stack style={{ display: "inline" }} spacing={1}>
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={rate}
+                        precision={0.5}
+                        readOnly
+                      />
+                    </Stack>
+                ) : (
+                  <span>---</span>
+                  )}
+                  </div>
+                {/* <div className="proile-rating" style={{color: "#2c9db7 !important"}}>
+                  {rate ? (
+                    <span className="stars"><Stack
+                      style={{ display: "inline", color:"#2c9db7 !important" }}
+                      spacing={1}
+                      
+                    >
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={rate}
+                        precision={0.5}
+                        readOnly
+                        
+                      />
+                    </Stack></span>
+                  ) : (
+                    <span>---</span>
+                  )}
+                </div> */}
+
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a
@@ -163,7 +204,9 @@ function Profile() {
                           <label>Gender</label>
                         </div>
                         <div className="col-md-6">
-                          <p>{profile.gender}</p>
+                          <p style={{ textTransform: "capitalize" }}>
+                            {profile.gender}
+                          </p>
                         </div>
                       </div>
                       <div className="row">
@@ -174,6 +217,16 @@ function Profile() {
                           <p>{profile.date_of_birth}</p>
                         </div>
                       </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label>Location</label>
+                        </div>
+                        <div className="col-md-6">
+                          <p style={{ textTransform: "capitalize" }}>
+                            {profile.location}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <div
                       class="tab-pane fade"
@@ -181,34 +234,35 @@ function Profile() {
                       role="tabpanel"
                       aria-labelledby="profile-tab"
                     >
-                      <div className="row">
+                      <div class="row row-cols-1 row-cols-md-2 g-4">
                         {books.map((book) => {
                           return (
-                            <div className="col-md-6">
-                              <div class="card mb-3">
-                                <div class="row g-0">
-                                  <div class="col-md-4">
-                                    <img
-                                      src={"http://127.0.0.1:8000" + book.image}
-                                      class="img-fluid rounded-start"
-                                      alt="picture"
-                                    />
-                                  </div>
-                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                      <Link to={`/book/${book.id}`}>
-                                        <p class="card-title">{book.title}</p>
-                                      </Link>
-                                      <p class="card-text">
-                                        <small class="text-muted">
-                                          Author: {book.author}
-                                        </small>
-                                      </p>
-                                      <p className="card-text">
-                                        Status: {book.status}
-                                      </p>
-                                    </div>
-                                  </div>
+                            <div class="col">
+                              <div class="card h-100">
+                                <img
+                                  src={"http://127.0.0.1:8000" + book.image}
+                                  class="card-img-top"
+                                  alt="..."
+                                />
+                                <div class="card-body">
+                                  <Link to={`/book/${book.id}`}>
+                                    <p class="card-title">
+                                      <span className="c-t">Title: </span>
+                                      {book.title}
+                                    </p>
+                                  </Link>
+                                  <p class="card-text">
+                                    <span className="c-t">Author: </span>{" "}
+                                    {book.author}
+                                  </p>
+                                  <p className="card-text">
+                                    <span className="c-t">Status: </span>
+                                    <span
+                                      style={{ textTransform: "capitalize" }}
+                                    >
+                                      {book.status}
+                                    </span>
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -217,7 +271,7 @@ function Profile() {
                       </div>
                       <button
                         type="button"
-                        class="btn btn-primary btn-sm"
+                        class="btn btn-primary btn-sm mt-4"
                         style={{
                           backgroundColor: "#2c9db7",
                           border: "#2c9db7",
@@ -252,38 +306,38 @@ function Profile() {
                                     </div>
                                     <div class="col-md-8">
                                       <div class="card-body">
-                                        <p class="card-title">
+                                        <p class="card-text">
+                                          <span className="c-t">Title: </span>{" "}
                                           {transaction.book.title}
                                         </p>
                                         <p class="card-text">
-                                          <small class="text-muted">
-                                            Author: {transaction.book.author}
-                                          </small>
+                                          <span className="c-t">Author: </span>{" "}
+                                          {transaction.book.author}
                                         </p>
                                         <p class="card-text">
-                                          <small class="text-muted">
-                                            Sender:{" "}
-                                            {transaction.tr_sender.username}
-                                          </small>
+                                          <span className="c-t">Sender: </span>{" "}
+                                          {transaction.tr_sender.username}
                                         </p>
-                                        <button
-                                          type="button"
-                                          class="btn btn-primary btn-sm ms-2"
-                                          onClick={(e) =>
-                                            acceptrequest(e, transaction.id)
-                                          }
-                                        >
-                                          Accept
-                                        </button>
-                                        <button
-                                          type="button"
-                                          class="btn btn-secondary btn-sm ms-2"
-                                          onClick={(e) =>
-                                            deleterecive(e, transaction.id)
-                                          }
-                                        >
-                                          Decline
-                                        </button>
+                                        <div>
+                                          <button
+                                            type="button"
+                                            class="btn btn-primary btn-sm ms-2"
+                                            onClick={(e) =>
+                                              acceptrequest(e, transaction.id)
+                                            }
+                                          >
+                                            Accept
+                                          </button>
+                                          <button
+                                            type="button"
+                                            class="btn btn-secondary btn-sm ms-2"
+                                            onClick={(e) =>
+                                              deleterecive(e, transaction.id)
+                                            }
+                                          >
+                                            Decline
+                                          </button>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -293,7 +347,6 @@ function Profile() {
                           })}
                       </div>
                     </div>
-
                     <div
                       class="tab-pane fade"
                       id="ordered"
@@ -318,21 +371,18 @@ function Profile() {
                                   </div>
                                   <div className="col-md-8">
                                     <div className="card-body">
-                                      <p className="card-title">
+                                      <p className="card-text">
+                                        <span className="c-t">Title: </span>{" "}
                                         {transaction.book.title}
                                       </p>
                                       <p className="card-text">
-                                        <small class="text-muted">
-                                          Author: {transaction.book.author}
-                                        </small>
+                                        <span className="c-t">Author: </span>{" "}
+                                        {transaction.book.author}
                                       </p>
                                       <p className="card-text">
-                                        <small class="text-muted">
-                                          Receiver:{" "}
-                                          {transaction.tr_receiver.username}
-                                        </small>
+                                        <span className="c-t">Sender: </span>{" "}
+                                        {transaction.tr_sender.username}
                                       </p>
-
                                       <button
                                         onClick={(e) =>
                                           deleterequest(e, transaction.id)

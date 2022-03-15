@@ -1,30 +1,24 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React from 'react'
+import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import axios from 'axios'
-
-export default function CategoryDetails() {
-  const params = useParams();
-  const [books, setbooks] = useState([]);
-  const [cat, setcat] = useState({});
+function Subs() {
+    const [books, setbooks] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:8000/api/category/${params.id}`)
-      .then((res) =>{ 
-        setbooks(res.data.books);
-        setcat(res.data.cat)
-      })
-        
-  }, [] );
+    axiosInstance.get('subsbooks').then(res => {
+       setbooks(res.data)
+    })
+  }, [])
+  
   return (
-    <>
-     <div className="container mt-5">
-       <h1> {cat.name} </h1>
+      <>
+    <h1>My subs</h1>
+    <div className="container mt-5">
        <div className="row">
          {
            books.map( book=>{
@@ -35,6 +29,9 @@ export default function CategoryDetails() {
                   <img src={"http://127.0.0.1:8000" + book.image} height={100} class="img-fluid rounded-start mt-2" alt="..." /> 
                   </div>
                   <div class="col-md-8">
+                  <div class="card-header">
+                    {book.cat.name}
+                  </div>
                     <div class="card-body">
                    <Link to={`/book/${book.id}`}  className="text-primary"> <h5 class="card-title">{book.title}</h5> </Link>   
                     <Link className="text-info" to={`/profile/${book.user.id}`} > <p class="card-text"><b>Owner:</b> {book.user.username}</p> </Link>  
@@ -49,7 +46,11 @@ export default function CategoryDetails() {
            })
          }
          </div>
-       </div>
-    </>
-  );
+         </div>
+         </>
+         
+  )
 }
+
+export default 
+Subs

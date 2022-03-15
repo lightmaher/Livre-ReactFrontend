@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "alertifyjs/build/css/alertify.css";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
 import { axiosInstance } from "../utils/axiosInstance";
 import '../pages/login.css';
 

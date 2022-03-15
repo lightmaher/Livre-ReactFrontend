@@ -101,7 +101,8 @@ export default function Navbar() {
 
     {!user ? (
    <>
-  <li className="nav-item"><Link className="nav-link btn btn-info btn-lg"  style={{color:"#ffffff", marginTop:"7%"}} to="/register" >
+  <li className="nav-item"><Link className="nav-link "  
+  style={{color:"#2c9db7", marginTop:"7%"}} to="/register" >
                 signup
               </Link></li>
 
@@ -115,8 +116,8 @@ export default function Navbar() {
       </a>
       </li>
      ) : (
-      <li className="nav-item btn btn">
-     <Link className="nav-link btn btn-secondary btn-lg "  style={{color:"#ffffff" }} to="/login " >
+      <li className="nav-item">
+     <Link className="nav-link"  style={{color:"#2c9db7" }} to="/login " >
           Login
        </Link>
         </li>

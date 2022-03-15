@@ -4,16 +4,18 @@ import "./TermsOfUse.css";
 function TermsOfUse() {
   return (
     <>
-    <div className="terms p-5 ">
-    <img src="terms-of-service.png" className="img-fluid" alt="terms-of-service.png" />
+    <div className="terms p-5 mb-5 ">
+      <div className="text-center">
+      <img src="terms-of-service.png" className="img-fluid" alt="terms-of-service.png" />
 
-        <h1 className="heading-text text-center mb-5 mt-5 ">Livre Website Terms of Use</h1>
+      </div>
 
-        <div className="accordion ps-5 pe-5" id="accordionExample">
+        <h1 className="heading-text text-center mb-5 mt-5 fw-bold ">Livre Website Terms of Use</h1>
+        <div className="accordion ps-5 pe-5 " id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
               <button
-                className="accordion-button"
+                className="accordion-button fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
@@ -59,10 +61,10 @@ function TermsOfUse() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item ">
             <h2 className="accordion-header" id="headingTwo">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
@@ -123,7 +125,7 @@ function TermsOfUse() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
@@ -232,7 +234,7 @@ function TermsOfUse() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFour">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFour"
@@ -281,7 +283,7 @@ function TermsOfUse() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingFive">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseFive"
@@ -319,7 +321,7 @@ function TermsOfUse() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingSix">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseSix"
@@ -383,7 +385,7 @@ Copyright Policy              </button>
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingSeven">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseSeven"
@@ -630,7 +632,7 @@ Copyright Policy              </button>
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingEight">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button collapsed fw-bolder fs-5"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseEight"
