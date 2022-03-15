@@ -45,9 +45,7 @@ function App() {
       <Routes>
     
       <Route path="/"     exact element={<Home/>} />
-
       <Route path="/books" exact element={<Books/>} />
-
       <Route path="/register"      element={<Registerform />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
@@ -70,9 +68,9 @@ function App() {
       <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
-
+    
       </Routes>
-      
+    
       <ToastContainer />
       <Footer />
 
