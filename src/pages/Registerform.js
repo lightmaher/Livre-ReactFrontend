@@ -24,6 +24,7 @@ export const Registerform = () => {
     password2: "",
     gender: "",
     date_of_birth: "",
+    country: "",
     location: "",
     phone: "",
   });
@@ -34,6 +35,7 @@ export const Registerform = () => {
     password: null,
     password2: null,
     date_of_birth: null,
+    country: null,
     location: null,
     phone: null,
   });
@@ -134,6 +136,16 @@ export const Registerform = () => {
         date_of_birth: e.target.value === "" ? "this field is required" : null,
       });
     }
+    if (e.target.name === "country") {
+      setRegisterForm({
+        ...registerForm,
+        country: e.target.value,
+      });
+      seterrRegisterForm({
+        ...errregisterForm,
+        country: e.target.value === "" ? "this field is required" : null,
+      });
+    }
     if (e.target.name === "location") {
       setRegisterForm({
         ...registerForm,
@@ -175,6 +187,7 @@ export const Registerform = () => {
     formData.append("date_of_birth", registerForm.date_of_birth);
     formData.append("email", registerForm.email);
     formData.append("gender", registerForm.gender);
+    formData.append("country", registerForm.country);
     formData.append("location", registerForm.location);
     formData.append("password", registerForm.password);
     formData.append("password2", registerForm.password2);
@@ -205,8 +218,8 @@ export const Registerform = () => {
           <div className="position-absolute top-50 start-50 translate-middle ">
             <h1>Livre</h1>
             <h3>
-              Your online book Library to you with Zero Cost ready for exchange
-              or donate or more and more
+              Your online Library with Zero cost. Get ready to exchange
+              , donate .. and MUCH MORE !
             </h3>
           </div>
         </div>
@@ -218,7 +231,7 @@ export const Registerform = () => {
             <div>
               <h1 className="signin">Register in LIVRE</h1>
               <form onSubmit={(e) => send(e)} className="text-left p-2 rounded">
-                <div className='form_text mt-2'>
+                <div className="form_text mt-2">
                   <label class="form-label">Email address</label>
                   <input
                     type="email"
@@ -273,6 +286,21 @@ export const Registerform = () => {
                     {errregisterForm.date_of_birth}
                   </div>
 
+                  <label class="form-label">Country</label>
+                  <input
+                    type="text"
+                    className={
+                      errregisterForm.password != null
+                        ? "border border-danger form-control"
+                        : "form-control"
+                    }
+                    onChange={(e) => update(e)}
+                    name="country"
+                    id="exampleInputPassword1"
+                  />
+                  <div id="emailHelp" class="form-text text-danger">
+                    {errregisterForm.country}
+                  </div>
                   <label class="form-label">Loction</label>
                   <input
                     type="text"
@@ -346,7 +374,12 @@ export const Registerform = () => {
                   </div>
                 </div>
                 <button
-                  className=' btn mt-3 login_edit' style={{backgroundColor:'#2c9db7',color:'#ffffff',width:"100%"}}
+                  className=" btn mt-3 login_edit"
+                  style={{
+                    backgroundColor: "#2c9db7",
+                    color: "#ffffff",
+                    width: "100%",
+                  }}
                   type="submit"
                   class="btn btn-primary"
                   disabled={

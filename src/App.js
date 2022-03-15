@@ -14,7 +14,6 @@ import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
 
-
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
 
@@ -70,7 +69,7 @@ function App() {
       <Route path="/whoweare" exact element={<Whoweare />} />
       <Route path="/search/:resulte" exact element={<Search />} />
       <Route path="/subscription/:id" exact element={<Subscription/>} />
-      <Route path={"/details/:id?"} exact component={CategoryDetails} />
+      <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
       <Route path="/subs" exact element={<Subs/>} />

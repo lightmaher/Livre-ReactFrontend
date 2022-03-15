@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
 <>
-<footer class="footer py-3 bg-light">
+<footer class="footer py-3">
   <div class="container">
     <div className="row">
     <div className="col-4">
