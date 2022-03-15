@@ -13,7 +13,8 @@ import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
-
+import * as mdb from 'mdb-ui-kit'; // lib
+import { Input } from 'mdb-ui-kit'; // module
 
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
@@ -26,7 +27,7 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './Components/NotFound';
 import Adminmanage from './pages/Adminmanage';
 import AddCategory from './Components/AddCategory';
-import Responsive from './Components/Responsive';
+
 import EditCategory from './Components/EditCategory';
 import Profile from './pages/Profile';
 import Subscription from './Components/Subscription';
@@ -76,6 +77,8 @@ function App() {
       </Routes>
       
       <ToastContainer />
+      <Footer />
+
     </AuthProvider>       
 
   );

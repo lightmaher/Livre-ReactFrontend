@@ -12,6 +12,7 @@ import axios from "axios";
 import { axiosInstance } from "../utils/axiosInstance";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
+import Whoweare from "./Whoweare"
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -33,40 +34,9 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        {/* <div className="search-bar">
-          <div className="st">
-            <h1>Your online book Library with Zero Cost</h1>
-            <small>ready for exchange or donate or more and more</small>
-          </div>
-          <InputGroup controlId="floatingInput" label="Search" className="mb-3">
-            <Form.Control
-              type="search"
-              placeholder="Search for your desired Book to get it for free or exchange "
-              style={{ height: "4em" }}
-              aria-describedby="basic-addon2"
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-            <Link
-              className="btn btn-info "
-              variant="outline-secondary"
-              style={{ color: "#ffff", width: "9em", fontSize: "1.8VW" }}
-              id="button-addon2  "
-              type="button"
-              to={"/search/" + searchValue}
-            >
-              <span
-                style={{ padding: "6%", marginLeft: "4%", marginRight: "3.5%" }}
-              >
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                Search
-              </span>
-            </Link>
-          </InputGroup>
-        </div> */}
+      <div> 
         
-        
-        <Carousel variant="dark" className="car">
+       
         <div className="search-bar">
           <div className="st">
             <h1>Your online book Library with Zero Cost</h1>
@@ -97,6 +67,7 @@ export default function Home() {
             </Link>
           </InputGroup>
         </div>
+        <Carousel variant="dark" className="car">
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -132,10 +103,11 @@ export default function Home() {
         </Carousel>
       </div>
       <div className="clear"></div>
-
-      <div className="sec-2">
-        <div className="container sec2-cont">
-          <div className="sec2-p">
+        
+      <div className="container sec-2">
+        <div className="row">
+          <div className="col">
+            <div className="hamo">
             <h1 style={{ color: "#2c9db7" }}>Take a Tour</h1>
             <hr></hr>
             <p>
@@ -150,15 +122,22 @@ export default function Home() {
               Take a tour
             </Link>
           </div>
-
+          </div>
+        <div className="col ">
           <img
             src={require(`../Images/slider/nav.jpeg`)}
             className="sec2-img"
             alt="..."
           />
+          </div>
         </div>
       </div>
       <div className="clear"></div>
+
+      <div className="aboutus">
+
+      {/* <Whoweare/> */}
+      </div>
     </>
   );
 }

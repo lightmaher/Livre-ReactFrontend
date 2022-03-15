@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
+import { axiosInstance } from '../utils/axiosInstance';
 
 
 export const AuthContext = React.createContext()
@@ -12,6 +13,7 @@ export const AuthContext = React.createContext()
 export const AuthProvider = ({children}) => {
     let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+    let [profile, setprofile] = useState({})
 
     const history = useNavigate()
 
@@ -30,10 +32,21 @@ export const AuthProvider = ({children}) => {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            toast.success("successfully logged in !", {
-                position: toast.POSITION.TOP_CENTER
-              })
-            history('/')
+            axiosInstance.get('profile').then( res=>{
+                    if (res.data.is_blocked == true){
+                        localStorage.removeItem('authTokens');
+                        toast.error("You are blocked !", {
+                            position: toast.POSITION.TOP_CENTER
+                          });
+                         setUser(null)
+                    } else {
+                        toast.success("successfully logged in !", {
+                            position: toast.POSITION.TOP_CENTER
+                          })
+                        history('/')
+                    }
+
+            })
         }else{
             toast.error("Email or password are Incorrect !", {
                 position: toast.POSITION.TOP_CENTER

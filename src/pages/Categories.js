@@ -44,36 +44,51 @@ export default function Categories() {
           
       //     }
   return (
-    <div >
-      <h1>Categories</h1>
+    <div className='container' >
+      <div className='row'>
+        
+      <h1 className='text-light'> Categories</h1>
+      <hr></hr>
         {category.map((category, index) => {
           return (
             // <div className="cat">
-              <div className="wrapper">
-              <div className="cards">
+              // <div className="wrapper">
+              // <div className="cards">
 
-              <Card style={{ width: '18rem' }}>
+              // <Card style={{ width: '18rem' }}>
              
-                <Card.Body>
-                <Link key={index} to={`/details/category/${category.id}`}>
-                  <Card.Title>{category.name}</Card.Title>
-                  </Link>
-                <img src={category.cat_picture}/>
-                  <Card.Text>
+              //   <Card.Body>
+              //   <Link key={index} to={`/details/category/${category.id}`}>
+              //     <Card.Title>{category.name}</Card.Title>
+              //     </Link>
+              //   <img src={category.cat_picture}/>
+              //     <Card.Text>
                   
-                  </Card.Text>
-                  <Link type="button" className="btn" to={"/subscription/" + category.id} 
-                  style={{backgroundColor: "#74b9ff"}}
-                   onClick={() => Subscription(category.id)}>subscribe</Link> 
-                </Card.Body>
-              </Card>
+              //     </Card.Text>
+              //     <Link type="button" className="btn" to={"/subscription/" + category.id} 
+              //     style={{backgroundColor: "#74b9ff"}}
+              //      onClick={() => Subscription(category.id)}>subscribe</Link> 
+              //   </Card.Body>
+              // </Card>
 
+              // </div>
+              // </div>
+              <div class="col-3 card text-center text-white bg-secondary  ms-4 mt-2">
+              <div class="card-header">
+              Category
               </div>
+              <div class="card-body">
+                <h5 class="card-title">{category.name}</h5>
+                <a href="#" class="btn btn-primary"> <Link to={"/subscription/" + category.id} > subscribe </Link> </a>
               </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
             
           );
         })}
-    
+    </div>
     </div>
   )
 }

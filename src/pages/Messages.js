@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 function Messages() {
 const [Messages,setMessages] = useState([]);
+const [sentMessages,setsentMessages] = useState([]);
+
 useEffect(() => {
 getmessages()
 }, [])
@@ -14,6 +16,9 @@ const getmessages = () => {
  axiosInstance.get('messages').then((res)=> {
      setMessages(res.data)
  })
+ axiosInstance.get('sentmessages').then((res)=> {
+    setsentMessages(res.data)
+})
 }
 
 const deletemessage = (e , id) => {
@@ -27,7 +32,7 @@ const deletemessage = (e , id) => {
 
   return (
       <>
-    <h1 className='text-light mt-2'>Messages</h1>
+    <h1 className='text-light mt-2'> Recived Messages</h1>
     <div className='container mt-3'>
         <div className='row'>
     {
@@ -36,6 +41,27 @@ const deletemessage = (e , id) => {
             <div class="card-header">Message</div>
             <div class="card-body">
               <h5 class="card-title">From : {message.m_sender.username}</h5>
+              <p class="card-text">{message.content}</p>
+            </div>
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
+            <Link to={`/message/${message.m_sender.id}`} class="btn btn-primary me-md-2" type="button">Replay</Link>
+            <button class="btn btn-danger" onClick={(e)=> deletemessage(e,message.id) } type="button">Delete</button>
+           </div>
+          </div>)
+        })
+    }
+     </div>
+     </div>
+     <hr></hr>
+     <h1 className='text-light mt-2'> Sent Messages</h1>
+    <div className='container mt-3'>
+        <div className='row'>
+    {
+        sentMessages.map(message => {
+            return(<div class="card text-dark bg-light mb-3 col-3 ms-2" >
+            <div class="card-header">Message</div>
+            <div class="card-body">
+              <h5 class="card-title">To : {message.m_receiver.username}</h5>
               <p class="card-text">{message.content}</p>
             </div>
            <div class="d-grid gap-2 d-md-flex justify-content-md-end m-2">
