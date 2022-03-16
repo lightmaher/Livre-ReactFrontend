@@ -35,6 +35,7 @@ import Transactions from './pages/Transactions';
 import Messages from './pages/Messages';
 import MessageForm from './pages/MessageForm';
 import Subs from './pages/Subs';
+import EditProfile from './pages/EditProfile';
 
 
 function App() {
@@ -73,6 +74,8 @@ function App() {
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
       <Route path="/subs" exact element={<Subs/>} />
+      <Route path="/editprofile" exact element={<EditProfile/>} />
+
       </Routes>
       
       <ToastContainer />

@@ -14,12 +14,18 @@ function Profile() {
   const [profile, setprofile] = useState({});
   const [books, setbooks] = useState([]);
   const [rate, setrate] = useState(0);
+  const [postimage, setPostImage] = useState(null);
+
 
   const [receivedtransactions, setreceivedtransactions] = useState([]);
   const [orderedtransactions, setorderedtransactions] = useState([]);
   const isMounted = useRef(false);
   const nav = useNavigate();
   useEffect(() => {
+    getprofile();
+    getTrans();
+  }, []);
+  const getprofile = () =>{
     axiosInstance.get("profile").then((res) => {
       setprofile(res.data);
       axiosInstance.get("show_rate/" + res.data.id).then((res) => {
@@ -27,8 +33,7 @@ function Profile() {
       });
     });
 
-    getTrans();
-  }, []);
+  }
   const showrate = () => {
     axiosInstance.get("show_rate/" + profile.username).then((res) => {
       console.log(res.data);
@@ -66,14 +71,29 @@ const delbook = (e,id) =>{
       .then((res) => console.log(res.data));
   getTrans()
 }
-  const deleterecive = (e, id) => {
+const changeimage = (e) => {
+  e.preventDefault();
+  let formData = new FormData();
+  if (e.target.files[0]){
+  formData.append('image' , e.target.files[0])
+  } else {
+    return 0
+  }        
+  axiosInstance.post('changeimage' , formData).then(
+    res => {
+      getprofile();
+    }
+  )
+  
+}
+const deleterecive = (e, id) => {
     e.preventDefault();
     axiosInstance
       .post("decline_exchange/" + id)
       .then((res) => console.log(res.data));
     getTrans();
-  };
-  return (
+};
+ return (
     <>
       <div className="container emp-profile">
         <form method="post">
@@ -83,7 +103,9 @@ const delbook = (e,id) =>{
                 <img src={"http://127.0.0.1:8000" + profile.image} alt="" />
                 <div className="file btn btn-lg btn-primary">
                   Change Photo
-                  <input type="file" name="file" />
+                  <input type="file" accept="image/*"
+                    className="form-control"
+                    id="post-image" name="file" onChange={(e) => {changeimage(e)}}/>    
                 </div>
               </div>
             </div>
@@ -406,12 +428,7 @@ const delbook = (e,id) =>{
               </div>
             </div>
             <div className="col-md-2">
-              <input
-                type="submit"
-                className="profile-edit-btn"
-                name="btnAddMore"
-                value="Edit Profile"
-              />
+             <Link to='/editprofile' className="btn btn-secondary" > Edit Profile</Link>
             </div>
           </div>
         </form>

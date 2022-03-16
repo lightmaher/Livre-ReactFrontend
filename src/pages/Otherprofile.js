@@ -39,21 +39,40 @@ function Otherprofile() {
       nav("/");
     });
   };
+
+  const send = (e) => {
+    e.preventDefault();
+    console.log(e.target.content.value)
+    if (e.target.content.value === ""){
+            toast.error('message is empty !')
+    } 
+    else {
+        axiosInstance.post('message/' + id,{'content' : e.target.content.value}).then(
+           res => {toast.success(`message sent succefully !`, {
+                position: toast.POSITION.TOP_CENTER
+              });
+              e.target.content.value = ''
+            }
+        )
+    }
+  }
   return (
     <>
       <div class="container emp-profile">
-        <form method="post">
           <div class="row">
             <div class="col-md-4">
               <div class="profile-img">
                 <img src={"http://127.0.0.1:8000" + profile.image} alt="" />
               </div>
               <div className="message-area">
-                <div></div>
-              <Link to={`/message/${profile.id}`} className="btn btn-info">
-                        {" "}
-                        Send Message{" "}
-                      </Link>
+                <div>
+                <form  onSubmit={(e) => send(e)}>
+                  <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
+                  <textarea class="form-control" name='content' rows="3"></textarea>
+                  <button className='btn btn-primary mt-2'type="submit" > Send </button>
+                </form>
+                </div>
+             
               </div>
             </div>
             <div class="col-md-6">
@@ -225,7 +244,6 @@ function Otherprofile() {
               </div>
             </div>
           </div>
-        </form>
       </div>
     </>
   );

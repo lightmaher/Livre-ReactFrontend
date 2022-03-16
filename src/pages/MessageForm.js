@@ -46,7 +46,7 @@ function MessageForm() {
     <div class="mb-3">
     <form method='POST' onSubmit={(e) => send(e)}>
     <h4> to : {user.username}</h4>
-   <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
+    <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
     <textarea class="form-control" name='content' rows="3"></textarea>
     <button className='btn btn-primary mt-2' type='submit'> Send </button>
     </form>

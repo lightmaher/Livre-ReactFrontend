@@ -61,7 +61,7 @@ function Whoweare() {
             </h5>
             <div className="text-center">
               <a
-                href="https://www.linkedin.com/in/tarek-khalil-476452148/"
+                href="https://www.linkedin.com/in/nour-saaden-18779a150/"
                 className="btn btn-primary "
               >
                 Linkedin
@@ -82,7 +82,7 @@ function Whoweare() {
             </h5>
             <div className="text-center">
               <a
-                href="https://www.linkedin.com/in/tarek-khalil-476452148/"
+                href="https://www.linkedin.com/in/yasmina-mohamed-5a619422b/"
                 className="btn btn-primary "
               >
                 Linkedin
@@ -148,7 +148,7 @@ function Whoweare() {
             </h5>
             <div className="text-center">
               <a
-                href="https://www.linkedin.com/in/tarek-khalil-476452148/"
+                href="https://eg.linkedin.com/in/ebram-tooma-a4901910a"
                 className="btn btn-primary "
               >
                 Linkedin
