@@ -135,7 +135,7 @@ export default function AddBook() {
       });
   };
   return (
-    <div className="row">
+    <div className="row" style={{marginTop:"5%"}}>
       <div className=" col-5 text-white position-relative leftsection ">
         <div className="position-absolute top-50 start-50 translate-middle ">
           <h1>Livre</h1>
@@ -148,7 +148,7 @@ export default function AddBook() {
       <div class="col-4">
         <div
           className="d-flex justify-content-center align-items-center"
-          style={{ height: "94vh" }}
+          style={{ height: "90vh" }}
         >
           <div>
             <h1 className="signin">Add Book</h1>

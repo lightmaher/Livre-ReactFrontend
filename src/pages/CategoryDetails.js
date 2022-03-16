@@ -30,6 +30,7 @@ export default function CategoryDetails() {
         fontSize: "300%",
         marginLeft: "11%",
         fontFamily: "DM Sans",
+        textTransform:"uppercase"
       }}
     >
       {cat.name}

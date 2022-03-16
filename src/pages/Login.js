@@ -62,7 +62,7 @@ function showpass(e){
           </div>
         </div>
         <div class="col-4">
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '94vh'}}>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '90vh'}}>
             <div>
                 <h1 className='signin'>Login to LIVRE</h1>
                 <form className='text-left p-2 rounded' onSubmit={(e) => loginUser(e)}>

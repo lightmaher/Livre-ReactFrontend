@@ -74,8 +74,8 @@ const delbook = (e,id) =>{
     getTrans();
   };
   return (
-    <>
-      <div className="container emp-profile">
+    <div style={{marginTop:"5%"}} >
+      <div className="container emp-profile" >
         <form method="post">
           <div className="row">
             <div className="col-md-4">
@@ -416,7 +416,7 @@ const delbook = (e,id) =>{
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

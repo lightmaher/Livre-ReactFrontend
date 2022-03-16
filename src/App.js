@@ -45,7 +45,7 @@ function App() {
   
   return (
     <AuthProvider>
-       {/* <Navbar /> */}
+       <Navbar />
 
       <Routes>
       <Route path="/"     exact element={<Home/>} />
@@ -77,7 +77,9 @@ function App() {
 
       </Routes>
       <ToastContainer />
-      {/* <Footer /> */}
+
+
+      <Footer />
     </AuthProvider>       
 
   );

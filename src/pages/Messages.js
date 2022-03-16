@@ -70,7 +70,7 @@ const deletemessage = (e , id) => {
 }
 
   return (
-      <>
+      <div style={{marginTop:"7%"}}>
 <div class="container mt-3" >
 <div class="row clearfix border" > 
     <div class="col-lg-12">
@@ -154,7 +154,7 @@ const deletemessage = (e , id) => {
     </div>
 </div>
 </div>
-       </>
+       </div>
   )
 }
 

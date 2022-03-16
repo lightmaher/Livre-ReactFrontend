@@ -2,7 +2,7 @@
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-  }
+  } */
   
   body {
     background: #fff;
@@ -16,7 +16,7 @@
     margin: auto;
   }
   .cards-container {
-    display: flex;
+    /* display: flex; */
     border-radius: 6px;
     color: #fff;
     background: #eee;
@@ -35,7 +35,7 @@
     box-shadow: 0 1px 1rem -4px #000;
     background: #fff;
     margin: 1rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 6px;
     cursor: pointer;
     transition: all 250ms ease-in-out;

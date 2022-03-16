@@ -81,7 +81,7 @@ export default function Categories() {
         <div className="cards-container">
           {
             props.cards.map((category) => (
-              <Card title={<a style={{textAlign:"center",color:"#2c9db7"}} href = {`/category/${category.id}`}>{category.name}</a>  }
+              <Card title={<a style={{textAlign:"center",color:"#2c9db7",textTransform:"uppercase",fontWeight:"normal"}} href = {`/category/${category.id}`}>{category.name}</a>  }
                 imgUrl={ "http://127.0.0.1:8000" + category.image } 
                 subscripe={ !usercategorys.includes(category.id) ?
                   <a style={{backgroundColor:"#2c9db7",color:"#ffffff"}} onClick={(e) => Subscription(e , category.id)} class="btn" > subscripe </a>
@@ -102,13 +102,13 @@ export default function Categories() {
           );
         }
       }
-      
       ReactDOM.render(<App/>, document.querySelector('#app'));
       
 /************************************************************************************** */
   return (
     <>
-    
+          {/* <div id="app"></div> */}
+
     </>
   )
 }

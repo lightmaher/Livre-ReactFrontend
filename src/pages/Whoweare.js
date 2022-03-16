@@ -7,9 +7,9 @@ function Whoweare() {
       <div className="container mt-5">
         <div className="row  ">
           <div className="col-md-4 col-sm-12 ">
-            <div className="mt-5 ms-3">
+            <div className="mt-5 ms-3" >
               <h1 className="heading-text  text-center fw-bold ">Who we Are</h1>
-              <h5 className=" mt-4 pt-4 text fw-bolder">
+              <h5 className=" mt-4 pt-4 text fw-bolder" style={{color:"#5f5d5d"}}>
                 We Are a Group of ancient readers that still keeps the value of
                 reading , but sometimes they are searching and searching without
                 finding the desired book so we came with LIVRE to find your
@@ -20,7 +20,7 @@ function Whoweare() {
 
           <div className="col-md-8  col-sm-12">
             <div className="float-end  " >
-            <img src="./About-Us.png" className="img-fluid " width={750} alt="..." />
+            <img style={{width:"80vw",height:"75vh"}} src="./About-Us.png" className="img-fluid " alt="..." />
 
             </div>
           </div>
@@ -35,13 +35,14 @@ function Whoweare() {
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4" style={{color:"#5f5d5d"}}>
               Tarek Eldebsy
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary heading-text " 
+                className="btn heading-text " 
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
@@ -56,13 +57,14 @@ function Whoweare() {
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4"style={{color:"#5f5d5d"}}>
             Nour Maher
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary "
+                className="btn "
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
@@ -77,13 +79,14 @@ function Whoweare() {
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4" style={{color:"#5f5d5d"}}>
             Yasmina Mohamed
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary "
+                className="btn  "
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
@@ -96,17 +99,18 @@ function Whoweare() {
               <img
                 src="./salma.jpg"
                 className="circle mt-5 text-center "
-                alt="Salma Basyouuni"
+                alt="Salma Mohamed"
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
-            Salma Basyouuni
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4"style={{color:"#5f5d5d"}}>
+            Salma Mohamed
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary "
+                className="btn "
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
@@ -121,13 +125,14 @@ function Whoweare() {
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4" style={{color:"#5f5d5d"}}>
             Yousef Mohamed
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary "
+                className="btn  "
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
@@ -143,13 +148,14 @@ function Whoweare() {
               />
             </div>
 
-            <h5 className="heading-text fs-3 text-center pb-3 mt-4">
+            <h5 className="heading-text fs-3 text-center pb-3 mt-4" style={{color:"#5f5d5d"}}>
               Ebram Tooma
             </h5>
             <div className="text-center">
               <a
                 href="https://www.linkedin.com/in/tarek-khalil-476452148/"
-                className="btn btn-primary "
+                className="btn "
+                style={{backgroundColor: "#2c9db7",color:"#ffffff"}}
               >
                 Linkedin
               </a>
