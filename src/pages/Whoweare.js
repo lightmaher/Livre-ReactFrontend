@@ -101,7 +101,7 @@ function Whoweare() {
             </div>
 
             <h5 className="heading-text fs-3 text-center pb-3 mt-4">
-            Salma Basyouuni
+            Salma Mohamed
             </h5>
             <div className="text-center">
               <a
