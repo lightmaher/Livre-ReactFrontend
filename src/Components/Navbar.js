@@ -5,11 +5,13 @@ import { axiosInstance } from "../utils/axiosInstance";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass,faBars,faBook, faMessage,faUser, faAlignCenter} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass,faBars,faBook, faMessage,faUser, faAlignCenter,faArrowsRotate} from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 
 export default function Navbar() {
+
+  
   const [searchValue, setSearchValue] = useState([]);
   const [resulte, setResulte] = useState(
     []
@@ -28,11 +30,28 @@ export default function Navbar() {
     });
     
   }, []);
+
+  const [click, setClick] = useState(false)
+    const handleClick = () => setClick(!click)
+
+    const closeMenu = () => setClick(false)
+
+// const closeMenu = () => setClick(false)
+const [colors, setColors]=useState(false)
+const changeColors = ()=>{
+  if (window.scrollY >=90){
+      setColors(true)
+    } else {
+    setColors(false)
+  }
+}
+  window.addEventListener('scroll' ,changeColors)
   return(
 
 <>
-<div className="container-fluid con">
-  <div className="row navbar fixed-top navbar-light bg-light">
+
+<div className={colors ? 'header header-bg': 'header'}>
+  <div className="row navbar fixed-top ">
     <div className="col-4">
     <nav className="nav">
     <li className="nav-item liv"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></li>
@@ -43,7 +62,7 @@ export default function Navbar() {
         <input
           
           type="search"
-          style={{ height: "2em" ,width:"7em", backgroundColor:"-moz-initial", marginRight:"0"}}
+          style={{ height: "2em",width:"7em", backgroundColor:"-moz-initial", marginRight:"0"}}
           className="form-control ser"
           placeholder="search"
           aria-label="Search"
@@ -54,7 +73,7 @@ export default function Navbar() {
           type="button"
           to={"/search/" + searchValue}
           
-          style={{ color: "#2c9db7", width: "3.5em",  backgroundColor:"#f8f9fA" ,height:"4.8vh" ,marginTop:"7%" , marginLeft:"3%", padding:"1%"}}
+          style={{ color: "#2c9db7", width: "3.5em",  backgroundColor:"#f8f9fA" ,height:"4.3vh" ,marginTop:"7%" , marginLeft:"3%", padding:"1%"}}
         >
           <span style={{ color: "#2c9db7", fontSize:"1.5em" ,marginTop:"0%", fontWeight:"bolder" ,alignItem:"center"}}>
            
@@ -67,34 +86,45 @@ export default function Navbar() {
       </nav>
     </div>
 
-  <div className="col-4">
+  <div className="col-5">
   <ul className="nav justify-content-center" >
   <li className="nav-item"  >
-  <Link className="nav-link" to="/" style={{color:"#2c9db7" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Home </Link> 
+  <Link className="nav-link" to="/" style={{color:"#ffffff" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Home </Link> 
   </li>
   <li className="nav-item ">
-  <Link className="nav-link" to="/category" style={{color:"#2c9db7" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Categories </Link>
+  <Link className="nav-link" to="/category" 
+  style={{color:"#ffffff" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Categories </Link>
+  </li>
+  <li className="nav-item ">
+  <Link className="nav-link" to="/Books" 
+  style={{color:"#ffffff" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Books </Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link" to="/contactus" style={{color:"#2c9db7" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Contactus</Link>  
+  <Link className="nav-link" to="/contactus" 
+  style={{color:"#ffffff" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>Contactus</Link>  
   </li>
   <li className="nav-item">
-  <Link className="nav-link" to="/Who we are" style={{color:"#2c9db7" ,fontFamily:"cursive" ,fontWeight:"bolder"}}> who we are</Link>
+  <Link className="nav-link" to="/Whoweare" 
+  style={{color:"#ffffff" ,fontFamily:"cursive" ,fontWeight:"bolder"}}> who we are</Link>
   </li>
 </ul>
     </div>
      
- <div className="col-4"  >
+ <div className="col-3"  >
     <ul className="nav justify-content-end" style={{marginRight:"1%" ,fontFamily:"cursive" ,fontWeight:"bolder"}}>
   {user ? (
    <>
-  <li className="nav-item"> <Link className="nav-link" to="/main-profile"  style={{color:"#2c9db7", fontSize:"1.9vw"}}>
+  <li className="nav-item"> <Link className="nav-link" to="/main-profile"  style={{color:"#ffffff", fontSize:"1.9vw"}}>
   <FontAwesomeIcon icon={faUser} /></Link></li>
 
   <li className="nav-item"> <Link className="nav-link" to="/messages"  style={{color:"#2c9db7", fontSize:"2vw"}}>          
   <FontAwesomeIcon icon={faMessage}/> </Link></li>
 
   <li className="nav-item"><Link className="nav-link" to="/transactions"  style={{color:"#2c9db7", fontSize:"2vw"}}>
+  <FontAwesomeIcon icon={faArrowsRotate}/></Link></li>
+
+  
+  <li className="nav-item"><Link className="nav-link" to="/AddBook"  style={{color:"#2c9db7", fontSize:"2vw"}}>
   <FontAwesomeIcon icon={faBook}/></Link></li>
   </>
  ) : null}
@@ -111,7 +141,7 @@ export default function Navbar() {
 {/* style={{color:"GrayText", margin:"6%" ,fontWeight:"bolder", fontSize:"1.5vw"}}> */}
       {user ? (
      <li className="nav-item active">
-      <a className="nav-link" onClick={logoutUser} >
+      <a className="nav-link" onClick={logoutUser} style={{olor:"#FFFFFF",fontSize:"1.5vw" }}>
            Logout
       </a>
       </li>
@@ -134,5 +164,6 @@ export default function Navbar() {
     </div> 
    </div>
 </div>
+
 </>
 )}

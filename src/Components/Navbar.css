@@ -13,10 +13,28 @@
 
 .con{
   
-  height: 17vh;
- 
+  height: 6vh;
+  background-color:#137b91;
 }
 
+.header {
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: .3s ease-in;
+  overflow: hidden;
+  background-color: transparent;
+}
+.header-bg{
+  background-color: rgb(116, 116, 116);
+  
+}
+/* .hamburger {
+  display: block;
+} */
 .liv{
     color:#2c9db7;
     font-size: 3vw !important;
@@ -47,3 +65,5 @@
 .mar{
   margin-top:2% ;
 }
+
+

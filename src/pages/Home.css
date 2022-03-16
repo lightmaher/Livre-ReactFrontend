@@ -69,3 +69,15 @@ body{
     position: absolute;
 
 }
+
+.abliv{
+   background-color: aliceblue;
+   height: 70vh;
+}
+
+.who{
+/* max-width: 80vw; */
+margin:5% ;
+background-color: aliceblue;
+
+}

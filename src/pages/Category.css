@@ -24,10 +24,10 @@
     }  
 } */
 /***********************************************************************************/
-*, *::before, *::after {
+/* *, *::before, *::after {
     margin: 0;
     padding: 0;
-  }
+  } */
   
   body {
     background: #333;
@@ -42,14 +42,14 @@
   }
   
   .cards-container {
-    display: flex;
+    /* display: flex; */
     border-radius: 6px;
     color: #333;
     background: #eee;
     padding: 1rem;
     box-shadow: 0 0 1rem #000 inset;
-    overflow-x: auto;
-    position: relative;
+    /* overflow-x: auto; */
+    /* position: relative; */
   }  
     cards-container::-webkit-scrollbar {
       display: none;
@@ -61,7 +61,7 @@
     box-shadow: 0 1px 1rem -4px #000;
     background: #fff;
     margin: 1rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 6px;
     cursor: pointer;
     transition: all 250ms ease-in-out;
