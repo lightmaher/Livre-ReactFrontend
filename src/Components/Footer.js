@@ -1,56 +1,44 @@
 import React from "react";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhoneSquare } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter,faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-<>
-<footer class="footer py-3">
-  <div class="container">
-    <div className="row">
-    <div className="col-4">
-          <span>
-            <FontAwesomeIcon  icon={faEnvelope} />
-            &nbsp;
-            info@livre.net
-            &nbsp; 
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faPhoneSquare} />
-            &nbsp;01115434765
-          </span>
+    <>
+      <footer style={{backgroundColor:"#2c9db7",position:"fixed",width:"100%",bottom:"0%",color:"#ffffff",height:"30vh"}} >
+        <div class="container">
+          <div className="row" style={{marginTop:"2%"}}>
+            <div className="col-4">
+             <h1 style={{fontFamily: "Sansita Swashed",fontSize:"300%"}}>Livre</h1>
+             <p style={{fontSize:"122%"}}>Your online book Library to you with Zero Cost ready for exchange or donate or more and more</p>
+            </div>
+            <div className="col-5 offset-2">
+              <div className="row">
+                <div className="col-6">
+                    <p style={{fontSize:"180%"}}>Customer Service</p>
+                    <p style={{fontSize:"120%"}}><Link to='/whoweare'>Who We Are</Link></p> 
+                    <p style={{fontSize:"120%"}}><Link to='/contactus'>  Contact Us  </Link></p> 
+                    <p style={{fontSize:"120%"}}><Link to='/privacypolicy'>  Privacy policy </Link></p>  
+                    <p style={{fontSize:"120%"}}><Link to='/termsofuse'> Terms of use  </Link></p>
+                </div>        
+                <div className="col-4 offset-2" >
+                <p style={{fontSize:"180%"}}>Follow Us</p>
+                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faFacebook} />  </a>
+                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faEnvelope} />  </a>
+                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faLinkedin} />  </a>
+                </div>
+                </div>
+            </div>
+          </div>
         </div>
-        <div className="col-4 text-center">
-           <div className="container">
-               <div className="row">
-                    <div className="col-4">
-                     <Link to='/privacypolicy' className="text-dark">  <span>  Privacy policy</span> </Link>  
-                        </div>
-                        <div className="col-4">
-                        <Link to='/termsofuse' className="text-dark">  <span> Terms of use</span>  </Link>
-                        </div>
-                        <div className="col-4">
-                        <Link to='/whoweare' className="text-dark"> <span>  Who We Are </span> </Link>  
-                        </div>
-                        </div>        
-               </div>  
-         </div>
-         <div className="col-4  text-end">
-          <span>
-             <a> <FontAwesomeIcon className="me-3" icon={faLinkedin} />  </a>
-             <a> <FontAwesomeIcon className="me-3" icon={faFacebook} />  </a>
-             <a> <FontAwesomeIcon className="me-3" icon={faTwitter}  />  </a>
-          </span>
-           <span>CopyRight &copy; 2022 SG</span>
-         </div>
-    </div>
-  </div>
-</footer>
-</>
-  )
+        <div style={{backgroundColor:"#08768f",height:"5vh",textAlign:"center",fontSize:"105%"}}>CopyRight &copy; 2022 SG</div>
+      </footer>
+
+    </>
+  );
 }
 
-export default Footer
+export default Footer;

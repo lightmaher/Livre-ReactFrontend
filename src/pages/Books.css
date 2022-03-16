@@ -43,8 +43,9 @@
   }
     img {
       width: 250px;
-      height: 250px;
+      height:40vh;
       object-fit: center;
+     
     }
     
     .card:hover {
@@ -70,3 +71,5 @@
       margin: .5rem;
     }
   }
+
+/**************************************************************/

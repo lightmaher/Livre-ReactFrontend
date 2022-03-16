@@ -12,11 +12,11 @@ import axios from "axios";
 import { axiosInstance } from "../utils/axiosInstance";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
-import Whoweare from "./Whoweare"
+import Categories from "./Categories"
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
+// import AddCategory from "../Components/AddCategory"
 // import slide from './src/Images/slide.png'
 export default function Home() {
   const [searchValue, setSearchValue] = useState([]);
@@ -136,7 +136,7 @@ export default function Home() {
 
       <div className="aboutus">
 
-      {/* <Whoweare/> */}
+      <Categories/>
       </div>
     </>
   );
