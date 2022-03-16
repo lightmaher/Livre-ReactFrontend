@@ -13,6 +13,8 @@ import CategoryDetails from './pages/CategoryDetails' ;
 import Whoweare from './pages/Whoweare';
 import Privacypolicy from './pages/Privacypolicy';
 import TermsOfUse from './pages/TermsOfUse';
+// import * as mdb from 'mdb-ui-kit'; // lib
+// import { Input } from 'mdb-ui-kit'; // module
 
 // import Images from './Images';
 // import {Privacypolicy} from './pages/Privacypolicy'
@@ -25,6 +27,7 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './Components/NotFound';
 import Adminmanage from './pages/Adminmanage';
 import AddCategory from './Components/AddCategory';
+
 import EditCategory from './Components/EditCategory';
 import Profile from './pages/Profile';
 import Subscription from './Components/Subscription';
@@ -33,6 +36,7 @@ import Subscription from './Components/Subscription';
 import Otherprofile from './pages/Otherprofile';
 import Transactions from './pages/Transactions';
 import Messages from './pages/Messages';
+
 import MessageForm from './pages/MessageForm';
 import Subs from './pages/Subs';
 import EditProfile from './pages/EditProfile';
@@ -42,14 +46,11 @@ function App() {
   
   return (
     <AuthProvider>
-       {/* <Navbar /> */}
-       
+       <Navbar />
+
       <Routes>
-    
       <Route path="/"     exact element={<Home/>} />
-
       <Route path="/books" exact element={<Books/>} />
-
       <Route path="/register"      element={<Registerform />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
@@ -70,17 +71,14 @@ function App() {
       <Route path="/whoweare" exact element={<Whoweare />} />
       <Route path="/search/:resulte" exact element={<Search />} />
       <Route path="/subscription/:id" exact element={<Subscription/>} />
-      <Route path={"/details/:id?"} exact element={<CategoryDetails/>} />
       <Route path="/privacypolicy" exact element={<Privacypolicy />} />
       <Route path="/termsofuse" exact element={<TermsOfUse/>} />
       <Route path="/subs" exact element={<Subs/>} />
       <Route path="/editprofile" exact element={<EditProfile/>} />
 
       </Routes>
-      
       <ToastContainer />
       <Footer />
-
     </AuthProvider>       
 
   );

@@ -2,7 +2,6 @@
 body{
     background: #ffff !important;
     margin-top: -5% !important;
-
 }
 /* html, body {
     max-width: 100%;
@@ -68,5 +67,17 @@ body{
 
 .car{
     position: absolute;
+
+}
+
+.abliv{
+   background-color: aliceblue;
+   height: 70vh;
+}
+
+.who{
+/* max-width: 80vw; */
+margin:5% ;
+background-color: aliceblue;
 
 }

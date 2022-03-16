@@ -213,7 +213,7 @@ export const Registerform = () => {
 
   return (
     <>
-      <div className="row">
+      <div className="row" >
         <div className=" col-5 text-white position-relative leftsection ">
           <div className="position-absolute top-50 start-50 translate-middle ">
             <h1>Livre</h1>
@@ -226,9 +226,9 @@ export const Registerform = () => {
         <div class="col-4">
           <div
             className="d-flex justify-content-center align-items-center"
-            style={{ height: "94vh" }}
+            style={{ height: "100vh" }}
           >
-            <div>
+            <div style={{marginTop:"6%"}}>
               <h1 className="signin">Register in LIVRE</h1>
               <form onSubmit={(e) => send(e)} className="text-left p-2 rounded">
                 <div className="form_text mt-2">

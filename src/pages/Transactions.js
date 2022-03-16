@@ -20,19 +20,20 @@ useEffect(() => {
     console.log(e.target.rate.value)
     axiosInstance.post('rate/' + userid , {'rate' : e.target.rate.value }).then("worked")
     axiosInstance
-        .post("decline_exchange/" + transid)
+        .post("finishexchange/" + transid)
         .then((res) => {
           toast.success(`you've been successfully Finished transaction  !`, {
             position: toast.POSITION.TOP_CENTER
           });
+          getTrans()
         });
-        getTrans()
-        window.location.reload()
+        
    }
    const getTrans = () => {
+     console.log("work")
     axiosInstance
     .get("user_reciver_transaction")
-    .then((res) => setreceivedtransactions(res.data));
+    .then((res) => {setreceivedtransactions(res.data); console.log(res.data)});
     axiosInstance
     .get("user_sender_transaction")
     .then((res) => setsenttransactions(res.data));
@@ -41,7 +42,7 @@ useEffect(() => {
     <>
     <div className='container mt-2'>
      <div className='row'>
-     <h1 className='text-light'> Recived request</h1>
+     <h1 className='text-dark'> Recived request</h1>
     {receivedtransactions.filter(name => name.is_accepted).map(transaction => (
   <>
  <div class="card col-5 text-center mt-3 ms-2">
@@ -105,7 +106,7 @@ useEffect(() => {
 </div>
 <div className='container mt-2'>
      <div className='row'>
-     <h1 className='text-light'> Sent request</h1>
+     <h1 className='text-dark'> Sent request</h1>
  {senttransactions.filter(name => name.is_accepted).map(transaction => (
   <>
  <div class="card col-5 text-center mt-3 ms-2">

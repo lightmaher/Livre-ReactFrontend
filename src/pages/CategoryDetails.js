@@ -2,10 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
+import { width } from "@mui/system";
 
 export default function CategoryDetails() {
   const params = useParams();
@@ -22,34 +22,66 @@ export default function CategoryDetails() {
         
   }, [] );
   return (
-    <>
+    <div style={{overflowY:"hidden"}}>
      <div className="container mt-5">
-       <h1> {cat.name} </h1>
-       <div className="row">
+     <h1
+      style={{
+        color: "#2c9db7",
+        fontSize: "300%",
+        marginLeft: "11%",
+        fontFamily: "DM Sans",
+        textTransform:"uppercase"
+      }}
+    >
+      {cat.name}
+    </h1>
+    <div className="row g-5 offset-1">
          {
            books.map( book=>{
-             return (
-               <div class="card mb-3 col-3 ms-4">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                  <img src={"http://127.0.0.1:8000" + book.image} height={100} class="img-fluid rounded-start mt-2" alt="..." /> 
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                   <Link to={`/book/${book.id}`}  className="text-primary"> <h5 class="card-title">{book.title}</h5> </Link>   
-                    <Link className="text-info" to={`/profile/${book.user.id}`} > <p class="card-text"><b>Owner:</b> {book.user.username}</p> </Link>  
-                      <span className="card-text"> <b>Status: </b>{book.status}</span>
-                      <span class="card-text"> <small class="text-muted"><b>Author:</b> {book.author} </small> 
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             return ( 
+              <>
+              <div class="col-4">
+                        <div class="card h-100" style={{width:"90%"}}> 
+                          <img
+                            src={"http://127.0.0.1:8000" + book.image}
+                            class="card-img-top"
+                            style={{hieght:"60vh"}}
+                            alt="..."
+                          />
+                          <div class="card-body">
+                            <Link to={`/book/${book.id}`}>
+                              <h3 class="card-title" style={{color:"#000000"}}>
+                                {book.title}
+                              </h3>
+                            </Link>
+                            <Link to={`/profile/${book.user.id}`}>
+                                  <h5
+                                    class="card-title"
+                                    style={{ color: "#2c9db7",fontSize:"150%" }}
+                                  >
+                                    {/* <b>Owner: </b> */}
+                                    {book.user.username}
+                                  </h5>
+                                </Link>
+                            <p class="card-text">
+                              <span className="c-t">Author: </span>{" "}
+                              {book.author}
+                            </p>
+                            <p className="card-text">
+                              <span className="c-t">Status: </span>
+                              <span style={{ textTransform: "capitalize" }}>
+                                {book.status}
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+              </>
              )
            })
          }
          </div>
        </div>
-    </>
+    </div>
   );
 }

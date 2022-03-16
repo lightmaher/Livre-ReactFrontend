@@ -12,14 +12,14 @@
   border-radius: 50%;
   box-shadow: 5px 6px 9px 1px rgba(0,0,0,0.54);
   border-style: solid;
-  border-width: .5rem;
-  border-color: #ffc3a0 ;
+  border-width: .2rem;
+  border-color: #bbbaba ;
   width: 20rem;
   height: 20rem;
 }
-.photo{
+/* .photo{
   height: 150%;
-}
+} */
 .heading-text{
   color: #2c9db7;
   font-family: 'Lato', sans-serif;
@@ -35,9 +35,9 @@
 
   color: #FFC900;
 }
-.btn-primary {
+/* .btn-primary {
   background-color: #ffc3a0 !important;
   color: #2c9db7 !important;
 
  ;
-}
+} */

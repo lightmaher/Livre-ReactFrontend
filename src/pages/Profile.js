@@ -92,10 +92,10 @@ const deleterecive = (e, id) => {
       .post("decline_exchange/" + id)
       .then((res) => console.log(res.data));
     getTrans();
-};
- return (
-    <>
-      <div className="container emp-profile">
+  };
+  return (
+    <div style={{marginTop:"5%"}} >
+      <div className="container emp-profile" >
         <form method="post">
           <div className="row">
             <div className="col-md-4">
@@ -433,7 +433,7 @@ const deleterecive = (e, id) => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

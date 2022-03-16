@@ -70,10 +70,9 @@ const deletemessage = (e , id) => {
 }
 
   return (
-      <>
-
-<div class="container mt-3">
-<div class="row clearfix border">
+      <div style={{marginTop:"7%"}}>
+<div class="container mt-3" >
+<div class="row clearfix border" > 
     <div class="col-lg-12">
         <div class="card chat-app">
             <div id="plist" class="people-list">
@@ -87,9 +86,9 @@ const deletemessage = (e , id) => {
                    
                     <li class="clearfix border border-dark rounded mt-1">
                     <div class="about">
-                        <div class="name">{user.username} </div>
+                        <div class="name" style={{fontSize:"130%", color:"#2c9db7"}}>{user.username} </div>
                         <div class="status"> <i class="fa fa-circle offline"></i></div> 
-                        <a className='btn btn-primary btn-sm' onClick={(e)=> {showmessage(e, user.username , user.id)}}> Show Messages </a>                                          
+                        <a className='btn btn-sm' style={{backgroundColor:"#2c9db7", color:"#ffffff"}} onClick={(e)=> {showmessage(e, user.username , user.id)}}> Show Messages </a>                                          
                     </div>
                     </li>
                      </>
@@ -104,7 +103,7 @@ const deletemessage = (e , id) => {
                                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar"> </img>
                             </a> */}
                             <div class="chat-about">
-                                <h6 class="m-b-0"> {user} </h6>
+                                <h4 class="m-b-0" style={{color:"#5f6161"}}> {user} </h4>
                             </div>
                         </div>
                      
@@ -142,7 +141,7 @@ const deletemessage = (e , id) => {
                     <div class="input-group mb-0">
                         <form method='POST' className='col-12 m-2' onSubmit={(e) => sendmessage(e)} >
                         <div class="input-group-prepend">
-                          <button className='btn btn-sm m-2 btn-secondary'> Send </button>
+                          <button className='btn btn-sm m-2' style={{backgroundColor:"#2c9db7", color:"#ffffff"}}> Send </button>
                         </div>
                           <input type="text" name='content' class="form-control" placeholder="Enter text here..." />
                         </form>                              
@@ -155,7 +154,7 @@ const deletemessage = (e , id) => {
     </div>
 </div>
 </div>
-       </>
+       </div>
   )
 }
 
