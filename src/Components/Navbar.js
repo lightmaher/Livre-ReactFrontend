@@ -152,14 +152,15 @@ const changeColors = ()=>{
        </Link>
         </li>
   )}
-
-{adminuser && (
+{ user ? (
+ user.is_admin ?  (
     <li className="nav-item">
       <Link className="nav-link btn btn-light " to="/adminmanage" style={{color:"#2c9db7",margin:"7% 0% 2% 7%",width:"6em" ,fontSize:"90%"}}>
         Manage
       </Link>
     </li>
-  )}  
+  ) : null ) : (null)
+  }  
 </ul>
     </div> 
    </div>

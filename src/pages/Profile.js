@@ -29,6 +29,7 @@ function Profile() {
     axiosInstance.get("profile").then((res) => {
       setprofile(res.data);
       axiosInstance.get("show_rate/" + res.data.id).then((res) => {
+        console.log(res.data)
         setrate(parseFloat(res.data));
       });
     });
@@ -68,8 +69,8 @@ const delbook = (e,id) =>{
   e.preventDefault();
   axiosInstance
       .post("delbook/" + id)
-      .then((res) => console.log(res.data));
-  getTrans()
+      .then((res) => {console.log(res.data);   getTrans()
+      });
 }
 const changeimage = (e) => {
   e.preventDefault();
@@ -120,21 +121,12 @@ const deleterecive = (e, id) => {
                     <Stack style={{ display: "inline" }} spacing={1}>
                       <Rating
                         name="half-rating-read"
-                        defaultValue={rate}
+                        value={rate}
                         precision={0.5}
                         readOnly
                       />
                     </Stack>
-                ) : (
-                  <Stack style={{ display: "inline" }} spacing={1}>
-                  <Rating
-                    name="half-rating-read"
-                    defaultValue={0}
-                    precision={0.5}
-                    readOnly
-                  />
-                </Stack>
-                  )}
+                ) : <span>-----</span> }
                   </div>
                 {/* <div className="proile-rating" style={{color: "#2c9db7 !important"}}>
                   {rate ? (
@@ -292,7 +284,9 @@ const deleterecive = (e, id) => {
                                       {book.status}
                                     </span>
                                   </p>
+                                  <button className="btn btn-danger" onClick={(e)=> delbook(e , book.id)}> Delete book </button>
                                 </div>
+                             
                               </div>
                             </div>
                           );

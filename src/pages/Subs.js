@@ -7,21 +7,23 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Subs() {
+    const [subbooks, setsubbooks] = useState([]);
     const [books, setbooks] = useState([]);
 
   useEffect(() => {
     axiosInstance.get('subsbooks').then(res => {
-       setbooks(res.data)
+      setsubbooks(res.data)
+      console.log(res.data)
     })
   }, [])
   
   return (
       <>
-    <h1>My subs</h1>
+    <h1> My subs </h1>
     <div className="container mt-5">
        <div className="row">
-         {
-           books.map( book=>{
+         { 
+           subbooks.map( book=>{
              return (
                <div class="card mb-3 col-3 ms-4">
                 <div class="row g-0">

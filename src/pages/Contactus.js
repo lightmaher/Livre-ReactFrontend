@@ -28,7 +28,8 @@ function Contactus(){
       </div>
   </div>
   <div className="col-md-6" >
-                <button
+                <a
+                  href="mailto:info@livre.com"
                   style={{
                     width: "30vw",
                     height: "15vh",
@@ -42,7 +43,7 @@ function Contactus(){
                   class="btn btn-outline-info btn-lg"
                 >
                   contact livre
-                </button>
+                </a>
               </div>
   
 </div>

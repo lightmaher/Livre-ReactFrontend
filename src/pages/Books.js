@@ -13,137 +13,38 @@ import ReactDOM from "react-dom";
 function Books() {
   const [books, setbooks] = useState([]);
   const [category, setCategory] = useState([]);
-
-  useEffect(() => {
+  
+  useEffect(() => { 
+    
     axiosInstance.get("books").then((res) => {
+      let arr = []
+      for (var Book of res.data){
+        arr.push(Book.cat)
+      }
+      
+      let y = arr.filter((v,i,a)=>a.findIndex(t=>(t.id===v.id))===i)
+
+      setCategory(y)
       setbooks(res.data);
-      console.log(res.data);
+      console.log(y)
     });
   }, []);
 
-  useEffect(() => {
-    axiosInstance.get("categories").then((res) => {
-      setCategory(res.data);
-      // console.log(res.data)
-    });
-  }, []);
+  // useEffect(() => {
+  //   axiosInstance.get("categories").then((res) => {
+  //     setCategory(res.data);
+  //   });
+  // }, []);
 
-  ////////////////////////////////////////////////////////
-
-  // const Card = (props) => (
-  //   <div className="card">
-  //     <img src={props.imgUrl} alt={props.alt || "Image"} />
-  //     <div className="card-content">
-  //       <h2>{props.title}</h2>
-  //       <p>{props.content}</p>
-  //     </div>
-  //   </div>
-  // );
-
-  // const CardContainer = (props) => (
-  //   <div className="cards-container">
-  //     {props.cards.map((card) => (
-  //       <Card title={card.title} content={card.content} imgUrl={card.imgUrl} />
-  //     ))}
-  //   </div>
-  // );
-
-  // class App extends React.Component {
-  //   render() {
-  //     const cardsData = [
-  //       {
-  //         id: 1,
-  //         title: books[0].title,
-  //         content: books[0].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[0].image,
-  //       },
-  //       {
-  //         id: 2,
-  //         title: books[1].title,
-  //         content: books[1].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[1].image,
-  //       },
-  //       {
-  //         id: 3,
-  //         title: books[2].title,
-  //         content: books[2].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[2].image,
-  //       },
-  //       {
-  //         id: 4,
-  //         title: books[3].title,
-  //         content: books[3].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[3].image,
-  //       },
-  //       {
-  //         id: 5,
-  //         title: books[4].title,
-  //         content: books[4].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[4].image,
-  //       },
-  //       {
-  //         id: 6,
-  //         title: books[5].title,
-  //         content: books[5].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[5].image,
-  //       },
-  //       {
-  //         id: 7,
-  //         title: books[6].title,
-  //         content: books[6].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[6].image,
-  //       },
-  //       {
-  //         id: 8,
-  //         title: books[7].title,
-  //         content: books[7].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[7].image,
-  //       },
-  //       {
-  //         id: 9,
-  //         title: books[8].title,
-  //         content: books[8].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[8].image,
-  //       },
-  //       {
-  //         id: 10,
-  //         title: books[9].title,
-  //         content: books[9].user.username,
-  //         imgUrl: "http://127.0.0.1:8000" + books[9].image,
-  //       },
-  //     ];
-
-  //     return (
-  //       <div className="container" style={{ marginTop: "3%" }}>
-  //         <CardContainer cards={cardsData} />
-  //       </div>
-  //     );
-  //   }
-  // }
-
-  // ReactDOM.render(<App />, document.querySelector("#app"));
-
-  ////////////////////////////////////////////////////////
 
   return (
     <div >
       {category.map((cat) => {
         return (
           <div className="container ">
-           <Link to={`/category/${cat.id}`}><h1
-              style={{
-                color: "#2c9db7",
-                marginTop: "3%",
-                marginBottom: "2%",
-                marginLeft: "11%",
-                fontSize: "300%",
-                textTransform:"uppercase",
-                fontFamily: "DM Sans",
-              }}
-            >
+            <h1>
               {cat.name}
             </h1>
-            </Link>
             <div className="row g-5 offset-1">
               {books.map((book, index) => {
                 return (
