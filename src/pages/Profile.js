@@ -126,7 +126,14 @@ const deleterecive = (e, id) => {
                       />
                     </Stack>
                 ) : (
-                  <span>---</span>
+                  <Stack style={{ display: "inline" }} spacing={1}>
+                  <Rating
+                    name="half-rating-read"
+                    defaultValue={0}
+                    precision={0.5}
+                    readOnly
+                  />
+                </Stack>
                   )}
                   </div>
                 {/* <div className="proile-rating" style={{color: "#2c9db7 !important"}}>

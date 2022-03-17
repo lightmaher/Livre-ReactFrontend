@@ -27,7 +27,7 @@ import { ToastContainer } from 'react-toastify';
 import NotFound from './Components/NotFound';
 import Adminmanage from './pages/Adminmanage';
 import AddCategory from './Components/AddCategory';
-
+import PrivateRoute from './utils/PrivateRoute'
 import EditCategory from './Components/EditCategory';
 import Profile from './pages/Profile';
 import Subscription from './Components/Subscription';
@@ -54,7 +54,9 @@ function App() {
       <Route path="/register"      element={<Registerform />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/adminmanage" element={<Adminmanage />} />
+      <Route exact path='/adminmanage' element={<PrivateRoute/>}>
+         <Route  path="/adminmanage" element={<Adminmanage />} />
+      </Route>
       <Route path="/addcategory" element={<AddCategory />} />
       <Route path="/editcategory/:id"  element={<EditCategory />} />
       <Route path="*" element={<NotFound />} />      

@@ -29,7 +29,7 @@ function Search(props) {
         <div class="card mb-3 col-3 ms-4">
         <div class="row g-0">
           <div class="col-md-4">
-          <img src={"http://127.0.0.1:8000" + book.image} height={100} class="img-fluid rounded-start mt-2" alt="..." /> 
+          <img src={book.image} height={100} class="img-fluid rounded-start mt-2" alt="..." /> 
           </div>
           <div class="col-md-8">
             <div class="card-body">

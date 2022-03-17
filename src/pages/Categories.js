@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Category.css';
 import { useState, useEffect } from 'react'
 // import { useContext } from 'react'
@@ -14,11 +14,13 @@ import 'alertifyjs/build/css/alertify.css';
 import { toast } from 'react-toastify';
 import { axiosInstance } from '../utils/axiosInstance';
 import ReactDOM from 'react-dom';
+import { AuthContext } from '../Context/AuthContext';
 
 
 export default function Categories() {
   const [category, setCategory] = useState([])
   const [usercategorys, setuserCategorys] = useState([])
+  const {user} = useContext(AuthContext)
 
   const navigate = useNavigate();
  
@@ -72,7 +74,10 @@ export default function Categories() {
             alt={ props.alt || 'Image' } />
           <div className="card-content" style={{textAlign:"center",color:"#2c9db7"}}>
            <h2 >{ props.title }</h2>
+           { user ? (
            <a class="btn"> {props.subscripe} </a>
+           ) :  null
+          }
           </div>
         </div>
       );
@@ -83,6 +88,7 @@ export default function Categories() {
             props.cards.map((category) => (
               <Card title={<a style={{textAlign:"center",color:"#2c9db7",textTransform:"uppercase",fontWeight:"normal"}} href = {`/category/${category.id}`}>{category.name}</a>  }
                 imgUrl={ "http://127.0.0.1:8000" + category.image } 
+                
                 subscripe={ !usercategorys.includes(category.id) ?
                   <a style={{backgroundColor:"#2c9db7",color:"#ffffff"}} onClick={(e) => Subscription(e , category.id)} class="btn" > subscripe </a>
                   :

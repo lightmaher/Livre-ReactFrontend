@@ -40,24 +40,24 @@ useEffect(() => {
    }
   return (
     <>
-    <div className='container mt-2'>
+    <div className=' mt-2'>
      <div className='row'>
      <h1 className='text-dark'> Recived request</h1>
     {receivedtransactions.filter(name => name.is_accepted).map(transaction => (
   <>
- <div class="card col-5 text-center mt-3 ms-2">
- <div class="card-header">
+ <div class=" col-5 text-center mt-3 ms-2">
+ <div class="">
    Request
  </div>
- <div class="card-body">
-   <h5 class="card-title text-left"> Book Name : {transaction.book.title}</h5>
+ <div class="">
+   <h5 class=" text-left"> Book Name : {transaction.book.title}</h5>
    
-   <div class="card">
-      <div class="card-body">
-        <h3 class="card-title border-secondary"> Sender Information</h3>
+   <div class="">
+      <div class="">
+        <h3 class=" border-secondary"> Sender Information</h3>
         <hr></hr>
-        <h5 class="card-text">{transaction.tr_sender.username}</h5>
-        <h5 class="card-text">{transaction.tr_sender.phone}</h5>
+        <h5 class="">{transaction.tr_sender.username}</h5>
+        <h5 class="">{transaction.tr_sender.phone}</h5>
       </div>
     </div>
     
@@ -96,7 +96,7 @@ useEffect(() => {
   </div>
 </div>
  </div>
- <div class="card-footer text-muted">
+ <div class=" text-muted">
    
  </div>
 </div>
@@ -109,16 +109,16 @@ useEffect(() => {
      <h1 className='text-dark'> Sent request</h1>
  {senttransactions.filter(name => name.is_accepted).map(transaction => (
   <>
- <div class="card col-5 text-center mt-3 ms-2">
- <div class="card-header">
+ <div class=" col-5 text-center mt-3 ms-2">
+ <div class="">
    Request
  </div>
- <div class="card-body">
-   <h5 class="card-title text-left"> Book Name : {transaction.book.title}</h5>
+ <div class="">
+   <h5 class=" text-left"> Book Name : {transaction.book.title}</h5>
    
-   <div class="card">
-      <div class="card-body">
-        <h3 class="card-title border-secondary"> Reciver Information</h3>
+   <div class="">
+      <div class="">
+        <h3 class=" border-secondary"> Reciver Information</h3>
         <hr></hr>
         <h5 class="card-text">{transaction.tr_receiver.username}</h5>
         <h5 class="card-text">{transaction.tr_receiver.phone}</h5>
@@ -146,7 +146,7 @@ useEffect(() => {
           <option value="1" >1</option>
           <option value="2" >2</option>
           <option value="3" >3</option>
-          <option value="4" > 4</option>
+          <option value="4" >4</option>
           <option value="5" >5</option>
           </select>
           <div class="modal-footer">
@@ -161,7 +161,6 @@ useEffect(() => {
 </div>
  </div>
  <div class="card-footer text-muted">
-   
  </div>
 </div>
 </>
