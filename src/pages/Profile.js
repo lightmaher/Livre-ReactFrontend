@@ -300,7 +300,7 @@ const deleterecive = (e, id) => {
                       </div>
                       <button
                         type="button"
-                        class="btn btn-primary btn-sm mt-4"
+                        class="btn mt-4"
                         style={{
                           backgroundColor: "#2c9db7",
                           border: "#2c9db7",

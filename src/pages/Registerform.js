@@ -229,7 +229,7 @@ export const Registerform = () => {
             style={{ height: "100vh" }}
           >
             <div style={{marginTop:"6%"}}>
-              <h1 className="signin">Register in LIVRE</h1>
+              <h1 className="signin">Sign UP in LIVRE</h1>
               <form onSubmit={(e) => send(e)} className="text-left p-2 rounded">
                 <div className="form_text mt-2">
                   <label class="form-label">Email address</label>

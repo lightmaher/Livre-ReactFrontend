@@ -9,6 +9,8 @@ import '../pages/login.css';
 
 function AddCategory(props) {
   //  const history = useHistory();
+  const [postimage, setPostImage] = useState(null);
+
   const navigate = useNavigate();
   const [name, setName] = useState({
     name: "",
@@ -20,12 +22,19 @@ function AddCategory(props) {
 
   const add = (e) => {
     if (e.target.name === "name") {
+    
       setName({
         name: e.target.value,
       });
       seterrName({
         name: e.target.value === "" ? "this field is required" : null,
       });
+    }
+    if (e.target.name === "image") {
+      setPostImage({
+        image: e.target.files,
+      });
+      console.log(e.target.files);
     }
   };
   const Addcategory = (e) => {
@@ -35,10 +44,14 @@ function AddCategory(props) {
         name: name.name === "" ? "this field is required" : null,
       });
     }
-
+    let formData = new FormData();
+    formData.append("name", name.name);
+    if (postimage) {
+      formData.append("image", postimage.image[0]);
+    }
     console.log(name);
     axiosInstance
-      .post("/admin_operation/add_category", name)
+      .post("createcat/", formData)
       .then(
         (res) =>
           toast.success("you've been adding category !", {
@@ -88,6 +101,15 @@ function AddCategory(props) {
                     placeholder="Category name"
                     name="name"
                     onChange={(e) => add(e)}
+                  />
+                  <label class="form-label">Category Image </label>
+                  <input
+                    accept="image/*"
+                    className="form-control"
+                    id="post-image"
+                    onChange={(e) => add(e)}
+                    name="image"
+                    type="file"
                   />
                   <div class="text-danger text-left mt-1">{errname.name}</div>
                 </div>
