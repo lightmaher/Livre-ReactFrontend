@@ -45,7 +45,6 @@ export const AuthProvider = ({children}) => {
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
             axiosInstance.get('profile').then( res=>{
-                       setUser(res.data.is_admin)
                     if (res.data.is_blocked == true){
                         localStorage.removeItem('authTokens');
                         toast.error("You are blocked !", {

@@ -353,7 +353,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-md-6">
-                <button
+                <a
+                   href='mailto:Livre@info.com'
                   style={{
                     margin: "10%",
                     width: "30vw",
@@ -366,7 +367,7 @@ export default function Home() {
                   class="btn btn-outline-info btn-lg"
                 >
                   contact livre
-                </button>
+                </a>
               </div>
             </div>
           </div>

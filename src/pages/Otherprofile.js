@@ -91,9 +91,8 @@ function Otherprofile() {
                         readOnly
                       />
                     </Stack>
-                ) : (
-                  <span>---</span>
-                  )}
+                ) : <span>-----</span>}
+                  
                   </div>
                 {/* <div className="proile-rating">
                   <b>RATE :</b>{" "}
@@ -110,7 +109,7 @@ function Otherprofile() {
                       />
                     </Stack>
                   ) : (
-                    <span>---</span>
+                    
                   )}
                 </div> */}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
