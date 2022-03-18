@@ -86,7 +86,7 @@ function AdminOperation(props) {
     });
   }, []);
   return (
-    <div className="row">
+    <div className="row" >
       <div className=" col-5 text-white position-relative leftsection ">
         <div className="position-absolute top-50 start-50 translate-middle ">
           <h1>Livre</h1>
@@ -162,7 +162,7 @@ function AdminOperation(props) {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Books Listing</Accordion.Header>
                 <Accordion.Body>
-                  <table border="2" className="table tablePrimary">
+                  <table border="2" className="table tablePrimary" style={{maxHeight:"1vh"}}>
                     <thead>
                       <tr className="text_header_table">
                         <td scope="col">title</td>
