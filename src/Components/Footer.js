@@ -10,7 +10,7 @@ function Footer() {
     <>
       <footer style={{backgroundColor:"rgb(46, 46, 46)",position:"fixed-bottom",width:"100%",bottom:"0%",color:"#ffffff",flexFlow:'wrap'}} >
         <div class="container">
-          <div className="row" style={{marginTop:"5%"}}>
+          <div className="row" style={{marginTop:"6%"}}>
             <div className="col-4">
              <h1 style={{fontFamily: "Sansita Swashed",fontSize:"300%",color:"#2c9db7"}}>Livre</h1>
              <p style={{fontSize:"122%"}}>Your online book Library to you with Zero Cost ready for exchange or donate or more and more</p>

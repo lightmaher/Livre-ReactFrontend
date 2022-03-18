@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Profile.css";
 
 function Profile() {
@@ -126,7 +127,12 @@ const deleterecive = (e, id) => {
                         readOnly
                       />
                     </Stack>
-                ) : <span>-----</span> }
+                ) : <span><FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                </span> }
                   </div>
                 {/* <div className="proile-rating" style={{color: "#2c9db7 !important"}}>
                   {rate ? (
@@ -344,7 +350,8 @@ const deleterecive = (e, id) => {
                                         <div>
                                           <button
                                             type="button"
-                                            class="btn btn-primary btn-sm ms-2"
+                                            class="btn btn-sm ms-2"
+                                            style={{backgroundColor:"#2c9db7",color:"#ffffff"}}
                                             onClick={(e) =>
                                               acceptrequest(e, transaction.id)
                                             }

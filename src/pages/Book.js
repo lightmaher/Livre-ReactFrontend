@@ -64,7 +64,7 @@ export default function Book() {
                 </ul>
               </div>
               <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-10">
                   <div class="tab-content book-tab" id="myTabContent">
                     <div
                       class="tab-pane fade show active"
@@ -73,42 +73,42 @@ export default function Book() {
                       aria-labelledby="home-tab"
                     >
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                           <label>Book Author</label>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8">
                           <p>{book.author}</p>
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                           <label>Status</label>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8">
                           <p>{book.status}</p>
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                           <label>Owner</label>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8">
                           <p>{book.user?.username}</p>
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                           <label>Date of creation</label>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8">
                           <p>{book.date_creation}</p>
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4" >
                           <label>Describtion</label>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8 ">
                           <p>{book.description}</p>
                         </div>
                       </div>
@@ -122,8 +122,8 @@ export default function Book() {
             {loggeduser() ? (
               <button
                 onClick={order}
-                class="btn btn-primary"
-                style={{ backgroundColor: "#2c9db7", border: "#2c9db7" }}
+                class="btn"
+                style={{ backgroundColor: "#2c9db7",color:"#ffffff", border: "#2c9db7",marginLeft:"15%" }}
                 type="button"
               >
                 {" "}
