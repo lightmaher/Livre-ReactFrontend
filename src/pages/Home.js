@@ -333,7 +333,7 @@ export default function Home() {
           >
             <div className="row g-0">
               <div className="col-md-6">
-                <div className="card-body">
+                <div className="card-body" >
                   <h3
                     className="card-title"
                     style={{
@@ -352,16 +352,18 @@ export default function Home() {
                   </h3>
                 </div>
               </div>
+              
               <div className="col-md-6">
                 <a
                    href='mailto:Livre@info.com'
                   style={{
                     margin: "10%",
-                    width: "30vw",
-                    height: "15vh",
-                    color: "#2c9db7",
-                    fontWeight: "400",
-                    fontSize: "2vw",
+                    width: "20vw",
+                    height: "12vh",
+                    color: "#303030",
+                    fontWeight: "500",
+                    fontSize: "3vw",
+                    borderRadius:"40px"
                   }}
                   type="button"
                   class="btn btn-outline-info btn-lg"
@@ -371,6 +373,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </>

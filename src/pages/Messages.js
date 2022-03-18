@@ -70,12 +70,21 @@ const deletemessage = (e , id) => {
 }
 
   return (
-      <div style={{marginTop:"7%"}}>
+      <div className="container-fluid"
+      style={{backgroundColor:"#2c9db7"}}>
+          <h2 style={{
+         
+              color:"#fff",
+               textAlign:"center",
+              fontWeight: "700",
+              fontFamily: "cursive",
+              fontSize: "4VW",}}
+          >connect with livre</h2>
 <div class="container mt-3" >
 <div class="row clearfix border" > 
     <div class="col-lg-12">
-        <div class="card chat-app">
-            <div id="plist" class="people-list">
+        <div class="card chat-app"  style={{backgroundColor:"#303030"}}>
+            <div id="plist" class="people-list"  style={{backgroundColor:"#ffffff",color:"fffff"}}> 
                 <div class="input-group">
                     <div class="input-group-prepend">
                     </div>
@@ -109,7 +118,7 @@ const deletemessage = (e , id) => {
                      
                     </div>
                 </div>
-                <div class="chat-history">
+                <div class="chat-history" >
                     <ul class="m-b-0">
                     {Messages.filter(name => name.m_sender.username === user || name.m_receiver.username === user).slice(-5).map(message => (
                         <>
@@ -137,13 +146,14 @@ const deletemessage = (e , id) => {
                     </ul>
                 </div>
                 { user ?
-                <div class="chat-message clearfix">
+                <div class="chat-message clearfix" >
                     <div class="input-group mb-0">
                         <form method='POST' className='col-12 m-2' onSubmit={(e) => sendmessage(e)} >
-                        <div class="input-group-prepend">
-                          <button className='btn btn-sm m-2' style={{backgroundColor:"#2c9db7", color:"#ffffff"}}> Send </button>
-                        </div>
+                        
                           <input type="text" name='content' class="form-control" placeholder="Enter text here..." />
+                          <div class="input-group-prepend" >
+                          <button className='btn btn-sm m-2' style={{backgroundColor:"#303030", color:"#ffffff", width:"5vw", }}> Send </button>
+                        </div>
                         </form>                              
                     </div>
                 </div>

@@ -134,7 +134,7 @@ function Transactions() {
                       <div class="modal-dialog">
                         <div
                           class="modal-content"
-                          style={{ backgroundColor: "#2c9db7" }}
+                          // style={{ backgroundColor: "#2c9db7" }}
                         >
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
@@ -307,7 +307,7 @@ function Transactions() {
                       <div class="modal-dialog">
                         <div
                           class="modal-content"
-                          style={{ backgroundColor: "#303030" }}
+                          // style={{ backgroundColor: "#303030" }}
                         >
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
