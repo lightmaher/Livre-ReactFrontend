@@ -99,14 +99,6 @@ export default function Categories() {
           }
         </div>
       );
-      // class App extends React.Component {
-      //   render () {
-      //     return(
-        
-      //     );
-      //   }
-      // }
-      // ReactDOM.render(<App/>, document.querySelector('#app'));
       
 /************************************************************************************** */
   return (
