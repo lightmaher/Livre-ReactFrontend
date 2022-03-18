@@ -135,7 +135,7 @@ export default function AddBook() {
       });
   };
   return (
-    <div className="row" >
+    <div className="row" style={{ height: '110vh'}}>
       <div className=" col-5 text-white position-relative leftsection ">
         <div className="position-absolute top-50 start-50 translate-middle ">
           <h1>Livre</h1>

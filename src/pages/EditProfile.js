@@ -313,6 +313,7 @@ function EditProfile() {
                     backgroundColor: "#2c9db7",
                     color: "#ffffff",
                     width: "100%",
+                    marginTop: "5%"
                   }}
                   type="submit"
                   class="btn btn-primary"

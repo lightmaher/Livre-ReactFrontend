@@ -128,26 +128,6 @@ const deleterecive = (e, id) => {
                     </Stack>
                 ) : <span>-----</span> }
                   </div>
-                {/* <div className="proile-rating" style={{color: "#2c9db7 !important"}}>
-                  {rate ? (
-                    <span className="stars"><Stack
-                      style={{ display: "inline", color:"#2c9db7 !important" }}
-                      spacing={1}
-                      
-                    >
-                      <Rating
-                        name="half-rating-read"
-                        defaultValue={rate}
-                        precision={0.5}
-                        readOnly
-                        
-                      />
-                    </Stack></span>
-                  ) : (
-                    <span>---</span>
-                  )}
-                </div> */}
-
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a
@@ -259,7 +239,7 @@ const deleterecive = (e, id) => {
                         {books.map((book) => {
                           return (
                             <div class="col">
-                              <div class="card h-100">
+                              <div class="card book-card h-100">
                                 <img
                                   src={"http://127.0.0.1:8000" + book.image}
                                   class="card-img-top"
@@ -292,16 +272,17 @@ const deleterecive = (e, id) => {
                           );
                         })}
                       </div>
-                      <button
+                      <Link to="/addbook"><button
                         type="button"
                         class="btn mt-4"
                         style={{
                           backgroundColor: "#2c9db7",
                           border: "#2c9db7",
+                          color:"#fff"
                         }}
                       >
-                        <Link to="/addbook">Add Book</Link>
-                      </button>
+                        Add Book
+                      </button></Link>
                     </div>
                     <div
                       class="tab-pane fade"
@@ -315,7 +296,7 @@ const deleterecive = (e, id) => {
                           .map((transaction) => {
                             return (
                               <div className="col-md-12">
-                                <div class="card mb-3">
+                                <div class="card book-card mb-3">
                                   <div class="row g-0">
                                     <div class="col-md-4">
                                       <img

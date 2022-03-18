@@ -7,13 +7,13 @@ function Whoweare() {
       <div className="container mt-5">
         <div className="row  ">
           <div className="col-md-4 col-sm-12 ">
-            <div className="mt-5 ms-3" >
+            <div className="ms-3 text-card-w" >
               <h1 className="heading-text  text-center fw-bold ">Who we Are</h1>
               <h5 className=" mt-4 pt-4 text fw-bolder" style={{color:"#5f5d5d"}}>
-                We Are a Group of ancient readers that still keeps the value of
-                reading , but sometimes they are searching and searching without
-                finding the desired book so we came with LIVRE to find your
-                stray with Exchanging or Donating.
+              We are a group of avid readers that still appreciate the value
+                    of reading , but sometimes it's hard and expensive 
+                    to find the desired book so we came with LIVRE to
+                    give it a kick, whether it's Exchanging or Donating that get you there.
               </h5>
             </div>
           </div>

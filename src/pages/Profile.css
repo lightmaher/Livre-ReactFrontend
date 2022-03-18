@@ -88,6 +88,10 @@ a{
     flex-wrap: wrap;
     padding-left: 0;
 } */
+.profile-head .nav{
+    border: none;
+
+}
 .profile-head .nav-tabs{
     margin-top:13%;
     margin-bottom:4%;
@@ -97,6 +101,8 @@ a{
     font-weight:600;
     border: none;
     color: #000;
+    border-bottom: 3px solid rgb(230, 230, 230) ;
+
 }
 .profile-head .nav-tabs .nav-link:hover{
     color: #fff;
@@ -106,7 +112,7 @@ a{
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:3px solid #2c9db7;
+    border-bottom:3.5px solid #2c9db7;
 }
 .profile-work{
     padding: 14%;
@@ -143,3 +149,7 @@ a{
     border-radius: 6px;
   
   }
+#recieved .g-0{
+    background-color: rgb(245, 245, 245);
+
+}

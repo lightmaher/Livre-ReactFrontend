@@ -40,6 +40,10 @@ a{
     text-transform: capitalize;
     font-size: xx-large;
 }
+.book-title{
+    border-bottom:1px solid lightgray;
+
+}
 .book-head h6{
     color: #2c9db7;
 }
@@ -63,9 +67,13 @@ a{
     font-weight: 600;
 }
 .book-head .nav-tabs{
-    margin:10% 0;
+    margin:6% 0;
     position: relative;
 
+}
+.book-head .nav{
+    border: none;
+    
 }
 .book-head .nav-tabs .nav-link{
     font-weight:600;
@@ -73,8 +81,7 @@ a{
     color: #2c9db7;
 }
 .book-head .nav-tabs .nav-link.active{
-    border: none;
-    border-bottom:2px solid #2c9db7;
+    border: 3px solid #2c9db7;
 }
 .book-work{
     padding: 14%;

@@ -5,8 +5,9 @@ function Privacypolicy() {
   return (
     <>
       <div className="privacy p-5 mb-5 ">
+      <div className="text-center">
       <img src="Privacy-Policy.png" className="img-fluid" alt="Privacy-Policy.png" />
-
+      </div>
         <h1 className="heading-text text-center mb-5 mt-5 fw-bold  ">Privacy Policy for Bytes N</h1>
 
         <div className="accordion" id="accordionExample">

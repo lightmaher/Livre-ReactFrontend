@@ -213,8 +213,8 @@ export const Registerform = () => {
 
   return (
     <>
-      <div className="row" >
-        <div className=" col-5 text-white position-relative leftsection ">
+      <div className="row" style={{ height: '120vh'}}>
+        <div className=" col-5 text-white position-relative leftsection " >
           <div className="position-absolute top-50 start-50 translate-middle ">
             <h1>Livre</h1>
             <h3>
@@ -228,7 +228,7 @@ export const Registerform = () => {
             className="d-flex justify-content-center align-items-center"
             style={{ height: "100vh" }}
           >
-            <div style={{marginTop:"6%"}}>
+            <div style={{marginTop:"20%"}}>
               <h1 className="signin">Sign UP in LIVRE</h1>
               <form onSubmit={(e) => send(e)} className="text-left p-2 rounded">
                 <div className="form_text mt-2">
@@ -379,6 +379,7 @@ export const Registerform = () => {
                     backgroundColor: "#2c9db7",
                     color: "#ffffff",
                     width: "100%",
+                    marginTop: "5%"
                   }}
                   type="submit"
                   class="btn btn-primary"

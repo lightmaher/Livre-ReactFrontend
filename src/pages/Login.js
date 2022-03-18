@@ -54,15 +54,16 @@ function showpass(e){
     }
 }
   return (
-      <div className="row" >
+      <div className="row" style={{ height: '100vh'}}>
         <div className=" col-5 text-white position-relative leftsection ">
           <div className='position-absolute top-50 start-50 translate-middle '>
             <h1>Livre</h1>
-            <h3>Your online book Library to you with Zero Cost ready for exchange or donate or more and more</h3>
+            <h3>Your online Library with Zero cost. Get ready to exchange
+              , donate .. and MUCH MORE !</h3>
           </div>
         </div>
         <div class="col-4">
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '90vh'}}>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh'}}>
             <div>
                 <h1 className='signin'>Login to LIVRE</h1>
                 <form className='text-left p-2 rounded' onSubmit={(e) => loginUser(e)}>

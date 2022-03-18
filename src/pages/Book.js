@@ -18,7 +18,7 @@ export default function Book() {
     id = book.id;
     axiosInstance.post("exchange_book/" + id).then((res) => {
       console.log(res);
-      nav("/");
+      nav("/profile");
       toast.success(
         `you've been successfully orderd ${book.title} from ${book.user.username} !`,
         {
@@ -45,7 +45,7 @@ export default function Book() {
             </div>
             <div className="col-md-6">
               <div className="book-head">
-                <h5>{book.title}</h5>
+                <h5 className="book-title">{book.title}</h5>
                 <h6>{book.cat?.name}</h6>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
@@ -85,7 +85,7 @@ export default function Book() {
                           <label>Status</label>
                         </div>
                         <div className="col-md-6">
-                          <p>{book.status}</p>
+                          <p style={{ textTransform: "capitalize" }}>{book.status}</p>
                         </div>
                       </div>
                       <div className="row">

@@ -17,7 +17,7 @@ import Whoweare from "./Whoweare";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { height, textAlign, width } from "@mui/system";
+import { height, padding, textAlign, width } from "@mui/system";
 import Categories from "./Categories";
 // import slide from './src/Images/slide.png'
 export default function Home() {
@@ -108,7 +108,7 @@ export default function Home() {
         <div className="row ">
           <div
             className="card mb-4"
-            style={{ maxWidth: "80VW", margin: "6% 8%", borderRadius: "25px" }}
+            style={{ maxWidth: "80VW", margin: "9% 10%", borderRadius: "25px" }}
           >
             <div className="row g-0">
               <div className="col-md-7">
@@ -134,7 +134,8 @@ export default function Home() {
                       fontWeight: "500 regular",
                       fontSize: "4vw",
                       lineHeight: "90px",
-                      color: "rgb(46, 46, 46)",
+                      // color: "rgb(46, 46, 46)",
+                      color: "#2c9db7",
                       textTransform: "capitalize",
                       textStyle: "Bulmer MT Std",
                     }}
@@ -142,10 +143,10 @@ export default function Home() {
                     About livre
                   </h4>
                   <p className="card-text" style={{ fontSize: "0.8vw" }}>
-                    We Are a Group of ancient readers that still keeps the value
-                    of reading , but sometimes they are searching and searching
-                    without finding the desired book so we came with LIVRE to
-                    find your stray with Exchanging or Donating.
+                    We are a group of avid readers that still appreciate the value
+                    of reading , but sometimes it's hard and expensive 
+                    to find the desired book so we came with LIVRE to
+                    give it a kick, whether it's Exchanging or Donating that get you there.
                   </p>
                 </div>
               </div>
@@ -155,63 +156,25 @@ export default function Home() {
       </div>
       <div className="clear"></div>
       <div>
-      <h3
-        style={{
-          fontFamily: "Bulmer MT Std",
-          fontWeight: "900 regular",
-          fontSize: "5vw",
-          lineHeight: "90px",
-          color: "#2c9db7",
-          textStyle: "Bulmer MT Std",
-          textAlign: "center",
-          margin: "2%",
-        }}
-      >
-        Categories
-      </h3>
-      <Categories />
-        {/* <Categories/> */}
-        {/* <div className="container-fluid ">
-        <div className="row ">
-          <div
-            className="card mb-4"
-            style={{
-              maxWidth: "80VW",
-              margin: "6% 8%",
-              borderRadius: "25px",
-              height: "30vh",
-            }}
-          >
-            <div className="row g-0">
-              <div className="col-md-6">
-                <div className="card-body">
-                  <h3
-                    className="card-title"
-                    style={{
-                      margin: "7% 5%",
-                      fontFamily: "Bulmer MT Std",
-                      fontStyle: "italic",
-                      fontWeight: "600 regular",
-                      fontSize: "6vw",
-                      lineHeight: "90px",
-                      color: "#2c9db7",
-                      textTransform: "capitalize",
-                      textStyle: "Bulmer MT Std",
-                    }}
-                  >
-                   <Link to="/categorys">Categories</Link> 
-                  </h3>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div> */}
+        <h3
+          style={{
+            fontFamily: "Bulmer MT Std",
+            fontWeight: "900 regular",
+            fontSize: "5vw",
+            lineHeight: "90px",
+            color: "#2c9db7",
+            textStyle: "Bulmer MT Std",
+            textAlign: "center",
+            margin: "4%",
+          }}
+        >
+          Categories
+        </h3>
+        <Categories />
       </div>
       <div className="clear"></div>
     <div className="abliv" style={{marginTop:"7%"}}>
-      <div className="container">
+      <div>
         <div className="row">
           <h3
             style={{
@@ -222,19 +185,19 @@ export default function Home() {
               color: "rgb(46, 46, 46)",
               textStyle: "Bulmer MT Std",
               textAlign: "center",
-              margin: "2%",
+              margin: "3% 0",
             }}
           >
             Who we are
           </h3>
         </div>
 
-        <div className="row who">
+        <div className="row who" style={{margin: "0% 2.5%"}}>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./tarek.jpeg"
-              className="circle mt-2 text-center "
+              className="circle text-center "
               alt="Tarek"
             />
             <h6
@@ -246,9 +209,9 @@ export default function Home() {
           </div>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./Nour.jpeg"
-              className="circle mt-2 text-center "
+              className="circle  text-center "
               alt="Nour Maher"
             />
             <h6
@@ -260,7 +223,7 @@ export default function Home() {
           </div>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./yasmina.jpeg"
               className="circle  "
               alt="Yasmina Mohamed"
@@ -274,9 +237,9 @@ export default function Home() {
           </div>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./salma.jpg"
-              className="circle mt-2 text-center "
+              className="circle text-center "
               alt="Salma Mohamed"
             />
             <h6
@@ -288,9 +251,9 @@ export default function Home() {
           </div>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./Ebram.jpeg"
-              className="circle mt-2 text-center "
+              className="circle text-center "
               alt="Ebram Tooma"
             />
             <h6
@@ -302,9 +265,9 @@ export default function Home() {
           </div>
           <div className="col-2">
             <img
-              style={{ width: "11rem" }}
+              style={{ width: "15rem" }}
               src="./yousef.jpg"
-              className="circle mt-2 text-center "
+              className="circle text-center "
               alt="Yousef Mohamed"
             />
             <h6
@@ -321,52 +284,58 @@ export default function Home() {
       <div className="clear"></div>
 
       <div className="container-fluid ">
-        <div className="row ">
+        <div className="row " style={{marginBottom:"5%"}}>
           <div
             className="card mb-4"
             style={{
               maxWidth: "80VW",
-              margin: "6% 8%",
+              margin: "6% 10%",
               borderRadius: "25px",
               height: "30vh",
+              backgroundColor: "aliceblue"
             }}
           >
             <div className="row g-0">
-              <div className="col-md-6">
+              <div className="col-md-8">
                 <div className="card-body">
                   <h3
                     className="card-title"
                     style={{
-                      margin: "7% 5%",
+                      margin: " 7% 15%",
                       fontFamily: "Bulmer MT Std",
                       fontStyle: "italic",
                       fontWeight: "600 regular",
                       fontSize: "6vw",
                       lineHeight: "90px",
-                      color: "#2c9db7",
+                      color: "rgb(46, 46, 46)",
                       textTransform: "capitalize",
                       textStyle: "Bulmer MT Std",
                     }}
                   >
-                    Contactus
+                    Contact us
                   </h3>
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-4">
                 <a
                    href='mailto:Livre@info.com'
-                  style={{
-                    margin: "10%",
-                    width: "30vw",
-                    height: "15vh",
-                    color: "#2c9db7",
+                    style={{
+                    margin: "20% -8%",
+                    width: "20vw",
+                    height: "10vh",
+                    color: "rgb(46, 46, 46)",
                     fontWeight: "400",
                     fontSize: "2vw",
+                    textAlign:"center",
+                    paddingTop : "3%",
+                    border : "solid 6px #fff",
+                    borderRadius : "15px",
+                    fontFamily: "Bulmer MT Std",
                   }}
                   type="button"
                   class="btn btn-outline-info btn-lg"
                 >
-                  contact livre
+                  Contact Livre
                 </a>
               </div>
             </div>

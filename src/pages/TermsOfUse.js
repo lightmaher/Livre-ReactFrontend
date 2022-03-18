@@ -9,7 +9,6 @@ function TermsOfUse() {
       <img src="terms-of-service.png" className="img-fluid" alt="terms-of-service.png" />
 
       </div>
-
         <h1 className="heading-text text-center mb-5 mt-5 fw-bold ">Livre Website Terms of Use</h1>
         <div className="accordion ps-5 pe-5 " id="accordionExample">
           <div className="accordion-item">

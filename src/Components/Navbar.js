@@ -53,36 +53,36 @@ const changeColors = ()=>{
 <div className={colors ? 'header header-bg con': 'header con'}>
   <div className="row navbar">
     <div className="col-4 ">
-    <nav className="nav">
-    <li className="nav-item liv"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></li>
-    <Link className="nav-item liv" to="/">Livre</Link> 
-     
-     <div className="for">
-     <form className="d-flex input-group w-auto ">
-        <input
-          
-          type="search"
-          style={{ height: "5vh",width:"7em", backgroundColor:"-moz-initial", marginRight:"0"}}
-          className="form-control ser"
-          placeholder="search"
-          aria-label="Search"
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <Link
-          className="btn btn-info"
-          type="button"
-          to={"/search/" + searchValue}
-          
-          style={{ color: "#2c9db7", width: "3.5em",  backgroundColor:"#2c9db7" ,height:"5vh" ,marginTop:"7%" , padding:"1%"}}
-        >
-          <span style={{ color: "#ffffff", fontSize:"1.4em" ,marginTop:"10%", fontWeight:"bolder" ,alignItem:"center"}}>
-           
-           <FontAwesomeIcon icon={faMagnifyingGlass} />
-           
-           </span>
-        </Link>
-      </form>
-      </div>
+      <nav className="nav">
+          <li className="nav-item liv"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></li>
+          <Link className="nav-item liv" to="/">Livre</Link> 
+        
+          <div className="for">
+          <form className="d-flex input-group w-auto ">
+            <input
+              
+              type="search"
+              style={{ height: "5vh",width:"7em", backgroundColor:"-moz-initial", marginRight:"0"}}
+              className="form-control ser"
+              placeholder="search"
+              aria-label="Search"
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <Link
+              className="btn btn-info"
+              type="button"
+              to={"/search/" + searchValue}
+              
+              style={{ color: "#2c9db7", width: "3.5em",  backgroundColor:"#2c9db7" ,height:"5vh" ,marginTop:"7%" , padding:"1%"}}
+            >
+              <span style={{ color: "#ffffff", fontSize:"1.4em" ,marginTop:"10%", fontWeight:"bolder" ,alignItem:"center"}}>
+              
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              
+              </span>
+            </Link>
+          </form>
+          </div>
       </nav>
     </div>
 

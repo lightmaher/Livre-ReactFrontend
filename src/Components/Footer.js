@@ -10,31 +10,33 @@ function Footer() {
     <>
       <footer style={{backgroundColor:"rgb(46, 46, 46)",position:"fixed-bottom",width:"100%",bottom:"0%",color:"#ffffff",flexFlow:'wrap'}} >
         <div class="container">
-          <div className="row" style={{marginTop:"5%"}}>
-            <div className="col-4">
+          <div className="row">
+            <div className="col-4" style={{marginTop: "3%"}}>
              <h1 style={{fontFamily: "Sansita Swashed",fontSize:"300%",color:"#2c9db7"}}>Livre</h1>
-             <p style={{fontSize:"122%"}}>Your online book Library to you with Zero Cost ready for exchange or donate or more and more</p>
+             <p style={{fontSize:"122%"}}>Your online book Library with Zero Cost. Get ready to exchange, donate or Much more!</p>
             </div>
-            <div className="col-5 offset-2">
+            <div className="col-8" style={{textAlign: "center",marginTop: "1%"}}>
               <div className="row">
-                <div className="col-6">
+                <div className="col-8" style={{textAlign: ""}}>
                     <p style={{fontSize:"180%",color:"#2c9db7"}}>Customer Service</p>
                     <p style={{fontSize:"120%"}}><Link to='/whoweare'>Who We Are</Link></p> 
                     <p style={{fontSize:"120%"}}><Link to='/contactus'>  Contact Us  </Link></p> 
                     <p style={{fontSize:"120%"}}><Link to='/privacypolicy'>  Privacy policy </Link></p>  
                     <p style={{fontSize:"120%"}}><Link to='/termsofuse'> Terms of use  </Link></p>
                 </div>        
-                <div className="col-4 offset-2" >
+                <div className="col-4">
                 <p style={{fontSize:"180%",color:"#2c9db7"}}>Follow Us</p>
-                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faFacebook} />  </a>
-                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faEnvelope} />  </a>
-                  <a> <FontAwesomeIcon className="me-4" style={{fontSize:"150%"}} icon={faLinkedin} />  </a>
+                <div>
+                  <a> <FontAwesomeIcon  style={{fontSize:"150%",margin:"0 4%"}} icon={faFacebook} />  </a>
+                  <a> <FontAwesomeIcon  style={{fontSize:"150%",margin:"0 4%"}} icon={faEnvelope} />  </a>
+                  <a> <FontAwesomeIcon  style={{fontSize:"150%",margin:"0 4%"}} icon={faLinkedin} />  </a>
+                </div>
                 </div>
                 </div>
             </div>
           </div>
         </div>
-        <div style={{backgroundColor:"rgb(24, 24, 24)",height:"5vh",textAlign:"center",fontSize:"1.1vw"}}>CopyRight &copy; 2022 <Link to="/">@Livre.com</Link></div>
+        <div style={{backgroundColor:"rgb(24, 24, 24)",height:"3.5vh",textAlign:"center",fontSize:"1.1vw"}}>CopyRight &copy; 2022 <Link to="/">@Livre.com</Link></div>
       </footer>
 
     </>

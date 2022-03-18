@@ -15,10 +15,10 @@ function Contactus(){
         fontWeight: "600 regular",fontSize: "5vw",lineHeight:"90px", color: "#2c9db7",
         textTransform: "capitalize",textStyle: "Bulmer MT Std"
         }}>ContactUs</h3>
-        <div style={{textAlign:"center", marginLeft:"35%",marginTop:"15%"}}>
-        <a> <FontAwesomeIcon className="me-4" style={{fontSize:"400%" ,color:"#2c9db7"}} icon={faFacebook} />  </a>
-        <a> <FontAwesomeIcon className="me-4" style={{fontSize:"400%", color:"#2c9db7"}} icon={faEnvelope} />  </a>
-        <a> <FontAwesomeIcon className="me-4" style={{fontSize:"400%", color:"#2c9db7"}} icon={faLinkedin} />  </a>
+        <div style={{textAlign:"center",marginTop:"15%"}}>
+        <a> <FontAwesomeIcon style={{fontSize:"400%" ,color:"#2c9db7",margin:"0 4%"}} icon={faFacebook} />  </a>
+        <a> <FontAwesomeIcon style={{fontSize:"400%", color:"#2c9db7",margin:"0 4%"}} icon={faEnvelope} />  </a>
+        <a> <FontAwesomeIcon style={{fontSize:"400%", color:"#2c9db7",margin:"0 4%"}} icon={faLinkedin} />  </a>
       </div>
 
     </div>
@@ -35,14 +35,18 @@ function Contactus(){
                     height: "15vh",
                     color: "#2c9db7",
                     fontWeight: "400",
-                    fontSize: "2vw",
-                    marginLeft:"60%"
-                    
+                    fontSize: "4vw",
+                    marginLeft:"60%",
+                    marginTop:"10%",
+                    fontFamily: "Bulmer MT Std",
+                    borderRadius : "15px",
+                    border : "solid 6px #2c9db7",
+
                   }}
                   type="button"
                   class="btn btn-outline-info btn-lg"
                 >
-                  contact livre
+                  Contact Livre
                 </a>
               </div>
   

@@ -42,7 +42,7 @@ function Books() {
       {category.map((cat) => {
         return (
           <div className="container ">
-            <h1>
+            <h1 className="cat-name">
               {cat.name}
             </h1>
             <div className="row g-5 offset-1">
@@ -51,7 +51,7 @@ function Books() {
                   <>
                     {cat.id === book.cat.id && (
                       <div class="col-4">
-                        <div class="card h-100">
+                        <div class="card book-card h-100">
                           
                           <img
                             src={"http://127.0.0.1:8000" + book.image}
@@ -61,28 +61,29 @@ function Books() {
                           />
                           <div class="card-body">
                             <Link to={`/book/${book.id}`}>
-                              <h3 class="card-title" style={{color:"#000000"}}>
+                              <h3 class="card-title" style={{color:"#000"}}>
                                 {book.title}
                               </h3>
                             </Link>
+                            <p style={{marginTop:"10%"}}><h5><span class="card-title" style={{ color: "rgb(150, 150, 150)",fontSize:"100%" }}><b>Owner: </b></span>
                             <Link to={`/profile/${book.user.id}`}>
-                                  <h5
+                                  <span
                                     class="card-title"
-                                    style={{ color: "#2c9db7",fontSize:"150%" }}
+                                    style={{ color: "#2c9db7",fontSize:"100%" }}
                                   >
-                                    {/* <b>Owner: </b> */}
                                     {book.user.username}
-                                  </h5>
-                                </Link>
+                                  </span>
+                                </Link></h5></p>
                             <p class="card-text">
-                              <span className="c-t">Author: </span>{" "}
-                              {book.author}
+                              <h5><span className="c-t" style={{ color: "rgb(150, 150, 150)",fontSize:"100%" }}><b>Author: </b></span>
+                              <span style={{ textTransform: "capitalize" }}>
+                              {book.author}</span></h5>
                             </p>
                             <p className="card-text">
-                              <span className="c-t">Status: </span>
+                              <h5><span className="c-t" style={{ color: "rgb(150, 150, 150)",fontSize:"100%" }}><b>Status: </b></span>
                               <span style={{ textTransform: "capitalize" }}>
                                 {book.status}
-                              </span>
+                              </span></h5>
                             </p>
                           </div>
                         </div>
@@ -92,6 +93,9 @@ function Books() {
                 );
               })}
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
             <hr />
 
           </div>

@@ -67,7 +67,7 @@ function Otherprofile() {
               <div className="message-area">
                 <div>
                 <form  onSubmit={(e) => send(e)}>
-                  <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
+                  <label for="exampleFormControlTextarea1" class="form-label" style={{marginTop:"10%"}}>Send <b>{profile.username}</b> a Message!</label>
                   <textarea class="form-control" name='content' rows="3"></textarea>
                   <button className='btn btn-primary mt-2'type="submit" > Send </button>
                 </form>
@@ -197,7 +197,7 @@ function Otherprofile() {
                         {books.map((book) => {
                           return (
                             <div class="col">
-                              <div class="card h-100">
+                              <div class="card book-card h-100">
                                 <img
                                   src={"http://127.0.0.1:8000" + book.image}
                                   class="card-img-top"
