@@ -42,9 +42,20 @@ function Books() {
       {category.map((cat) => {
         return (
           <div className="container ">
-            <h1>
+            <Link to={`/category/${cat.id}`}><h1
+              style={{
+                color: "#2c9db7",
+                marginTop: "3%",
+                marginBottom: "2%",
+                marginLeft: "11%",
+                fontSize: "300%",
+                textTransform:"uppercase",
+                fontFamily: "DM Sans",
+              }}
+            >
               {cat.name}
             </h1>
+            </Link>
             <div className="row g-5 offset-1">
               {books.map((book, index) => {
                 return (

@@ -1,19 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { axiosInstance } from "../utils/axiosInstance";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import Accordion from "react-bootstrap/Accordion";
 import "react-toastify/dist/ReactToastify.css";
 import "alertifyjs/build/css/alertify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import './login.css';
+import "./TermsOfUse.css";
 
-
-function AdminOperation(props) {
+function AdminOperation() {
   const [name, setName] = useState("");
   const { user } = useContext(AuthContext);
   const [users, setusers] = useState([]);
@@ -85,28 +82,34 @@ function AdminOperation(props) {
       setcategory(res.data);
     });
   }, []);
+
+
   return (
-    <div className="row" >
-      <div className=" col-5 text-white position-relative leftsection ">
-        <div className="position-absolute top-50 start-50 translate-middle ">
-          <h1>Livre</h1>
-          <h3>
-            Your online book Library to you with Zero Cost ready for exchange or
-            donate or more and more
-          </h3>
-        </div>
-      </div>
-      <div class="col-5">
-        <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ height: "94vh" }}>
-          <div className='form_text mt-3' style={{marginLeft:'9%'}}>
-            <h1 className="signin">Admin Panel</h1>
-            <Accordion defaultActiveKey={["0"]} alwaysOpen>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Users List</Accordion.Header>
-                <Accordion.Body>
-                  <table border="2" className="table tableHover">
+  <div className="container" style={{marginTop:"6%"}}>
+    <div className="terms p-5 mb-5 ">
+        <h1 className="heading-text text-center mb-5 mt-5 fw-bold ">Admin Panal</h1>
+        <div className="accordion ps-5 pe-5 " id="accordionExample">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="headingOne">
+              <button
+                className="accordion-button fw-bolder fs-5"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Users List
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              className="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
+              <table border="2" className="table tableHover">
                     <thead>
                       <tr className="text_header_table">
                         <th scope="col">User Name</th>
@@ -131,7 +134,7 @@ function AdminOperation(props) {
                                 <Link
                                   type="button"
                                   className="btn"
-                                  to="/"
+                                  to="/adminmanage"
                                   style={{ backgroundColor: "#2c9db7",color:"#ffffff" }}
                                   onClick={() => unblockUser(use.id)}
                                 >
@@ -143,7 +146,7 @@ function AdminOperation(props) {
                                 <Link
                                   type="button"
                                   className="btn"
-                                  to="/"
+                                  to="/adminmanage"
                                   style={{ backgroundColor: "#2c9db7",color:"#ffffff" }}
                                   onClick={() => blockUser(use.id)}
                                 >
@@ -151,24 +154,40 @@ function AdminOperation(props) {
                                 </Link>{" "}
                               </td>
                             )}
-                            {/* <td><Link type="button" className="btn" to = "/" style={{backgroundColor: "#74b9ff"}} onClick={() => blockUser(use.id)}>Block</Link> </td> */}
                           </tr>
                         );
                       })}
                     </tbody>
                   </table>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>Books Listing</Accordion.Header>
-                <Accordion.Body>
-                  <table border="2" className="table tablePrimary" style={{maxHeight:"1vh"}}>
+              </div>
+            </div>
+        </div>
+          <div className="accordion-item ">
+            <h2 className="accordion-header" id="headingTwo">
+              <button
+                className="accordion-button collapsed fw-bolder fs-5"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Books Listing
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
+              <table border="2" className="table tablePrimary">
                     <thead>
                       <tr className="text_header_table">
                         <td scope="col">title</td>
                         <td scope="col">author</td>
                         <td scope="col">category ID</td>
-                        {/* <thead className="col-2">date_creation</thead> */}
                         <td scope="col">status</td>
                         <td scope="col">User ID</td>
                         <td scope="col">Delete Book</td>
@@ -181,7 +200,6 @@ function AdminOperation(props) {
                             <td>{use.title}</td>
                             <td>{use.author}</td>
                             <td>{use.cat}</td>
-                            {/* <tbody className="col-2">{use.date_creation}</tbody> */}
                             <td>{use.status}</td>
                             <td>{use.user}</td>
                             <td>
@@ -199,25 +217,44 @@ function AdminOperation(props) {
                       })}
                     </tbody>
                   </table>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2">
-                <Accordion.Header>
+              </div>
+            </div>
+          </div>
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="headingThree">
+              <button
+                className="accordion-button collapsed fw-bolder fs-5"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
                   Category Listing
-                  <Link
-                    type="button"
-                    className="btn offset-1"
-                    to="/addcategory"
-                    style={{ backgroundColor: "#2c9db7",color:"#ffffff" }}
-                  >
-                    Add Category
-                  </Link>
-                </Accordion.Header>
-                <Accordion.Body>
-                  <table border="2" className="table tablePrimary">
+                  
+            
+                </button>
+            </h2>
+            <div
+              id="collapseThree"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
+              <table border="2" className="table tablePrimary">
                     <thead>
                       <tr className="text_header_table">
-                        <td scope="col">Category Name</td>
+                        <td scope="col">Category Name
+                        <Link
+                    type="button"
+                    className="btn  offset-1"
+                    to="/addcategory"
+                    style={{ backgroundColor:"#2c9db7",color:"#ffffff" }}
+                  >
+                    Add Category
+                  </Link>  
+                        </td>
                         <td scope="col">Edit Category</td>
                         <td scope="col">Delete Category</td>
                       </tr>
@@ -252,13 +289,14 @@ function AdminOperation(props) {
                       })}
                     </tbody>
                   </table>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   );
 }
+
 export default AdminOperation;

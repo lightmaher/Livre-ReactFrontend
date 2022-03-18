@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Otherprofile() {
   const [profile, setprofile] = useState({});
@@ -69,7 +71,7 @@ function Otherprofile() {
                 <form  onSubmit={(e) => send(e)}>
                   <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
                   <textarea class="form-control" name='content' rows="3"></textarea>
-                  <button className='btn btn-primary mt-2'type="submit" > Send </button>
+                  <button className='btn mt-2' style={{backgroundColor:"#2c9db7",color:"#ffffff"}} type="submit" > Send </button>
                 </form>
                 </div>
              
@@ -91,7 +93,11 @@ function Otherprofile() {
                         readOnly
                       />
                     </Stack>
-                ) : <span>-----</span>}
+                ) : <span><FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} /></span>}
                   
                   </div>
                 {/* <div className="proile-rating">
