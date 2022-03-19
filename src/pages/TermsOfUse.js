@@ -327,7 +327,7 @@ function TermsOfUse() {
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-Copyright Policy              </button>
+                Copyright Policy              </button>
             </h2>
             <div
               id="collapseSix"

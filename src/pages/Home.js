@@ -39,27 +39,27 @@ export default function Home() {
       <div>
         <div className="search-bar">
           <div className="st">
-            <h1>Your online book Library with Zero Cost</h1>
-            <small>ready for exchange or donate or more and more</small>
+            <h1 style={{fontSize:"3.5vw", textAlign:"left"}}>Your online book Library </h1>
+            <p style={{textAlign:"left"}}>ready for exchange or donate or more and more with Zero Cost, discover the world with livre</p>
           </div>
           <InputGroup controlId="floatingInput" label="Search" className="mb-3">
             <Form.Control
               type="search"
               placeholder="Search for your desired Book to get it for free or exchange "
-              style={{ height: "4em" }}
+              style={{ height: "5em" }}
               aria-describedby="basic-addon2"
               onChange={(e) => setSearchValue(e.target.value)}
             />
             <Link
               className="btn btn-info "
               variant="outline-secondary"
-              style={{ color: "#ffff", width: "9em", fontSize: "1.8VW" }}
+              style={{ color: "#ffff", width: "9em", fontSize: "2.1VW" }}
               id="button-addon2  "
               type="button"
               to={"/search/" + searchValue}
             >
               <span
-                style={{ padding: "6%", marginLeft: "4%", marginRight: "3.5%" }}
+                style={{ padding: "5%", marginLeft: "4%", marginRight: "3.5%" }}
               >
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                 Search
@@ -73,7 +73,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/Book1.png`)}
               alt="First slide"
-              style={{ height: "40em" }}
+              style={{ height: "50em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -81,7 +81,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/Book2.png`)}
               alt="Second slide"
-              style={{ height: "40em" }}
+              style={{ height: "50em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -89,7 +89,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/Book3.png`)}
               alt="Third slide"
-              style={{ height: "40em" }}
+              style={{ height: "50em" }}
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -97,7 +97,7 @@ export default function Home() {
               className="d-block w-100"
               src={require(`../Images/slider/b2.png`)}
               alt="Third slide"
-              style={{ height: "40em" }}
+              style={{ height: "50em" }}
             />
           </Carousel.Item>
         </Carousel>
@@ -340,6 +340,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </>

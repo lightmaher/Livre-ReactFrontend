@@ -28,7 +28,7 @@ function Transactions() {
         position: toast.POSITION.TOP_CENTER,
       });
       getTrans();
-    });
+    },window.location.reload());
   };
   const getTrans = () => {
     console.log("work");
@@ -169,7 +169,7 @@ function Transactions() {
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
-                                <option value="4"> 4</option>
+                                <option value="4">4</option>
                                 <option value="5">5</option>
                               </select>
                               <div class="modal-footer">
@@ -198,7 +198,7 @@ function Transactions() {
         
       </div>
 
-      <div class="container-fluid">
+      <div class="container-fluid" style={{ backgroundColor: "aliceblue", minHeight: "100vh" }}>
         <div class="row justify-content-md-center">
           
           <h1
@@ -211,7 +211,7 @@ function Transactions() {
               fontSize: "4VW",
             }}
           >
-            Send requests
+            Sent requests
           </h1>
 
           {senttransactions
@@ -331,9 +331,10 @@ function Transactions() {
                               onSubmit={(e) =>
                                 rate(
                                   e,
-                                  transaction.tr_sender.id,
+                                  transaction.tr_receiver.id,
                                   transaction.id
                                 )
+
                               }
                             >
                               <h3> evaluate a deal </h3>
@@ -353,7 +354,7 @@ function Transactions() {
                                 >
                                   Close
                                 </button>
-                                <button type="button" class="btn btn-info">
+                                <button type="submit" class="btn btn-info">
                                   Rate
                                 </button>
                               </div>

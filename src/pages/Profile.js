@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Profile.css";
 
 function Profile() {
@@ -46,7 +47,7 @@ function Profile() {
       toast.success(`you've been successfully deleted transaction  !`, {
         position: toast.POSITION.TOP_CENTER,
       });
-    });
+    },getTrans());
   };
   const getTrans = () => {
     axiosInstance.get("show_main_user_books").then((res) => setbooks(res.data));
@@ -62,8 +63,11 @@ function Profile() {
     e.preventDefault();
     axiosInstance
       .post("accept_exchange/" + id)
-      .then((res) => console.log(res.data));
-    getTrans();
+      .then((res) => {
+        toast.success(`you've been successfully accepted transaction  !`, {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      },getTrans());
   };
 const delbook = (e,id) =>{
   e.preventDefault();
@@ -126,7 +130,12 @@ const deleterecive = (e, id) => {
                         readOnly
                       />
                     </Stack>
-                ) : <span>-----</span> }
+                ) : <span><FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                          <FontAwesomeIcon style={{color:"#ada9a9"}} icon={faStar} />
+                </span> }
                   </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
@@ -324,8 +333,8 @@ const deleterecive = (e, id) => {
                                         </p>
                                         <div>
                                           <button
-                                            type="button"
-                                            class="btn btn-primary btn-sm ms-2"
+                                            class="btn btn-sm ms-2"
+                                            style={{backgroundColor:"#2c9db7",color:"#ffffff"}}
                                             onClick={(e) =>
                                               acceptrequest(e, transaction.id)
                                             }
@@ -333,7 +342,6 @@ const deleterecive = (e, id) => {
                                             Accept
                                           </button>
                                           <button
-                                            type="button"
                                             class="btn btn-secondary btn-sm ms-2"
                                             onClick={(e) =>
                                               deleterecive(e, transaction.id)
@@ -361,7 +369,7 @@ const deleterecive = (e, id) => {
                         {orderedtransactions.map((transaction) => {
                           return (
                             <div className="col-md-12">
-                              <div className="card mb-3">
+                              <div className="card book-card mb-3">
                                 <div className="row g-0">
                                   <div className="col-md-4">
                                     <img

@@ -62,10 +62,9 @@ const changeColors = ()=>{
             <input
               
               type="search"
-              style={{ height: "5vh",width:"7em", backgroundColor:"-moz-initial", marginRight:"0"}}
+              style={{ height: "5vh",width:"7em", backgroundColor:"-moz-initial", marginRight:"0",fontSize:".8vw"}}
               className="form-control ser"
-              placeholder="search"
-              aria-label="Search"
+              placeholder="Search for your Book"              aria-label="Search"
               onChange={(e) => setSearchValue(e.target.value)}
             />
             <Link

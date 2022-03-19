@@ -8,6 +8,7 @@ import { axiosInstance } from "../utils/axiosInstance";
 import '../pages/login.css';
 
 function AddCategory(props) {
+  const [category, setcategory] = useState([]);
   //  const history = useHistory();
   const [postimage, setPostImage] = useState(null);
 
@@ -37,6 +38,11 @@ function AddCategory(props) {
       console.log(e.target.files);
     }
   };
+  const categoryList = () => {
+    axiosInstance.get("/admin_listing/list_category").then((res) => {
+      setcategory(res.data);
+    });
+  }
   const Addcategory = (e) => {
     e.preventDefault();
     if (name === "") {
@@ -56,7 +62,7 @@ function AddCategory(props) {
         (res) =>
           toast.success("you've been adding category !", {
             position: toast.POSITION.TOP_CENTER,
-          }),
+          },categoryList()),
         navigate("/adminmanage")
       )
       .catch((error) => {

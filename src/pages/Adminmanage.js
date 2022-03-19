@@ -27,12 +27,13 @@ function AdminOperation() {
         (res) =>
           toast.success("you've been delete category !", {
             position: toast.POSITION.TOP_CENTER,
-          }),
+          },categoryList()),
         navigate("/adminmanage")
       )
       .catch((error) => {
         console.error("There was an error!", error);
       });
+
   };
   //delete book
   const deleteBook = (id) => {
@@ -42,7 +43,7 @@ function AdminOperation() {
         (res) =>
           toast.success("you've been delete book !", {
             position: toast.POSITION.TOP_CENTER,
-          }),
+          },bookList()),
         navigate("/adminmanage")
       )
       .catch((error) => {
@@ -51,41 +52,51 @@ function AdminOperation() {
   };
   //block
   const blockUser = (id) => {
-    console.log(id);
     axiosInstance.post(`/admin_operation/block_user/${id}`).then((res) => {
-      console.log("admin");
-      console.log(res.data);
       setBlockuser(res.data);
-    });
+    },userList());
   };
   const unblockUser = (id) => {
-    console.log(id);
     axiosInstance.post(`/admin_operation/unblock_user/${id}`).then((res) => {
-      console.log("admin");
-      console.log(res.data);
       setBlockuser(res.data);
-    });
+    },userList());
   };
   /////////////////////////////////////////////////////////////
   useEffect(() => {
-    axiosInstance.get("/admin_listing/list_users").then((res) => {
-      setusers(res.data);
-    });
+    categoryList();
+    userList();
+    bookList();
   }, []);
-  useEffect(() => {
-    axiosInstance.get("/admin_listing/list_books").then((res) => {
-      setbooks(res.data);
-    });
-  }, []);
-  useEffect(() => {
+  // useEffect(() => {
+  //   axiosInstance.get("/admin_listing/list_books").then((res) => {
+  //     setbooks(res.data);
+  //   });
+  // }, []);
+  // useEffect(() => {
+  //   axiosInstance.get("/admin_listing/list_category").then((res) => {
+  //     setcategory(res.data);
+  //   });
+  // }, []);
+  
+  const categoryList = () => {
     axiosInstance.get("/admin_listing/list_category").then((res) => {
       setcategory(res.data);
     });
-  }, []);
+  }
+  const userList = () => {
+    axiosInstance.get("/admin_listing/list_users").then((res) => {
+      setusers(res.data);
+    });
+  }
+  const bookList = () => {
+    axiosInstance.get("/admin_listing/list_books").then((res) => {
+      setbooks(res.data);
+    });
+  }
 
-
+  
   return (
-  <div className="container" style={{marginTop:"6%"}}>
+  <div className="container" style={{marginTop:"6%",marginBottom:"10%"}}>
     <div className="terms p-5 mb-5 ">
         <h1 className="heading-text text-center mb-5 mt-5 fw-bold ">Admin Panal</h1>
         <div className="accordion ps-5 pe-5 " id="accordionExample">
@@ -131,27 +142,26 @@ function AdminOperation() {
                             <td>{use.location}</td>
                             {use.is_blocked ? (
                               <td>
-                                <Link
-                                  type="button"
+                                
+                                <button
                                   className="btn"
-                                  to="/adminmanage"
+                                  
                                   style={{ backgroundColor: "#2c9db7",color:"#ffffff" }}
                                   onClick={() => unblockUser(use.id)}
                                 >
                                   UnBlock
-                                </Link>{" "}
+                                </button>{" "}
                               </td>
                             ) : (
                               <td>
-                                <Link
-                                  type="button"
+                                
+                                <button
                                   className="btn"
-                                  to="/adminmanage"
                                   style={{ backgroundColor: "#2c9db7",color:"#ffffff" }}
                                   onClick={() => blockUser(use.id)}
                                 >
                                   Block
-                                </Link>{" "}
+                                </button>{" "}
                               </td>
                             )}
                           </tr>
